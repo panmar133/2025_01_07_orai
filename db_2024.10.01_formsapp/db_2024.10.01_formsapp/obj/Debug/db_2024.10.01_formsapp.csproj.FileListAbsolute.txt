@@ -1,0 +1,129 @@
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.AssemblyReference.cache
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Properties.Resources.resources
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.GenerateResource.cache
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.CoreCompileInputs.cache
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe.config
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.pdb
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\ZstdSharp.dll
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.pdb
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.xml
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024..B24990B7.Up2Date
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.exe
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.pdb
+H:\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Form1.resources
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe.config
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.pdb
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\ZstdSharp.dll
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.pdb
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.AssemblyReference.cache
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Form1.resources
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Properties.Resources.resources
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.GenerateResource.cache
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.CoreCompileInputs.cache
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024..B24990B7.Up2Date
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.exe
+C:\Users\panmar133\Desktop\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.pdb
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe.config
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.exe
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\db_2024.10.01_formsapp.pdb
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\ZstdSharp.dll
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.pdb
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Google.Protobuf.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\MySql.Data.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Buffers.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Memory.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.AssemblyReference.cache
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Form1.resources
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024._10._01_formsapp.Properties.Resources.resources
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.GenerateResource.cache
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.csproj.CopyComplete
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.exe
+C:\Users\Martin\Documents\2024-2025 tanév\Adatbázis kezelés\db_2024.10.01_formsapp\db_2024.10.01_formsapp\obj\Debug\db_2024.10.01_formsapp.pdb
