@@ -27,7 +27,7 @@ namespace db_2024._10._01_formsapp
             btnUpdate.Enabled = false;
             textHostName.Text = HostName;
             textPortName.Text = PortName;
-            textUserName.Text = UserName;
+            textUserName.Text = UserName;;
             textPassword.Text = Password;
         }
 
