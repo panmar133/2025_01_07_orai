@@ -37,7 +37,7 @@ namespace db_2024._10._01_formsapp
 
             HostName = textHostName.Text;
             PortName = textPortName.Text;
-            UserName = textUserName.Text;
+            UserName = textUserName.Text;;
             Password = textPassword.Text;
             DisplayData();
         }
