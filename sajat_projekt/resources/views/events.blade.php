@@ -10,11 +10,29 @@
     
 
 <!-- PHP-s kilistázás -->
-    <div>
-        <dl>
-            <dt></dt>
-        </dl>
-    </div>
+<div>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Esemény neve:</th>
+                <th>Esemény helye:</th>
+                <th>Eseményel kapcsolatos információk:</th>
+                <th>Esemény kezdése:</th>
+            </tr> 
+            <tbody>
+                @foreach ($posts as $post)
+                    <tr>
+                        <td>{{ $post->id }}</td>
+                        <td>{{ $post->name }}</td>
+                        <td>{{ $post->location }}</td>
+                        <td>{{ $post->information }}</td>
+                        <td>{{ $post->posted_time }}</td>
+                        <td>{{ $post->starts_at}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>  
 </main>
 @endsection
 <!-- Lezárás -->

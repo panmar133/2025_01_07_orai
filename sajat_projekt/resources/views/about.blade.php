@@ -8,26 +8,21 @@
 <main>
     <div id="smallBox">
         <img src="{{ asset('images/small.jpg') }}" alt="Kis kép">
-        <h3>Rólunk/h3>
+        <h3>Rólunk</h3>
         <p><!-- Ismertető szöveg rólunk --></p>
     </div>
 
-    <!-- Nyíilakkal mozdítható galléria -->
-    <div id="Gallery">
-        <div class="movingGallery">
-            <!-- PHP-s fügvény leírása minimálisan, máshol hajtodik végre -->
-            @foreach ($images as $image)
-                <img src="{{ asset('images/' . $image) }}" alt="Galéria kép">
-
-            @endforeach
+    <div class="gallery">
+        <div class="slides">
+            <img src="{{ asset('images/image1.jpg') }}" alt="Image 1">
+            <img src="{{ asset('images/image2.jpg') }}" alt="Image 2">
+            <img src="{{ asset('images/image3.jpg') }}" alt="Image 3">
         </div>
-        <!-- post funkció meghívása -->
-        <form method="post" action="{{ route('gallery.navigate') }}">
-            @csrf                 <!-- IDK WIF? -->
-            <button type="submit" name="direction" value="prev" class="button">&lt;</button><!-- Gombok Lacikám -->
-            <button type="submit" name="direction" value="next" class="button">&gt;</button><!-- Gombok -->
-        </form>
+        <!-- Balra és jobbra navigáló gombok -->
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
     </div>
+
 </main>
 @endsection
 <!-- Lezárás -->

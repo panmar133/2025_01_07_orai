@@ -20,15 +20,15 @@
     <div id="SecoundContentMainPage">
         <div>
             <img src="" alt="event">
-            <button><a href="events.blade.php"">Események</a></button>
+            <button><a href="/events">Események</a></button>
         </div>
         <div>
             <img src="" alt="donation">
-            <button><a href="donate.blade.php">Adományozok</a></button>
+            <button><a href="/donate">Adományozok</a></button>
         </div>
         <div>
             <img src="" alt="salon">
-            <button><a href="salons.blade.php">Szalonok</a></button>
+            <button><a href="/salons">Szalonok</a></button>
         </div>
     </div>
 

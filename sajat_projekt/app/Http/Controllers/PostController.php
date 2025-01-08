@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SalonController extends Controller
+class PostController extends Controller
 {
-    public function selectSalons()
+    public function selectPosts()
     {
         // Az adatok lekérése az adatbázisból 
-        $salons = DB::table('salons')->get();
+        $posts = DB::table('posts')->get();
 
         // Az adatok átadása a nézetnek
-        return view('salons', ['salons' => $salons]);
+        return view('posts', ['posts' => $posts]);
     }
 }
