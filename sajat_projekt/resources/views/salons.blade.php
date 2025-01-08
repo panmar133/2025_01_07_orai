@@ -11,9 +11,23 @@
 
 <!-- PHP-s kilistázás -->
     <div>
-        <dl>
-            <dt></dt>
-        </dl>
+    <table>
+  <tr>
+    <th>#</th>
+    <th>Szalon neve</th>
+    <th>Szalon elérhetősége</th>
+  </tr>
+  <tbody>
+            @foreach ($salons as $salon)
+                <tr>
+                    <td>{{ $salon->id }}</td>
+                    <td>{{ $salon->salon_name }}</td>
+                    <td>{{ $salon->salon_location }}</td>
+
+                </tr>
+            @endforeach
+        </tbody>
+</table>
     </div>  
 </main>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SalonController;
 
 /*CSS*/ 
 Route::get('/css/style.css', function () {
@@ -22,7 +23,7 @@ Route::get('/', function () {
 Route::get('/events', function () {
     return view('events');
 });
-Route::get('/salons', function () {
+Route::get('/salons', [SalonController::class, 'selectSalons'], function () {
     return view('salons');
 });
 Route::get('/user', function () {

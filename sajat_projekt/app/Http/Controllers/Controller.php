@@ -2,32 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
-class GalleryController extends Controller
+class Controller extends BaseController
 {
-    private $images = [
-        'image1.jpg',
-        'image2.jpg',
-        'image3.jpg',
-    ];
-
-    public function index()
-    {
-        return view('gallery', ['images' => $this->images]);
-    }
-
-    public function navigate(Request $request)
-    {
-        $direction = $request->input('direction');
-
-        // Példa navigáció logikára, későbbi bővítéssel
-        if ($direction === 'prev') {
-            // Előző kép logikája
-        } elseif ($direction === 'next') {
-            // Következő kép logikája
-        }
-
-        return redirect()->route('gallery.index');
-    }
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
