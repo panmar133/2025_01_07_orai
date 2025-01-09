@@ -13,6 +13,6 @@ class PostController extends Controller
         $posts = DB::table('posts')->get();
 
         // Az adatok átadása a nézetnek
-        return view('posts', ['posts' => $posts]);
+        return view('events', ['events' => $posts]);
     }
 }

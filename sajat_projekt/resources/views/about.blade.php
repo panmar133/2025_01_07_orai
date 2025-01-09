@@ -19,8 +19,8 @@
             <img src="{{ asset('images/image3.jpg') }}" alt="Image 3">
         </div>
         <!-- Balra és jobbra navigáló gombok -->
-        <button class="prev">&lt;</button>
-        <button class="next">&gt;</button>
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
     </div>
 
 </main>

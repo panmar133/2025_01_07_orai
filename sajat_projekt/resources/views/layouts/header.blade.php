@@ -23,10 +23,10 @@
 
         <!-- Jobb oldalt lévő lenyíló fej -->
         <select name="dropDown" id="dropdown">
-                <a href="/user">Fiók</a>
-                <a href="/events">Események</a>
-                <a href="/donate">Adományozok</a>
-                <a href="/about">Rólunk</a>
+            <option value=""><a href="/user">Fiók</a></option>
+            <option value=""><a href="/donate">Adományozok</a></option>
+            <option value=""><a href="/about">Rólunk</a></option>
+            <option value=""><a href="/events">Események</a></option>
         </select>
         </div>
     </header>

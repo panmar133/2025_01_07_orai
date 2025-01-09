@@ -20,13 +20,12 @@
                 <th>Esemény kezdése:</th>
             </tr> 
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($events as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>{{ $post->name }}</td>
+                        <td>{{ $post->title }}</td>
                         <td>{{ $post->location }}</td>
                         <td>{{ $post->information }}</td>
-                        <td>{{ $post->posted_time }}</td>
                         <td>{{ $post->starts_at}}</td>
                     </tr>
                 @endforeach
