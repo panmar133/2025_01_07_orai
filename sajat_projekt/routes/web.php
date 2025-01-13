@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/salons', [SalonController::class, 'selectSalons'], function () {
     return view('salons');
 });
-Route::get('/events', [PostController::class, 'selectPosts'], function () {
+Route::get('/events', [EventsController::class, 'selectEvents'], function () {
     return view('events');
 });
 Route::get('/user', function () {

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('post_id');
+            $table->integer('event_id');
             $table->boolean('like');
             $table->double('watched');
         });

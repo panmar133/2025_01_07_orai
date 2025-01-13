@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('location');
             $table->string('information'); 
+            $table->text('image');
             $table->datetime('posted_time');
             $table->datetime('starts_at');
         });
