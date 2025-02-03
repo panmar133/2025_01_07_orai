@@ -9,7 +9,7 @@
     <div id="smallBox">
         <img src="{{ asset('images/small.jpg') }}" alt="Kis kép">
         <h3>Rólunk</h3>
-        <p><!-- Ismertető szöveg rólunk --></p>
+        <p>Üdvözlünk az oldalunkon! </p>
     </div>
 
     <div class="gallery">
@@ -23,6 +23,29 @@
         <button id="next">&gt;</button>
     </div>
 
+    <div id="aboutText">
+        <p>Mi, azért hoztuk létre ezt az oldalt, mert hiszünk abban, hogy közösen nagy dolgokat
+            érhetünk el. Az adománygyűjtés számunkra nemcsak egy lehetőség, hanem egy küldetés,
+            amely segít jobbá tenni a világot. </p> <br>
+
+        <p>Az évek során számos kezdeményezésben vettünk részt, és most szeretnénk egy olyan
+            közösséget építeni, ahol mindenki hozzájárulhat egy nemes cél eléréséhez. Hiszünk
+            az összefogás erejében, és abban, hogy együtt valódi változást hozhatunk létre.</p><br>
+
+        <p>🔥<b> Amiért itt vagyunk </b> Hiszünk abban, hogy minden apró gesztus számít.
+            Célunk egy támogató közösség létrehozása, ahol mindenki hozzájárulhat egy közös,
+            nemes cél eléréséhez. Együtt nagy dolgokra vagyunk képesek! </p><br>
+
+        <p>💡<b> Hogyan segíthetsz? </b></p>
+        <ol>
+            <ul>Oszd meg a történetünket</ul>
+            <ul>Csatlakozz hozzánk</ul>
+            <ul>Adományoz bármilyen formában</ul>
+            <ul>Támogasd kezdeményezésünket</ul>
+        </ol>
+        <p>📩 <b>Lépj velünk kapcsolatba,</b> Ha szeretnél többet megtudni rólunk vagy támogatni a munkánkat,
+            ne habozz írni nekünk! </p>
+    </div>
 </main>
 @endsection
 <!-- Lezárás -->
