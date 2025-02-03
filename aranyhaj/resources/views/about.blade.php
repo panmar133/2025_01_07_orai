@@ -37,12 +37,12 @@
             nemes cél eléréséhez. Együtt nagy dolgokra vagyunk képesek! </p><br>
 
         <p>💡<b> Hogyan segíthetsz? </b></p>
-        <ol>
-            <ul>Oszd meg a történetünket</ul>
-            <ul>Csatlakozz hozzánk</ul>
-            <ul>Adományoz bármilyen formában</ul>
-            <ul>Támogasd kezdeményezésünket</ul>
-        </ol>
+        <ul>
+            <li>Oszd meg a történetünket</li>
+            <li>Csatlakozz hozzánk</li>
+            <li>Adományoz bármilyen formában</li>
+            <li>Támogasd kezdeményezésünket</li>
+        </ul>
         <p>📩 <b>Lépj velünk kapcsolatba,</b> Ha szeretnél többet megtudni rólunk vagy támogatni a munkánkat,
             ne habozz írni nekünk! </p>
     </div>
