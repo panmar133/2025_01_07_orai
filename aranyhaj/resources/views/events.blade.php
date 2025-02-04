@@ -8,7 +8,6 @@
     <h1>Események</h1>
     <p></p>     <!-- rövid leírás -->
 <!-- PHP-s kilistázás -->
-                    <div class="card-body" id="eventCards">
     <div class="container">
         <div class="row">
             @foreach ($events as $event)
