@@ -7,7 +7,7 @@
 <main>
         <div id="FirstContentMainPage">
             <h1 id="HeaderLabel"><a href="/about">Aranyhaj</a></h1>
-            <p><b>Adj reményt egy tincsnyi szeretettel! </b></p><br> 
+            <p><b>Adj reményt egy kis szeretettel! </b></p><br> 
             <p>Üdvözlünk a hajadományozás közösségében! Mi, azért hoztuk létre ezt a platformot,
                 hogy összekössük azokat, akik segíteni szeretnének azokkal, akiknek igazán szükségük van rá.
                 A hajadományozás egy csodálatos módja annak, hogy örömet szerezzünk és önbizalmat adjunk azoknak,
