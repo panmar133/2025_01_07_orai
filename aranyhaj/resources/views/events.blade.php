@@ -13,7 +13,7 @@
         @foreach ($events as $event)
             <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body" id="eventList">
                         <div class="row">
                             <div class="col-6">
                                 <h5 class="card-title">{{ $event->title }}</h5>
@@ -33,8 +33,8 @@
                         </p>
                     </div>
 
-                    <div class="card-footer text-center">
-                        <button class="btn btn-primary me-2">👍</button>
+                    <div class="card-footer text-center" id="eventFooter">
+                    <button class="btn btn-brown me-2">👍</button>
                         <button class="btn btn-secondary">Részt veszek</button>
                     </div>
                 </div>

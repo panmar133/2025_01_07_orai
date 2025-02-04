@@ -16,8 +16,23 @@ h1 {
 header{
     box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
+.btn-brown {
+    background-color: white;
+    color:white; 
+    border: none;
+}
+
+.btn-brown:hover {
+    background-color: darkbrown;
+}
+
 #eventList{
-    background-color:  rgb(236, 222, 192);
+    background-color:  rgb(182, 143, 109);
+    box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
+}
+#eventFooter {
+    background-color:  rgb(182, 143, 109);
+    box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
 .navbar-custom {
     background-color: rgb(182, 143, 109);
