@@ -1,0 +1,241 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Legalább a képernyő magasságáig kitöltse */
+    background-color: rgb(234, 216, 180);
+}
+ 
+#logo, #user {
+    width: 60px;
+    height: 60px;
+    border-radius:50%;
+}
+
+header{
+    box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
+}
+
+.navbar-custom {
+    background-color: rgb(182, 143, 109);
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+}
+
+.nav-link i {
+    margin-right: 8px;
+}
+/* A lenyíló menü*/
+#dropdown {
+    width: 170px;
+    margin-left: auto;
+    display: block;
+    background-color: #f8f9fa;
+}
+
+#HeaderLabel{
+    color: black; 
+}
+
+#HeaderLabel a {
+    color: black; 
+    text-decoration: none;
+}
+
+#HeaderLabel a:hover {
+    color: #3e2619;  
+}
+
+#FirstContentMainPage {
+    background-color: rgba(255, 255, 255, 0.8);
+    background-image:url url("../images/background.png") ;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    position: relative;
+    text-align: left; 
+    z-index: 1; 
+    margin: 20px auto;
+}
+
+#FirstContentMainPage h1 {
+    font-size: 2rem; 
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#FirstContentMainPage p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+#FirstContentMainPage button {
+    background-color: #744836;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#FirstContentMainPage button:hover {
+    background-color: #815844;
+}
+#SecoundontentMainPage {
+    background-color:  rgb(236, 222, 192);/* rgb(234, 216, 180)*/
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#SecoundontentMainPage p {
+    font-size: 1.2rem; 
+    margin-bottom: 15px;
+}
+
+#SecoundontentMainPage ul {
+    padding-left: 0;
+}
+
+#SecoundontentMainPage li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#SecoundontentMainPage b {
+    font-weight: bold;
+}
+
+#ThirdContentMainPage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(236, 222, 192); 
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+#ThirdContentMainPage div {
+    text-align: center;
+    width: 30%;
+}
+
+#ThirdContentMainPage img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+#ThirdContentMainPage button {
+    background-color: #744836;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#ThirdContentMainPage button a {
+    color: white;
+    text-decoration: none;
+}
+
+#ThirdContentMainPage button:hover {
+    background-color: #815844;
+}
+
+footer {
+    background-color: #744836;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: auto;
+    box-shadow: 0 -4px 6px rgba(116, 72, 54, 0.3);
+}
+
+footer h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+footer p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #815844;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #815844;
+}
+
+#footerFirst, #footerLeft, #footerCenter, #footerRight {
+    flex: 1 1 22%;
+    margin: 10px;
+}
+
+#footerRight i, #footerLeft i {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footerFirst, #footerLeft, #footerCenter, #footerRight {
+        flex: 1 1 100%;
+        margin: 20px 0;
+    }
+}
+
