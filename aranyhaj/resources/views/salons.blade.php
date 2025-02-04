@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{ $salon->id }}</td>
                         <td>{{ $salon->salon_name }}</td>
-                        <td>{{ $salon->salon_location }}</td>
+                        <td>{{ $salon->zip_code }} {{ $salon->city }}, {{ $salon->street }}</td>
                     </tr>
                 @endforeach
             </tbody>

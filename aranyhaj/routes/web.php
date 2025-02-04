@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
-
+use App\Http\Controllers\SalonController;
 
 /*CSS*/ 
 Route::get('/css/style.css', function () {
@@ -22,6 +22,9 @@ Route::get('/', function () {
 });
 Route::get('/events', [EventController::class, 'listAllEvents'], function () {
     return view('events');
+});
+Route::get('/salons', [SalonController::class, 'listAllSalons'], function () {
+    return view('salons');
 });
 Route::get('/user', function () {
     return view('user');
