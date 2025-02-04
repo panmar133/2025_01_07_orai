@@ -13,7 +13,7 @@
         @foreach ($events as $event)
             <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card h-100">
-                    <div class="card-body" id="eventList">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-6">
                                 <h5 class="card-title">{{ $event->title }}</h5>
@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <img src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3">
+                        <img src="{{ asset('images/' . $event->image_name) }}" alt="Event Image" class="img-fluid my-3">
 
                         <p class="card-text">{{ $event->information }}</p>
                         <p class="card-text">
@@ -33,8 +33,8 @@
                         </p>
                     </div>
 
-                    <div class="card-footer text-center" id="eventFooter">
-                    <button class="btn btn-brown me-2">👍</button>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary me-2">👍</button>
                         <button class="btn btn-secondary">Részt veszek</button>
                     </div>
                 </div>
