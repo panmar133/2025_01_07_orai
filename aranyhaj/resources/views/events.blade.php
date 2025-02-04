@@ -11,6 +11,7 @@
 
 <!-- PHP-s kilistázás -->
 <div>
+    <!--
         <table>
             <tr>
                 <th>#</th>
@@ -31,6 +32,7 @@
                 @endforeach
             </tbody>
         </table>
+        -->
     </div>  
 </main>
 @endsection

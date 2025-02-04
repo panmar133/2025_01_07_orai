@@ -26,10 +26,10 @@
                         <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
                     </ul>
                     <select class="form-select ms-3" id="dropdown">
-                        <option value="/user">Fiók</option>
-                        <option value="/donate">Adományozok</option>
-                        <option value="/about">Rólunk</option>
-                        <option value="/events">Események</option>
+                        <option value="/user.blade">Fiók</option>
+                        <option value="/donate.blade">Adományozok</option>
+                        <option value="/about.blade">Rólunk</option>
+                        <option value="/events.blade">Események</option>
                     </select>                    
                 </div>
                 <a class="navbar-brand" href="/"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>

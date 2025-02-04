@@ -21,7 +21,9 @@ Route::get('/css/style.css', function () {
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/events', function () {
+    return view('events');
+});
 Route::get('/user', function () {
     return view('user');
 });

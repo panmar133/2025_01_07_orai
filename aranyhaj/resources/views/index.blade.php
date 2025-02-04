@@ -4,7 +4,6 @@
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
-
 <main>
         <div id="FirstContentMainPage">
             <h1 id="HeaderLabel"><a href="/about">Aranyhaj</a></h1>
@@ -34,15 +33,15 @@
         <div id="ThirdContentMainPage">
             <div>
                 <img src="" alt="event">
-                <button><a href="events.html">Események</a></button>
+                <button><a href="/events">Események</a></button>
             </div>
             <div>
                 <img src="" alt="donation">
-                <button><a href="donate.html">Adományozok</a></button>
+                <button><a href="/donate">Adományozok</a></button>
             </div>
             <div>
                 <img src="" alt="salon">
-                <button><a href="salons.html">Szalonok</a></button>
+                <button><a href="/salons">Szalonok</a></button>
             </div>
         </div>
     </main>
