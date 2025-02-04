@@ -11,7 +11,6 @@
 
 <!-- PHP-s kilistázás -->
 <div>
-    <
         <table>
             <tr>
                 <th>#</th>
