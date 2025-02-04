@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\SalonController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
+
 
 /*CSS*/ 
 Route::get('/css/style.css', function () {
@@ -21,7 +20,7 @@ Route::get('/css/style.css', function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/events', function () {
+Route::get('/events', [EventController::class, 'listAllEvents'], function () {
     return view('events');
 });
 Route::get('/user', function () {
@@ -39,5 +38,3 @@ Route::get('/log', function () {
 Route::get('/registration', function () {
     return view('registration');
 });
-
-
