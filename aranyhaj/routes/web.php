@@ -8,6 +8,11 @@ use App\Http\Controllers\InteractionController;
 Route::post('/like-event', [InteractionController::class, 'likeEvent'])->middleware('auth');
 Route::post('/participate-event', [InteractionController::class, 'participateEvent'])->middleware('auth');
 
+
+Route::get('/redirect', function () {
+    return redirect(request('select'));
+});
+
 /*CSS*/ 
 Route::get('/css/style.css', function () {
     $path = resource_path('css/style.css');
@@ -24,7 +29,7 @@ Route::get('/css/style.css', function () {
 Route::get('/salons', [SalonController::class, 'index'])->name('salons.index');
 
 
-/*Oldalak routolása*/ 
+/*Oldalak routolása, Eventek routolása*/ 
 Route::get('/', function () {
     return view('index');
 });
@@ -34,18 +39,50 @@ Route::get('/events', [EventController::class, 'listAllEvents'], function () {
 Route::get('/salons', [SalonController::class, 'listAllSalons'], function () {
     return view('salons');
 });
-Route::get('/user', function () {
-    return view('user');
+
+//Oldalak routolása
+Route::get('/redirect', function () {
+    $routes = [
+        'log' => '/log',
+        'registration' => '/registration',
+        'user' => '/user',
+        'donate' => '/donate',
+        'about' => '/about',
+        'events' => '/events'
+    ];
+
+    $selected = request('select');
+
+    // Ha van megfelelő választás, átirányítunk
+    if (array_key_exists($selected, $routes)) {
+        return redirect($routes[$selected]);
+    }
+
+    // Ha nincs megfelelő választás, visszatérünk a főoldalra
+    return redirect('/');
 });
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/donate', function () {
-    return view('donate');
-});
+
+// Ne felejtsd el az oldalakat is hozzáadni!
 Route::get('/log', function () {
-    return view('log');
+    return view('log'); // log.blade.php
 });
+
 Route::get('/registration', function () {
-    return view('registration');
+    return view('registration'); // registration.blade.php
+});
+
+Route::get('/user', function () {
+    return view('user'); // user.blade.php
+});
+
+Route::get('/donate', function () {
+    return view('donate'); // donate.blade.php
+});
+
+Route::get('/about', function () {
+    return view('about'); // about.blade.php
+});
+
+Route::get('/events', function () {
+    return view('events'); // events.blade.php
 });

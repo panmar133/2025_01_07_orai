@@ -25,14 +25,19 @@
                         <li class="nav-item"><a class="nav-link" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
                     </ul>
-                    <select class="form-select ms-3" id="dropdown">
-                        <option value="/user.blade">Regisztráció</option>
-                        <option value="/events.blade">Belépés</option>
-                        <option value="/donate.blade">Fiókom</option>
-                        <option value="/about.blade">Adományozok</option>
-                        <option value="/events.blade">Rólunk</option>
-                        <option value="/events.blade">Események</option>                                               
-                    </select>                    
+
+                    <form action="/redirect" method="get">
+                    <select name="select" class="form-select ms-3" onchange="this.form.submit()">
+                        <option value="">-- Válassz --</option>
+                        <option value="log">Regisztráció</option>
+                        <option value="registration">Belépés</option>
+                        <option value="user">Fiókom</option>
+                        <option value="donate">Adományozok</option>
+                        <option value="about">Rólunk</option>
+                        <option value="events">Események</option>                                               
+                    </select>
+                </form>
+
                 </div>
                 <a class="navbar-brand" href="/login"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>
             </div>
