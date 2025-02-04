@@ -10,24 +10,36 @@
     
 
 <!-- PHP-s kilistázás --> 
-    <div>
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Szalon neve</th>
-                <th>Szalon elérhetősége</th>
-            </tr>
-            <tbody>
+
+
+    <div class="container">
+            <div class="row">
                 @foreach ($salons as $salon)
-                    <tr>
-                        <td>{{ $salon->id }}</td>
-                        <td>{{ $salon->salon_name }}</td>
-                        <td>{{ $salon->zip_code }} {{ $salon->city }}, {{ $salon->street }}</td>
-                    </tr>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body" id="eventCards">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">{{ $salon->salon_name }}</h5>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="mb-1"><strong>Szalon tulajdonosa: </strong> {{ $salon->owner_id }}</p>
+                                    </div>
+                                </div>
+
+                                <img src="{{ asset('images/' . $salon->salon_name) }}" alt="Szalon Kép" class="img-fluid my-3">
+
+                                <p class="card-text">{{ $salon->information }}</p>
+                                <p class="card-text">
+                                    <strong>Location:</strong>
+                                    <a href="">{{ $salon->city }}, {{ $salon->street }}, {{ $salon->zip_code }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-            </tbody>
-        </table>
-    </div>  
+            </div>
+        </div>
 </main>
 
 @endsection
