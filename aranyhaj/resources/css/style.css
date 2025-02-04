@@ -17,27 +17,37 @@ header{
     box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
 .btn-brown {
-    background-color: white;
+    background-color: #815844;
     color:white; 
     border: none;
 }
 
 .btn-brown:hover {
-    background-color: darkbrown;
+    background-color: #744836;
+    transform: scale(1.1);
 }
 
 #eventList{
-    background-color:  rgb(182, 143, 109);
+    background-color: rgb(236, 222, 192);
     box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
 #eventFooter {
     background-color:  rgb(182, 143, 109);
     box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
+#eventFooter button:hover {
+    background-color: #815844;
+    transform: scale(1.1);
+}
 .navbar-custom {
     background-color: rgb(182, 143, 109);
 }
-
+#darkBrownButton {
+    background-color: #744836;
+}
+#darkBrownButton:hover {
+    background-color: #744836;
+}
 .navbar-brand {
     color: white;
     font-weight: bold;
@@ -122,7 +132,7 @@ header{
     background-color: #815844;
 }
 #SecoundontentMainPage {
-    background-color:  rgb(236, 222, 192);
+    background-color: rgb(236, 222, 192);
     padding: 20px;
     border-radius: 10px;
     width: 80%;

@@ -34,8 +34,8 @@
                     </div>
 
                     <div class="card-footer text-center" id="eventFooter">
-                    <button class="btn btn-brown me-2">👍</button>
-                        <button class="btn btn-secondary">Részt veszek</button>
+                        <button class="btn btn-brown me-2">👍</button>
+                        <button id="darkBrownButton" class="btn btn-secondary"><p>Részt veszek<p></button>
                     </div>
                 </div>
             </div>
