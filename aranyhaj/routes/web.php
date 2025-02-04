@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SalonController;
+use App\Http\Controllers\InteractionController;
+
+Route::post('/like-event', [InteractionController::class, 'likeEvent'])->middleware('auth');
+Route::post('/participate-event', [InteractionController::class, 'participateEvent'])->middleware('auth');
 
 /*CSS*/ 
 Route::get('/css/style.css', function () {
@@ -15,6 +19,10 @@ Route::get('/css/style.css', function () {
         'Content-Type' => 'text/css',
     ]);
 });
+
+
+Route::get('/salons', [SalonController::class, 'index'])->name('salons.index');
+
 
 /*Oldalak routolása*/ 
 Route::get('/', function () {

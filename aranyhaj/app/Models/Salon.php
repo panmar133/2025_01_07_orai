@@ -9,5 +9,10 @@ class Salon extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['owner_id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code', 'created_at', 'updated_at'];
+    protected $fillable = ['salon_name', 'owner_id', 'image_name', 'information', 'city', 'street', 'zip_code'];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id', 'id');
+    }
 }

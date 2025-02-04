@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
@@ -34,3 +34,12 @@ return new class extends Migration
         Schema::dropIfExists('salons');
     }
 };
+
+class Salon extends Model
+{
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+}
+

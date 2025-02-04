@@ -33,3 +33,10 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+class User extends Model
+{
+    public function salons()
+    {
+        return $this->hasMany(Salon::class, 'owner_id');
+    }
+}

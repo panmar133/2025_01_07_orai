@@ -9,9 +9,19 @@ use Illuminate\View\View;
 
 class SalonController extends Controller
 {
+    public function index(): View
+    {
+        $salons = Salon::with('owner')->get(); 
+        return view('salons.index', compact('salons'));
+    }
+
     public function listAllSalons(): View
     {
         $salons = Salon::all();
         return view('salons', ['salons' => $salons]);
     }
+
 }
+
+
+

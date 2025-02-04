@@ -13,20 +13,19 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * A mass assignment-nél engedélyezett mezők.
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
         'password',
+        'address',
+        'image_name',
+        'admin',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * A sorosításnál elrejtendő mezők.
      */
     protected $hidden = [
         'password',
@@ -34,11 +33,18 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * Az attribútumok típuskényszerítése.
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'admin' => 'boolean',
     ];
+
+    /**
+     * Kapcsolat a szalonokkal (egy user-nek több szalonja lehet).
+     */
+    public function salons()
+    {
+        return $this->hasMany(Salon::class, 'owner_id', 'id');
+    }
 }

@@ -23,7 +23,7 @@
                                         <h5 class="card-title">{{ $salon->salon_name }}</h5>
                                     </div>
                                     <div class="col-6 text-end">
-                                        <p class="mb-1"><strong>Szalon tulajdonosa: </strong> {{ $salon->owner_id }}</p>
+                                        <p class="mb-1"><strong>Szalon tulajdonosa: </strong> {{$salon->owner->user_name ?? 'N/A'}}</p>
                                     </div>
                                 </div>
 

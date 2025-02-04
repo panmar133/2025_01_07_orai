@@ -7,7 +7,40 @@
 <main>
     <h1>Események</h1>
     <p></p>     <!-- rövid leírás -->
-<!-- PHP-s kilistázás -->
+<script>
+$(document).ready(function() {
+    $(".btn-like").click(function() {
+        var eventId = $(this).data("event-id");
+        $.ajax({
+            url: "/like-event",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                event_id: eventId
+            },
+            success: function(response) {
+                alert(response.message);
+            }
+        });
+    });
+
+    $(".btn-participate").click(function() {
+        var eventId = $(this).data("event-id");
+        $.ajax({
+            url: "/participate-event",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                event_id: eventId
+            },
+            success: function(response) {
+                alert(response.message);
+            }
+        });
+    });
+});
+</script>
+    <!-- PHP-s kilistázás -->
     <div class="container">
         <div class="row">
             @foreach ($events as $event)
@@ -34,8 +67,8 @@
                         </div>
 
                         <div class="card-footer text-center" id="eventFooter">
-                            <button class="btn btn-brown me-2">👍</button>
-                            <button id="darkBrownButton" class="btn btn-secondary">Részt veszek</button>
+                            <button class="btn btn-brown me-2" data-event-id="{{ $event->id }}">👍</button>
+                            <button id="darkBrownButton" class="btn btn-secondary" data-event-id="{{ $event->id }}">Részt veszek</button>
                         </div>
                     </div>
                 </div>
