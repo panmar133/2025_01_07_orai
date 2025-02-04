@@ -76,6 +76,7 @@ header{
     text-align: left; 
     z-index: 1; 
     margin: 20px auto;
+    box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
 
 #FirstContentMainPage h1 {
@@ -102,12 +103,13 @@ header{
     background-color: #815844;
 }
 #SecoundontentMainPage {
-    background-color:  rgb(236, 222, 192);/* rgb(234, 216, 180)*/
+    background-color:  rgb(236, 222, 192);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
     margin: 20px auto;
     text-align: left;
+    box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
 
 #SecoundontentMainPage p {
@@ -137,6 +139,7 @@ header{
     border-radius: 10px;
     margin: 20px auto;
     width: 80%;
+    box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
 
 #ThirdContentMainPage div {
