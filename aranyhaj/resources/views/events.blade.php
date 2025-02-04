@@ -11,7 +11,7 @@
 
 <!-- PHP-s kilistázás -->
 <div>
-    <!--
+    <
         <table>
             <tr>
                 <th>#</th>
@@ -21,18 +21,17 @@
                 <th>Esemény kezdése:</th>
             </tr> 
             <tbody>
-                @foreach ($events as $post)
+                @foreach ($events as $event)
                     <tr>
-                        <td>{{ $post->id }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->location }}</td>
-                        <td>{{ $post->information }}</td>
-                        <td>{{ $post->starts_at}}</td>
+                        <td>{{ $event->id }}</td>
+                        <td>{{ $event->title }}</td>
+                        <td>{{ $event->location }}</td>
+                        <td>{{ $event->information }}</td>
+                        <td>{{ $event->starts_at}}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        -->
     </div>  
 </main>
 @endsection
