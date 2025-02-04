@@ -28,9 +28,9 @@
 
                     <form action="/redirect" method="get">
                     <select name="select" class="form-select ms-3" onchange="this.form.submit()">
-                        <option value="">-- Válassz --</option>
-                        <option value="log">Regisztráció</option>
-                        <option value="registration">Belépés</option>
+                        <option value=" ">🥹</option>    
+                        <option value="registration">Regisztráció</option>
+                        <option value="log">Belépés</option>
                         <option value="user">Fiókom</option>
                         <option value="donate">Adományozok</option>
                         <option value="about">Rólunk</option>
@@ -39,7 +39,7 @@
                 </form>
 
                 </div>
-                <a class="navbar-brand" href="/login"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>
+                <a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>
             </div>
         </nav>
     </header>

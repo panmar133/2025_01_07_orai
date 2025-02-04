@@ -12,7 +12,7 @@
     <h5>Jelszó</h5>
     <input type="password" class="form-control" id="exampleInputPassword1">
 
-    <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+    <button type="submit" id="darkBrownButton" class="btn btn-secondary">Bejelentkezés</button>
 </div>
 @endsection
 <!-- Lezárás -->
