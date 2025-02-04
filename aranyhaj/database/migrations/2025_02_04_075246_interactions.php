@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->boolean('liked')->nullable();
             $table->timestamp('liked_time')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->boolean('watched')->nullable();
-            $table->timestamp('watched_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('participation')->default(false);
             $table->timestamps();
         });
