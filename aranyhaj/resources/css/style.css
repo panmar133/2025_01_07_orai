@@ -10,11 +10,15 @@ body {
     height: 60px;
     border-radius:50%;
 }
-
+h1 {
+    padding-left: 5%;
+}
 header{
     box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
-
+#eventList{
+    background-color:  rgb(236, 222, 192);
+}
 .navbar-custom {
     background-color: rgb(182, 143, 109);
 }

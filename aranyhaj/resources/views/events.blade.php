@@ -7,30 +7,44 @@
 <main>
     <h1>Események</h1>
     <p></p>     <!-- rövid leírás -->
-    
-
 <!-- PHP-s kilistázás -->
-<div>
-    <
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Esemény neve:</th>
-                <th>Esemény helye:</th>
-                <th>Eseményel kapcsolatos információk:</th>
-                <th>Esemény kezdése:</th>
-            </tr> 
-            <tbody>
-                @foreach ($events as $event)
-                    <tr>
-                        <td>{{ $event->id }}</td>
-                        <td>{{ $event->title }}</td>
-                        <td>{{ $event->location }}</td>
-                        <td>{{ $event->information }}</td>
-                        <td>{{ $event->starts_at}}</td>
-                    </tr>
-                @endforeach
-            </tbody>
+<div class="container">
+    <div class="row">
+        @foreach ($events as $event)
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="card-title">{{ $event->title }}</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <p class="mb-1"><strong>Feltevési idő:</strong> {{ $event->posted_time }}</p>
+                                <p class="mb-0"><strong>Esemény kezdése:</strong> {{ $event->starts_at }}</p>
+                            </div>
+                        </div>
+
+                        <img src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3">
+
+                        <p class="card-text">{{ $event->information }}</p>
+                        <p class="card-text">
+                            <strong>Location:</strong>
+                            <a href="">{{ $event->location }}</a>
+                        </p>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary me-2">👍</button>
+                        <button class="btn btn-secondary">Részt veszek</button>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+
+
         </table>
     </div>  
 </main>
