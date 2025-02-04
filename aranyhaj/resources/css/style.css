@@ -17,14 +17,13 @@ header{
     box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
 .btn-brown {
-    background-color: white;
-    background-color: #815844;
+    background-color: #744836;
     color:white; 
     border: none;
 }
 
 .btn-brown:hover {
-    background-color: #744836;
+    background-color: #815844;
     transform: scale(1.1);
 }
 #eventCards {
