@@ -37,7 +37,13 @@
                         <option value="events">Események</option>                                               
                     </select>
                 </form>
-
+                @auth
+                <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Logout</button>
+                </form>
+                @endauth
                 </div>
                 <a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>
             </div>
