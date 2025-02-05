@@ -5,7 +5,7 @@ body {
     background-color: rgb(234, 216, 180);
     color: black;
 }
- 
+
 #logo, #user {
     width: 60px;
     height: 60px;
@@ -21,10 +21,20 @@ h1 {
 header{
     box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
+h2{
+    padding-top: 20px;
+}
+
 #eventCards {
     background-color: rgb(236, 222, 192);
     box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);
 }
+
+#logCards {
+    background-color: rgb(236, 222, 192); 
+    border-radius: 2%;
+}
+
 
 #eventList{
     background-color: rgb(236, 222, 192);
