@@ -64,13 +64,13 @@ Route::get('/redirect', function () {
     return redirect('/');
 });
 
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-    Route::get('/log', [AuthController::class, 'login'])->name('login');
-    Route::post('/log', [AuthController::class, 'loginPost'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+Route::get('/log', [AuthController::class, 'login'])->name('login');
+Route::post('/log', [AuthController::class, 'loginPost'])->name('login');
 
-    Route::get('/', [HomeController::class, 'index']);
-    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', [HomeController::class, 'index']);
+Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/registration', [AuthController::class, 'register'])->name('registration');
 
