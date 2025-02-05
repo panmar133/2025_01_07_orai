@@ -22,6 +22,3 @@ class SalonController extends Controller
     }
 
 }
-
-
-
