@@ -26,16 +26,17 @@
                         <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
                     </ul>
                     <form action="/redirect" method="get" id="menuForm">
-                    <select name="select" class="form-select ms-3" onchange="this.form.submit()" id="menu">
-                        <option value=" ">Menü</option>
-                        <option value="registration">Regisztráció</option>
-                        <option value="log">Belépés</option>
-                        <option value="user">Fiókom</option>
-                        <option value="donate">Adományozok</option>
-                        <option value="about">Rólunk</option>
-                        <option value="events">Események</option>
-                    </select>
-                </form>
+                        <select name="select" class="form-select ms-3" onchange="this.form.submit()" id="menu">
+                            <option value=" ">Menü</option>
+                            <option value="registration">Regisztráció</option>
+                            <option value="log">Belépés</option>
+                            <option value="user">Fiókom</option>
+                            <option value="donate">Adományozok</option>
+                            <option value="about">Rólunk</option>
+                            <option value="events">Események</option>
+                        </select>
+                    </form>
+                </div>
                 @auth
                 <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                     @csrf
@@ -43,7 +44,7 @@
                     <button class="btn btn-danger" type="submit">Logout</button>
                 </form>
                 @endauth
-                </div>
+                
                 <!--<a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a> -->
             </div>
         </nav>
