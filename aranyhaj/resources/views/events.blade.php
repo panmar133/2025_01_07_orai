@@ -21,7 +21,7 @@
                                     <p class="mb-0"><strong>Esemény kezdése:</strong> {{ $event->starts_at }}</p>
                                 </div>
                             </div>
-                            <img src="{{ asset('images/' . $event->image_name) }}" alt="Event Image" class="img-fluid my-3">
+                            <img id="image" src="{{ asset('images/' . $event->image_name) }}" alt="Event Image" class="img-fluid my-3">
                             <p class="card-text">{{ $event->information }}</p>
                             <p class="card-text">
                                 <strong>Location:</strong>

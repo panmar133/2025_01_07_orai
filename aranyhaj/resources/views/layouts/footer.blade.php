@@ -22,7 +22,7 @@
                         <li><a href="/user">Fiókom</a></li>
                         <li><a href="/donate">Adományozok</a></li>
                         <li><a href="/salons">Szalonok</a></li>
-                        <li><a href="">Segítség</a></li>
+                        <li><a href="/help">Segítség</a></li>
                     </ul>
                 </div>
             <div id="footerRight">

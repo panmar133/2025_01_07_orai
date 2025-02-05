@@ -24,6 +24,17 @@ header{
 h2{
     padding-top: 20px;
 }
+a {
+    color: #75503c;
+    text-decoration: none;
+    font-style: italic;
+}
+#imgage {
+    height:400px;
+}
+.copy-text {
+    cursor: pointer;
+}
 .card-body{
     background-color: rgb(236, 222, 192);
     box-shadow: 0px 0px 10px 1px rgba(116, 72, 54, 0.3);

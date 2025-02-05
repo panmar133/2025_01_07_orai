@@ -27,14 +27,14 @@
                             </div>
                         </div>
 
-                        <img src="{{ asset('images/' . $salon->salon_name) }}" alt="Szalon Kép" class="img-fluid my-3">
+                        <img id="image" src="{{ asset('images/'. $salon->image_name) }}" alt="Szalon Kép" class="img-fluid my-3">
 
                         <p class="card-text">{{ $salon->information }}</p>
 
                         <div class="mt-auto">
                             <p class="card-text">
                                 <strong>Location:</strong>
-                                <a href="">{{ $salon->city }}, {{ $salon->street }}, {{ $salon->zip_code }}</a>
+                                <a class="copy-text" onclick="copyText()">{{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</a>
                             </p>
                         </div>
                     </div>
@@ -43,7 +43,21 @@
         @endforeach
     </div>
 </div>
+<script>
+        function copyText() {
+            // Select the text inside the paragraph
+            const textToCopy = document.querySelector('.copy-text').innerText;
 
+            // Use the Clipboard API to copy the text to the clipboard
+            navigator.clipboard.writeText(textToCopy)
+                .then(function() {
+                    alert('Text copied to clipboard!');
+                })
+                .catch(function(error) {
+                    alert('Failed to copy text: ' + error);
+                });
+        }
+</script>
 </main>
 
 @endsection
