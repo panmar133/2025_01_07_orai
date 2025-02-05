@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Legalább a képernyő magasságáig kitöltse */
     background-color: rgb(234, 216, 180);
+    color: black;
 }
  
 #logo, #user {
@@ -13,18 +14,12 @@ body {
 h1 {
     padding-left: 5%;
 }
-header{
-    box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
-}
-.btn-brown {
-    background-color: #744836;
-    color:white; 
-    border: none;
+.navbar-brand, .nav-link {
+    color: black !important;
 }
 
-.btn-brown:hover {
-    background-color: #815844;
-    transform: scale(1.1);
+header{
+    box-shadow: 0 4px 6px rgba(116, 72, 54, 0.3);
 }
 #eventCards {
     background-color: rgb(236, 222, 192);
@@ -53,7 +48,7 @@ header{
     background-color: #744836;
 }
 .navbar-brand {
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 1.5rem;
     transition: transform 0.3s ease-in-out;
@@ -98,7 +93,6 @@ header{
 }
 
 #FirstContentMainPage {
-    background-color: rgba(255, 255, 255, 0.8);
     background-image:url('../images/background.png') ;
     background-size: cover;
     background-position: center;
@@ -125,7 +119,6 @@ header{
 
 #FirstContentMainPage button {
     background-color: #744836;
-    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -187,7 +180,6 @@ header{
 
 #ThirdContentMainPage button {
     background-color: #744836;
-    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -196,7 +188,7 @@ header{
 }
 
 #ThirdContentMainPage button a {
-    color: white;
+    color: black !important;
     text-decoration: none;
 }
 
@@ -206,7 +198,6 @@ header{
 
 footer {
     background-color: #744836;
-    color: white;
     padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
@@ -227,7 +218,7 @@ footer p {
 }
 
 footer a {
-    color: white;
+
     text-decoration: none;
 }
 
@@ -246,7 +237,7 @@ footer ul li {
 }
 
 footer ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
