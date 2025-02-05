@@ -33,15 +33,15 @@
         <div id="ThirdContentMainPage">
             <div>
                 <img src="" alt="event">
-                <button><a href="/events">Események</a></button>
+                <button id="darkBrownButton" class="text-black"><a href="/events">Események</a></button>
             </div>
             <div>
                 <img src="" alt="donation">
-                <button><a href="/donate">Adományozok</a></button>
+                <button id="darkBrownButton"class="text-black"><a href="/donate">Adományozok</a></button>
             </div>
             <div>
                 <img src="" alt="salon">
-                <button><a href="/salons">Szalonok</a></button>
+                <button id="darkBrownButton" class="text-black"><a href="/salons">Szalonok</a></button>
             </div>
         </div>
     </main>
