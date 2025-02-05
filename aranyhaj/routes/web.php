@@ -6,6 +6,7 @@ use App\Http\Controllers\SalonController;
 use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 Route::post('/like-event', [InteractionController::class, 'likeEvent'])->middleware('auth');
 Route::post('/participate-event', [InteractionController::class, 'participateEvent'])->middleware('auth');
@@ -77,6 +78,9 @@ Route::get('/registration', [AuthController::class, 'register'])->name('registra
 Route::get('/user', function () {
     return view('user'); // user.blade.php
 });
+Route::post('/profile/updateUrl', [ProfileController::class, 'profileImageUpdate'])->name('profile.updateUrl');
+Route::post('/profile/updateEmail', [ProfileController::class, 'emailUpdate'])->name('email.change');
+Route::post('/profile/updatePassword', [ProfileController::class, 'changePassword'])->name('password.change');
 
 Route::get('/donate', function () {
     return view('donate'); // donate.blade.php
