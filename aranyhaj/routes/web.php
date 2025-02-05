@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SalonController;
 use App\Http\Controllers\InteractionController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 Route::post('/like-event', [InteractionController::class, 'likeEvent'])->middleware('auth');
 Route::post('/participate-event', [InteractionController::class, 'participateEvent'])->middleware('auth');
@@ -63,13 +65,26 @@ Route::get('/redirect', function () {
 });
 
 // Ne felejtsd el az oldalakat is hozzáadni!
-Route::get('/log', function () {
+/*Route::get('/log', function () {
     return view('log'); // log.blade.php
+});*/
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+    Route::get('/log', [AuthController::class, 'login'])->name('login');
+    Route::post('/log', [AuthController::class, 'loginPost'])->name('login');
 });
 
-Route::get('/registration', function () {
-    return view('registration'); // registration.blade.php
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+/*Route::get('/registration', function () {
+    return view('registration'); // registration.blade.php
+});*/
+
+Route::get('/registration', [AuthController::class, 'register'])->name('registration');
 
 Route::get('/user', function () {
     return view('user'); // user.blade.php

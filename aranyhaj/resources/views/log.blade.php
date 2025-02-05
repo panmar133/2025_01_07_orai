@@ -4,15 +4,34 @@
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
-<h1>Bejelentkezés</h1>
+<h1 class="row justify-content-center">Bejelentkezés</h1>
 
-<div id="login">
-    <h5>Felhasználónév/E-mail cím</h5>
-    <input type="email" placeholder="Felhasználó név/ E-mail cím" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <h5>Jelszó</h5>
-    <input type="password" placeholder="Jelszó" class="form-control" id="exampleInputPassword1" require>
-    <span class="psw">Elfelejtetted a <a href="#">jelszód?</a></span>
-    <button type="submit" id="darkBrownButton" class="btn btn-secondary">Bejelentkezés</button>
-</div>
+<div class="row justify-content-center mt-1">
+        <div class="col-lg-3">
+                <div class="card-body">
+                    @if(Session::has('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ Session::get('error') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('login') }}" method="POST">
+                        @csrf
+                        <div class="mb-2">
+                            <label for="email" class="form-label row justify-content-center">E-mail cím</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="password" class="form-label row justify-content-center">Jelszó</label>
+                            <input type="password" name="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-grid">
+                                <button class="btn btn-primary">Bejelentkezés</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
 @endsection
 <!-- Lezárás -->
