@@ -25,16 +25,15 @@
                         <li class="nav-item"><a class="nav-link" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
                     </ul>
-
-                    <form action="/redirect" method="get">
-                    <select name="select" class="form-select ms-3" onchange="this.form.submit()">
-                        <option value=" ">🥹</option>    
+                    <form action="/redirect" method="get" id="menuForm">
+                    <select name="select" class="form-select ms-3" onchange="this.form.submit()" id="menu">
+                        <option value=" ">Menü</option>
                         <option value="registration">Regisztráció</option>
                         <option value="log">Belépés</option>
                         <option value="user">Fiókom</option>
                         <option value="donate">Adományozok</option>
                         <option value="about">Rólunk</option>
-                        <option value="events">Események</option>                                               
+                        <option value="events">Események</option>
                     </select>
                 </form>
                 @auth
@@ -45,7 +44,7 @@
                 </form>
                 @endauth
                 </div>
-                <a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a>
+                <!--<a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a> -->
             </div>
         </nav>
     </header>

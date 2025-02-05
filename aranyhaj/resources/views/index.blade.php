@@ -32,17 +32,17 @@
 
         <div id="ThirdContentMainPage">
             <div>
-                <img src="" alt="event">
+            <a href="/events"><img src="{{ asset('images/event.png') }}" alt="event"></a>
                 <button id="darkBrownButton" class="text-black"><a href="/events">Események</a></button>
             </div>
             <div>
-                <img src="" alt="donation">
+                <a href="/salons"><img src="{{ asset('images/salon.png') }}" alt="salon"></a>
+                <button id="darkBrownButton" class="text-black"><a href="/salons">Szalonok</a></button>
+            </div><div>
+                <a href="/events"><img src="{{ asset('images/donate.png') }}" alt="donation"></a>
                 <button id="darkBrownButton"class="text-black"><a href="/donate">Adományozok</a></button>
             </div>
-            <div>
-                <img src="" alt="salon">
-                <button id="darkBrownButton" class="text-black"><a href="/salons">Szalonok</a></button>
-            </div>
+
         </div>
     </main>
 @endsection
