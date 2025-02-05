@@ -4,9 +4,9 @@
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
-<h1 class="row justify-content-center">Bejelentkezés</h1>
-
-<div class="row justify-content-center mt-1">
+<br>
+<h2 class="d-flex justify-content-center align-items-center p-5">Bejelentkezés</h2>
+<div class="row justify-content-center">
     <div class="col-lg-3">
         <div class="card-body">
         @if(Session::has('error'))
@@ -23,15 +23,17 @@
             <div class="mb-2">
                 <label for="password" class="form-label row justify-content-center">Jelszó</label>
                 <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <div class="mb-2">
+                <div class="d-grid mt-4"> <!-- Hozzáadtam a mt-4 osztályt a margóhoz -->
+                    <button id="darkBrownButton" class="btn btn-primary">Bejelentkezés</button>
                 </div>
-                <div class="mb-2">
-                    <div class="d-grid">
-                    <button class="btn btn-primary">Bejelentkezés</button>
-                    </div>
-                </div>
-            </form>
+                <div class="mt-5"></div> <!-- Extra hely hozzáadása a gomb után -->
+            </div>
+        </form>
         </div>
     </div>
 </div>
+
 @endsection
 <!-- Lezárás -->

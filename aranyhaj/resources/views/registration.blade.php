@@ -4,11 +4,10 @@
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
-<h1>Regisztráció</h1>
-
-<div class="row justify-content-center mt-5">
+<h2 class="d-flex justify-content-center align-items-center p-3">Regisztráció</h2>
+<div class="row justify-content-center ">
         <div class="col-lg-4">
-                <div class="card-header">
+            <div class="card-header">
                 </div>
                 <div class="card-body">
                     @if(Session::has('success'))
@@ -36,11 +35,11 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
-                                <button class="btn btn-primary">Regisztráció</button>
+                                <button id="darkBrownButton" class="btn btn-primary">Regisztráció</button><br>
                             </div>
                         </div>
                     </form>
-                </div>
+            </div>
         </div>
     </div>
 @endsection
