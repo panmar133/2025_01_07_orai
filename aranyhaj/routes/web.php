@@ -89,3 +89,6 @@ Route::get('/donate', function () {
 Route::get('/about', function () {
     return view('about'); // about.blade.php
 });
+Route::get('/help', function () {
+    return view('help'); // about.blade.php
+});
