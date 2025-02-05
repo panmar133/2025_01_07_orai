@@ -7,9 +7,6 @@
 <main>
         <div id="FirstContentMainPage" class="px-3 px-md-5">
             <h1 id="HeaderLabel"><a href="/about">Aranyhaj</a></h1>
-            <div class="container">
-       <h1> Welcome, {{ Auth::user()->user_name }}</h1>
-    </div>
             <p><b>Adj reményt egy kis szeretettel! </b></p><br> 
             <p>Üdvözlünk a hajadományozás közösségében! Mi, azért hoztuk létre ezt a platformot,
                 hogy összekössük azokat, akik segíteni szeretnének azokkal, akiknek igazán szükségük van rá.
