@@ -32,6 +32,10 @@ a {
 #imgage {
     height:400px;
 }
+#donationImage {
+    width: 1400px;
+    border-radius:10px solid #3e2619 ;
+}
 .copy-text {
     cursor: pointer;
 }

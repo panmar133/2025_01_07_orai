@@ -12,7 +12,7 @@
                 hogy összekössük azokat, akik segíteni szeretnének azokkal, akiknek igazán szükségük van rá.
                 A hajadományozás egy csodálatos módja annak, hogy örömet szerezzünk és önbizalmat adjunk azoknak,
                 akik betegség vagy más okok miatt elvesztették hajukat. </p>
-            <button>Adományozni szeretnék</button><br>
+            <a href="/donate"><button>Adományozni szeretnék</button></a> <br>
         </div>
         
         <div id="SecoundontentMainPage" class="px-3 px-md-5">   

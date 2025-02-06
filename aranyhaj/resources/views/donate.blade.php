@@ -15,7 +15,7 @@
                         és az adományozás részleteiről.</li>
                     <li>Tiszta, száraz, összefogott hajjal érkezz a vágásra! 😊</li>
                 </ol>
-                <img src="" alt="kép">
+                <img id="donationImage" src="{{ asset('images/donation.png') }}" class="img-fluid" >
         </div>
 
         

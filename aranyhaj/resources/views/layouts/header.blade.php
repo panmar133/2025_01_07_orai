@@ -34,6 +34,7 @@
                             <option value="donate">Adományozok</option>
                             <option value="about">Rólunk</option>
                             <option value="events">Események</option>
+                            <option value="salons">Szalonok</option>
                         </select>
                     </form>
                 </div>

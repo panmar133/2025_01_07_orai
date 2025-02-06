@@ -51,7 +51,8 @@ Route::get('/redirect', function () {
         'user' => '/user',
         'donate' => '/donate',
         'about' => '/about',
-        'events' => '/events'
+        'events' => '/events',
+        'salons' => '/salons'
     ];
 
     $selected = request('select');
