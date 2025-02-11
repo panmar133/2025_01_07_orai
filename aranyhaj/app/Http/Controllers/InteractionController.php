@@ -19,7 +19,7 @@ class InteractionController extends Controller
             ['liked' => 1]
         );
 
-        return response()->json(['message' => 'Like mentve!', 'interaction' => $interaction]);
+        return redirect()->back()->with('success', 'Sikeres művelet!');
     }
 
     public function participateEvent(Request $request)
@@ -33,6 +33,6 @@ class InteractionController extends Controller
             ['participation' => 1]
         );
 
-        return response()->json(['message' => 'Résztvétel rögzítve!', 'interaction' => $interaction]);
+        return redirect()->back()->with('success', 'Sikeres művelet!');
     }
 }

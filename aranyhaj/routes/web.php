@@ -39,6 +39,12 @@ Route::get('/', function () {
 Route::get('/events', [EventController::class, 'listAllEvents'], function () {
     return view('events');
 });
+    Route::get('/events', [EventController::class, 'showEventsDatas']);
+
+Route::post('/event/Like', [InteractionController::class, 'likeEvent'])->name('event.like');
+Route::post('/event/participate', [InteractionController::class, 'participateEvent'])->name('event.participate');
+
+
 Route::get('/salons', [SalonController::class, 'listAllSalons'], function () {
     return view('salons');
 });
@@ -79,6 +85,7 @@ Route::get('/registration', [AuthController::class, 'register'])->name('registra
 Route::get('/user', function () {
     return view('user'); // user.blade.php
 });
+
 Route::post('/profile/updateUrl', [ProfileController::class, 'profileImageUpdate'])->name('profile.updateUrl');
 Route::post('/profile/updateEmail', [ProfileController::class, 'emailUpdate'])->name('email.change');
 Route::post('/profile/updatePassword', [ProfileController::class, 'changePassword'])->name('password.change');
