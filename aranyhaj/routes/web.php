@@ -82,6 +82,7 @@ Route::get('/user', function () {
 Route::post('/profile/updateUrl', [ProfileController::class, 'profileImageUpdate'])->name('profile.updateUrl');
 Route::post('/profile/updateEmail', [ProfileController::class, 'emailUpdate'])->name('email.change');
 Route::post('/profile/updatePassword', [ProfileController::class, 'changePassword'])->name('password.change');
+Route::post('/profile/updateAddress', [ProfileController::class, 'changeAddress'])->name('address.change');
 
 Route::get('/donate', function () {
     return view('donate'); // donate.blade.php

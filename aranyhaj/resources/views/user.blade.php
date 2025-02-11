@@ -16,6 +16,15 @@
                         {{ session('success') }}
                         </div>
                     @endif
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="{{ route('profile.updateUrl') }}" method="POST">
                     @csrf
                     <input type="text" class="form-control mb-2" name="profileUrlTb" placeholder="Profilkép URL" value="{{ Auth::user()->image_name }}">
@@ -35,16 +44,11 @@
                     
                     <!-- Módosítási gombok -->
                     <div class="mt-4">
-                        @if(session('success'))
-                            <div class="alert alert-success">
-                            {{ session('success') }}
-                            </div>
-                        @endif
                         <!-- Email cím módosítása gomb -->
                         <form action="{{ route('email.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="text" class="form-control mb-2" name="profileEmail" placeholder="Email cím" value="{{ Auth::user()->email }}">
-                            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#emailModal">Email cím módosítása</button>
+                            <button type="submit" class="btn btn-dark w-100">Mentés</button>
                         </form>
 
                         <!-- Jelszó módosítása gomb -->
@@ -52,13 +56,15 @@
                             @csrf
                             <input type="password" class="form-control" id="currentPassword" name="current_password" placeholder="Jelenlegi jelszó" required>
                             <input type="password" class="form-control" name="password" placeholder="Új jelszó" required>
+                            <input type="password" class="form-control" name="password_confirmation" placeholder="Új jelszó megerősítése" required>
                             <button type="submit" class="btn btn-dark w-100">Jelszó módosítás</button>
                         </form>
 
                         <!-- Lakcím módosítása gomb -->
-                        <form action="" method="POST" class="d-inline">
+                        <form action="{{ route('address.change') }}" method="POST" class="d-inline">
                             @csrf
-                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addressModal">Lakcím módosítása</button>
+                            <input type="text" class="form-control mb-2" name="profileAddress" placeholder="Lakcím" value="{{ Auth::user()->address }}">
+                            <button type="submit" class="btn btn-dark w-100">Mentés</button>
                         </form>
                     </div>
                 </div>

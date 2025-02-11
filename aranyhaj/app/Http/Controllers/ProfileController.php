@@ -24,11 +24,11 @@ class ProfileController extends Controller
     public function emailUpdate(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|max:255',
+            'profileEmail' => 'required|string|max:255',
         ]);
 
         $user = Auth::user();
-        $user->image_name = $request->input('email');
+        $user->email = $request->input('profileEmail');
         $user->save();
 
         return redirect()->back()->with('success', 'Profil email címe frissítve!');
@@ -37,22 +37,32 @@ class ProfileController extends Controller
 
     public function changePassword(Request $request)
     {
-            // Validáljuk a form adatokat
-            $request->validate([
-                'current_password' => 'required|string',
-                'password' => 'required|string|min:8|confirmed', // Minimum hossz és megerősítés szükséges
-            ]);
+        $request->validate([
+            'current_password' => 'required|string',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-            // Ellenőrizzük, hogy a jelenlegi jelszó helyes-e
-            if (!Hash::check($request->current_password, Auth::user()->password)) {
-                return back()->withErrors(['current_password' => 'A jelenlegi jelszó helytelen.']);
-            }
+        if (!Hash::check($request->current_password, Auth::user()->password)) {
+            return back()->withErrors(['current_password' => 'A jelenlegi jelszó helytelen.']);
+        }
 
-            // Frissítjük a jelszót
-            Auth::user()->update([
-                'password' => Hash::make($request->password),
-            ]);
+        $user = Auth::user();
+        $user->password = Hash::make($request->password);
+        $user->save();
 
-            return back()->with('success', 'A jelszó sikeresen módosítva!');
+        return back()->with('success', 'A jelszó sikeresen módosítva!');
+    }
+
+    public function changeAddress(Request $request)
+    {
+        $request->validate([
+            'profileAddress' => 'required|string|max:255',
+        ]);
+
+        $user = Auth::user();
+        $user->address = $request->input('profileAddress');
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profil lakcíme frissítve!');
     }
 }
