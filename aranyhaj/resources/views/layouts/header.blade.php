@@ -21,30 +21,29 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                        <li class="nav-item"><a class="nav-link" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                        <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/donate">Adományozok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">Rólunk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/events">Események</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/salons">Szalonok</a></li>
+
+                        
+
+                        <li class="nav-item"><a class="nav-link" href="/regist">Regisztráció</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/log">Belépés</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="/user">Fiókom</a></li>
+                        <a class="navbar-brand" href="/"><img id="logo" src="{{ asset('images/user.png') }}" alt="Logo"></a>
+
+                        @auth
+                            <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Logout</button>
+                            </form>
+                        @endauth
                     </ul>
-                    <form action="/redirect" method="get" id="menuForm">
-                        <select name="select" class="form-select ms-3" onchange="this.form.submit()" id="menu">
-                            <option value=" ">Menü</option>
-                            <option value="registration">Regisztráció</option>
-                            <option value="log">Belépés</option>
-                            <option value="user">Fiókom</option>
-                            <option value="donate">Adományozok</option>
-                            <option value="about">Rólunk</option>
-                            <option value="events">Események</option>
-                            <option value="salons">Szalonok</option>
-                        </select>
-                    </form>
                 </div>
-                @auth
-                <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Logout</button>
-                </form>
-                @endauth
+
                 
                 <!--<a class="navbar-brand" href="/log"><img id="user" src="{{ asset('images/user.png') }}" alt="user"></a> -->
             </div>

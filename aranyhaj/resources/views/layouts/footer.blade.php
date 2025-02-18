@@ -29,7 +29,7 @@
             <h3>Elérhetőségünk</h3>
                 <ul>
                     <li><i class="fa-solid fa-location-dot"></i>18.kerület Hengersor utca 39</li>
-                    <li><i class="fa-solid fa-envelope"></i>urazoe366@hengerosr.hu</li>
+                    <li><i class="fa-solid fa-envelope"></i>penyikMetin@hengi.hu</li>
                     <li><i class="fa-solid fa-phone"></i>06 30 000 0000</li>
                     <li><i class="fa-solid fa-phone"></i>+36 70 000 0000</li>
                 </ul>
