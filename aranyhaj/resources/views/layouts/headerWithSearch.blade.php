@@ -21,15 +21,14 @@
                 <div class="d-flex align-items-center">
                     <input type="text" class="form-control me-2">
                     <button class="btn"><img src="{{ asset('images/search.png') }}" alt="Kereső" width="35px"></button>
-                    <div class="dropdown ms-3">
+                    <div class="dropdown">
                         <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li class="nav-item"><a class="dropdown-item" href="/regist">Regisztráció</a></li>
-                            <li class="nav-item"><a class="dropdown-item" href="/log">Profile</a></li>
-                            <li class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></li>
-                            <li class="nav-item"><a class="dropdown-item" href="/user">Fiókom</a></li>
-                        </ul>
-                    </div>
+                        <div class="dropdown-content">
+                        <a href="/log">Bejelentkezés</a>
+                        <a href="/registration">Regisztráció</a>
+                        <a href="/user">Fiókom</a>
+                        <a class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></a>
+                        </div>
                 </div>
             </div>
             <hr>

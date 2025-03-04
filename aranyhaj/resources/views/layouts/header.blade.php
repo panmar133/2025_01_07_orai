@@ -32,7 +32,7 @@
                         <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
                         <div class="dropdown-content">
                         <a href="/log">Bejelentkezés</a>
-                        <a href="/regist">Regisztráció</a>
+                        <a href="/registration">Regisztráció</a>
                         <a href="/user">Fiókom</a>
                         <a class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></a>
                         </div>

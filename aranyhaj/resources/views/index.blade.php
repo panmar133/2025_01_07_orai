@@ -11,7 +11,7 @@
                 hogy összekössük  azokat, akik segíteni szeretnének azokkal, akiknek igazán szükségük van rá.
                 A hajadományozás egy csodálatos módja annak, hogy örömet szerezzünk és önbizalmat adjunk azoknak,
                 akik betegség vagy más okok miatt elvesztették hajukat. </p>
-            <a href="/donate" class="btn btn-dark btn-sm d-block mx-auto">Adományozni szeretnék</a> <br>
+            <a id="button" href="/donate" class="btn btn-dark btn-sm d-block mx-auto">Adományozni szeretnék</a> <br>
         </div>
         
         <div id="SecondContentMainPage" class="card px-3 px-md-5 mt-5 mb-5 mx-auto" style="max-width: 90%;">
@@ -38,21 +38,21 @@
             <div class="card text-center" style="width: 18rem;">
                 <a href="/events"><img src="{{ asset('images/event.png') }}" class="card-img-top" alt="events"></a>
                 <div class="card-body">
-                    <a href="/events" class="btn btn-dark">Események</a>
+                    <a id="button" href="/events" class="btn btn-dark">Események</a>
                 </div>
             </div>
         
             <div class="card text-center" style="width: 18rem;">
                 <a href="/salons"><img src="{{ asset('images/salon.png') }}" class="card-img-top" alt="salons"></a>
                 <div class="card-body">
-                    <a href="/salons" class="btn btn-dark">Szalonok</a>
+                    <a id="button" href="/salons" class="btn btn-dark">Szalonok</a>
                 </div>
             </div>
         
             <div class="card text-center" style="width: 18rem;">
                 <a href="/donate"><img src="{{ asset('images/donate.png') }}" class="card-img-top" alt="donations"></a>
                 <div class="card-body">
-                    <a href="/donate" class="btn btn-dark">Adományozok</a>
+                    <a id="button" href="/donate" class="btn btn-dark">Adományozok</a>
                 </div>
             </div>
         </div> <br>

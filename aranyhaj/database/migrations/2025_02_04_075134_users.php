@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email', 150)->unique();
             $table->string('address', 150)->nullable();
             $table->string('password', 255);
-            $table->string('image_name', 255)->default('foto.png');
-            $table->boolean('admin')->default(false);
+            $table->string('image_name', 255)->default('https://cdn-icons-png.flaticon.com/512/1144/1144760.png');
+            $table->integer('admin')->default(0);
             $table->timestamps();
         });
     }

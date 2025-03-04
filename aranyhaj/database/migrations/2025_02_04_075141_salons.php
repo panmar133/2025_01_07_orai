@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->string('salon_name', 100);
-            $table->string('image_name', 50)->default('salon.png');
+            $table->string('image_name', 255)->default('salon.png');
             $table->string('information', 350);
             $table->string('city', 21);
             $table->string('street', 80);

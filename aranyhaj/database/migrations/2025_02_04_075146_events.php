@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('location', 150)->nullable();
             $table->string('information', 350)->nullable();
-            $table->string('image_name', 50)->nullable();
+            $table->string('image_name', 255)->nullable();
             $table->timestamp('posted_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('starts_at');
             $table->timestamps();
