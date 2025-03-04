@@ -1,4 +1,4 @@
-@extends("layouts.layout")
+@extends("layouts.layoutSearch")
 <!-- Fejléc kiszedés -->
 @section("title", "Szalonok")
 <!-- Cím adás az oldalnak változó által -->

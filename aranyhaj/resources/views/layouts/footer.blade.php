@@ -1,13 +1,4 @@
 <footer>
-            <div id="footerFirst">
-                <h3>Rólunk</h3>
-                <p>Cégünk elkötelezett híve annak, hogy jobbá tegyük
-                    a világot. Számunkra az emberek és a közösségek
-                    támogatása nem csupán kötelesség, hanem szívből
-                    jövő jószándék. Hiszünk abban, hogy az összefogás
-                    csodákra képes, és minden apró segítség egy lépés
-                    a boldogabb jövő felé.</p>
-            </div>
             <div id="footerLeft">
                 <h3>Közösségi Média</h3>
                 <ul>

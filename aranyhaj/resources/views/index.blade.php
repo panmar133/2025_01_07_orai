@@ -26,7 +26,7 @@
             </ul>
         </div>
         
-        <div id="ThirdContentMainPage" class="d-flex justify-content-center gap-3 flex-wrap">
+        <div id="ThirdContentMainPage" class="d-flex justify-content-center gap-4 flex-wrap">
             <div class="card text-center" style="width: 18rem;">
                 <a href="/events"><img src="{{ asset('images/event.png') }}" class="card-img-top" alt="events"></a>
                 <div class="card-body">
@@ -35,7 +35,7 @@
             </div>
         
             <div class="card text-center" style="width: 18rem;">
-                <a href="/salons"><img src="{{ asset('images/salons.png') }}" class="card-img-top" alt="salons"></a>
+                <a href="/salons"><img src="{{ asset('images/salon.png') }}" class="card-img-top" alt="salons"></a>
                 <div class="card-body">
                     <a href="/salons" class="btn btn-dark">Szalonok</a>
                 </div>
@@ -47,7 +47,7 @@
                     <a href="/donate" class="btn btn-dark">Adományozok</a>
                 </div>
             </div>
-        </div>
+        </div> <br>
     </main>
 @endsection
 <!-- Lezárás -->
