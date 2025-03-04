@@ -1,14 +1,22 @@
 body {
-    background-color: #fcf6f0;
+    background: linear-gradient(to right,#f5e6d9 200px,#fcf6f0 50%,#f5e6d9 100%);
+    font-family:  Helvetica;
 }
 
 header {
-    box-shadow: 0 4px 4px #e4ddd1;
+    box-shadow: 0 4px 4px #faf2e6;
     background-color: #ffffff;
     text-align: center;
     padding: 20px 0;
 }
-
+#FirstContentMainPage {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+#SecondContentMainPage {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
 #logo {
     height: 10em;
     mix-blend-mode: multiply;
@@ -16,6 +24,25 @@ header {
 #logo:hover {
     transform: scale(1.1);
     transition: 0.2s;
+}
+#girl {
+    border-radius: 8%;
+    width: 20em;
+    transition: width 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    #girl {
+        width: 16em; /* Reduces the width by 20% */
+    }
+    img {
+        height:150px;
+        width: 50px;
+    }
+}
+
+p a:hover {
+    color: #ffbb00;
 }
 #FirstContentMainPage .btn {
     width: 250px; 
