@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
-            $table->string('salon_name', 100);
-            $table->string('image_name', 255)->default('salon.png');
-            $table->string('information', 350);
-            $table->string('city', 21);
-            $table->string('street', 80);
+            $table->string('salon_name', 100)->collation('utf8_hungarian_ci');
+            $table->string('image_name', 500)->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbi3vhR6pmsVH4vEmM9xbYFajAJXlOaUFI6Q&s');
+            $table->string('information', 350)->collation('utf8_hungarian_ci');
+            $table->string('city', 21)->collation('utf8_hungarian_ci');
+            $table->string('street', 80)->collation('utf8_hungarian_ci');
             $table->integer('zip_code');
             $table->timestamps();
         });
