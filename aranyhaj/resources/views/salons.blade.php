@@ -26,8 +26,7 @@
                                 <p class="mb-1"><strong>Szalon tulajdonosa: </strong> {{$salon->owner->user_name ?? 'N/A'}}</p>
                             </div>
                         </div>
-
-                        <img id="image" src="{{ asset('images/'. $salon->image_name) }}" alt="Szalon Kép" class="img-fluid my-3">
+                        <img id="image" src="{{ asset($salon->image_name) }}" alt="Szalon Kép" class="img-fluid my-3">
 
                         <p class="card-text">{{ $salon->information }}</p>
 
