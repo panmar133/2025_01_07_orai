@@ -6,9 +6,9 @@
 <!-- Kontent kiszedés -->
 <main>
     <div class="container">
-        <div class="row justify-content-center gap-4 flex-wrap">
+        <div class="row justify-content-center flex-column align-items-center">
             <!-- First Card: Adományozás menete -->
-            <div id="aboutAlignCenter" class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Responsive column sizing -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h1>Adományozás menete:</h1>
@@ -24,8 +24,9 @@
                     </div>
                 </div>
             </div>
+
             <!-- Second Card: További információ -->
-            <div id="aboutAlignCenter" class="col-12 col-sm-6 col-md-4 col-lg-3"> <!-- Responsive column sizing -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <p>Ha bizonytalan vagy, érdemes tudnod, hogy a hajadományozással valódi segítséget
@@ -34,11 +35,10 @@
                             keresd a kiválasztott szalont vagy minket – segítünk!</p>
                     </div>
                 </div>
-            </div><br>
+            </div>
         </div>
     </div>
-</main>
-
+</main><br>
 
 @endsection
 <!-- Lezárás -->

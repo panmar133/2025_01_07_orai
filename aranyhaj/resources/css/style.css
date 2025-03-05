@@ -8,7 +8,9 @@ html, body {
     height: 100%;
     margin: 0;
 }
-main {flex: 1;}
+main {
+    flex: 1;
+}
 
 header {
     box-shadow: 0 4px 4px #f3e8d7;
@@ -16,11 +18,13 @@ header {
     padding: 20px 0;
     text-align: center;
 }
+
 #FirstContentMainPage {
     box-shadow: 0px 0px 2px 4px #f3e8d7;
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
 #SecondContentMainPage {
     box-shadow: 0px 0px 2px 4px #f3e8d7;
     padding-top: 2%;
@@ -37,8 +41,13 @@ header {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-#Search {transition: transform 0.3s ease;}
-#Search:hover {transform: scale(1.1);}
+#Search {
+    transition: transform 0.3s ease; /* Eltűnhet a mozgás */
+}
+
+#Search:hover {
+    transform: scale(1.1); /* Méretváltozás hover esetén */
+}
 .search-input {
     height: 40px;
     font-size: 1.1em;
@@ -47,14 +56,23 @@ header {
     border: none;
     padding: 10px 15px;
 }
-.dropdown {position: relative;}
-.dropdown img {cursor: pointer;}
+.dropdown {
+    position: relative;
+}
+
+.dropdown img {
+    cursor: pointer;
+}
 .header .d-flex {
     justify-content: center;
     gap: 10px;
 }
-#contact {cursor: pointer;}
-#contact:hover {color: #ffbb00;}
+#contact {
+    cursor: pointer;
+}
+#contact:hover {
+    color: #ffbb00;
+}
 #logo:hover {
     transform: scale(1.1);
     transition: 0.2s;
@@ -64,8 +82,11 @@ header {
     width: 20em;
     transition: width 0.3s ease-in-out;
 }
+
 @media (max-width: 768px) {
-    #girl {width: 16em;}
+    #girl {
+        width: 16em; /* Reduces the width by 20% */
+    }
     img {
         height:50px;
         width:5px;
@@ -79,35 +100,54 @@ header {
         padding-bottom: 5%;
     }
 }
-p a:hover {color: #ffbb00;}
-#FirstContentMainPage .btn {width: 250px; }
+
+p a:hover {
+    color: #ffbb00;
+}
+
+#FirstContentMainPage .btn {
+    width: 250px; 
+}
 #ThirdContentMainPage .card {
-    width: 16rem;
-    transition: transform 0.3s ease;
-    margin-bottom: 20px;
+    width: 16rem; /* Kártyák alapértelmezett szélessége */
+    transition: transform 0.3s ease; /* Hover effektus */
+    margin-bottom: 20px; /* Kis távolság a kártyák között */
 }
+
 #ThirdContentMainPage .card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 100%; /* A képek szélessége kitölti a kártyát */
+    height: auto; /* A magasság arányosan változik */
+    object-fit: cover; /* Kép kitölti a kártyát, de nem torzul */
+    border-radius: 10px; /* Kerekítés a képek körül */
 }
+
 @media (max-width: 768px) {
-    #ThirdContentMainPage .card {width: 14rem;}
-    #ThirdContentMainPage .card img {width: 90%;}
+    #ThirdContentMainPage .card {
+        width: 14rem; /* Kártyák kisebbek mobil nézetben */
+    }
+    
+    #ThirdContentMainPage .card img {
+        width: 90%; /* Kép szélessége a kártya 90%-ára csökkentve */
+    }
 }
+
 @media (max-width: 576px) {
     #ThirdContentMainPage .card {
         padding-top: 20px;
-        width: 12rem;
-        margin-bottom: 15px;
+        width: 12rem; /* Még kisebb kártyák */
+        margin-bottom: 15px; /* Kis távolság a kártyák között */
     }
-    #ThirdContentMainPage .card img {width: 80%;}
+    
+    #ThirdContentMainPage .card img {
+        width: 80%; /* Kép szélessége a kártya 80%-ára csökkentve */
+    }
 }
+
 hr {
-    border: 2px solid #000;
+    border: 1px solid #000;
     width: 100%;
 }
+
 #bottomHeader {
     margin-top: 20px;
     display: flex;
@@ -115,9 +155,13 @@ hr {
     gap: 20px;
     width: 100%;
 }
-#bottomHeader p {margin: 0;}
+
+#bottomHeader p {
+    margin: 0;
+}
+
 #bottomHeader a {
-    color:#ffbb00;
+    color: rgb(27, 29, 32);
     text-decoration: none;
     font-style: italic;
     font: 1em sans-serif;
@@ -144,6 +188,7 @@ hr {
     border-radius: 50%;
     transition: background-image 0.3s ease-in-out;
 }
+
 .profile-img:hover {
     background-image: url("{{ asset('images/aProfil.png') }}");
 }
@@ -151,10 +196,12 @@ hr {
     display: flex;
     align-items: center;
 }
+
 #togglePassword {
     border-left: none;
     background-color: transparent;
 }
+ 
 .dropdown-content {
     display: none;
     position: absolute;
@@ -163,17 +210,24 @@ hr {
     box-shadow: 0 4px 4px #f3e8d7;
     z-index: 1;
 }
+  
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-} 
-.dropdown-content a:hover {background-color: gold;}
+}
+  
+.dropdown-content a:hover 
+{
+    background-color: gold;
+}
+  
 .dropdown:hover .dropdown-content {
     background-color: #f9f9f9;
     display: block;
 }
+
 footer {
     background-color: #ffffff;
     padding: 40px 20px;
@@ -184,33 +238,50 @@ footer {
     margin-top: auto;
     box-shadow: 0 -4px 6px #e4ddd1;
 }
+ 
 footer h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
 }
+ 
 footer p {
     font-size: 1rem;
     line-height: 1.5;
 }
-footer a {text-decoration: none;}
-footer a:hover {color: #ffbb00;}
+ 
+footer a {
+ 
+    text-decoration: none;
+}
+ 
+footer a:hover {
+    color: #ffbb00;
+}
+ 
 footer ul {
     list-style-type: none;
     padding-left: 0;
 }
+ 
 footer ul li {
     margin-bottom: 10px;
     font-size: 1rem;
 }
+ 
 footer ul li a {
     color: black;
     text-decoration: none;
 }
-footer ul li a:hover {color: #ffbb00;}
+ 
+footer ul li a:hover {
+    color: #ffbb00;
+}
+ 
 #footerFirst, #footerLeft, #footerCenter, #footerRight {
     flex: 1 1 22%;
     margin: 10px;
 }
+ 
 #footerRight i, #footerLeft i {
     margin-right: 10px;
 }
@@ -236,9 +307,9 @@ footer ul li a:hover {color: #ffbb00;}
 
 #aboutAlignLeft {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
+    flex-direction: column;   /* Rendezd a tartalmat oszlopba */
+    align-items: center;      /* Középre igazítja az oszlopot */
+    text-align: left;         /* A szöveg balra igazítása */
     width: 100%;
 }
 
@@ -246,8 +317,8 @@ footer ul li a:hover {color: #ffbb00;}
 
 .gallery {
     position: relative;
-    width: 50%;
-    max-width: 400px;
+    width: 50%; /* A galéria szélességét tovább csökkentettem */
+    max-width: 400px; /* A galéria maximális szélességét is csökkentettem */
     margin: 0 auto;
     overflow: hidden;
     display: flex;
@@ -260,14 +331,14 @@ footer ul li a:hover {color: #ffbb00;}
 }
 
 .slide {
-    min-width: 100%;
+    min-width: 100%;  /* A képek szélességét kisebbre állítottam */
     max-width: 60%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px; /* Kis margó a képek között */
 }
 
 .slides img {
-    width: 100%;
+    width: 100%;  /* A képek szélessége kitölti a szülőt */
     height: auto;
     object-fit: cover;
     border-radius: 10px;
@@ -303,7 +374,7 @@ footer ul li a:hover {color: #ffbb00;}
     }
     #Search{
         height: 1.5em;
-        width: 1.9em;
+        width: 1.7em;
     }
     #userDropdown {
         height: 1.5em;
