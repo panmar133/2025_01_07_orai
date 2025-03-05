@@ -9,7 +9,7 @@
             <div class="row g-4">
                 <!-- Profilkép -->
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('images/user.png') }}" alt="Profilkép" class="img-fluid rounded-circle shadow" width="150">
+                    <img src="{{ Auth::user()->image_name }}" alt="Profilkép" class="img-fluid rounded-circle shadow" width="150">
                     <p class="mt-3">Profilkép módosítása</p>
                     @if(session('success'))
                         <div class="alert alert-success">
