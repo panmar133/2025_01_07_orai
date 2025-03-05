@@ -20,10 +20,10 @@
             <div id="footerRight">
             <h3>Elérhetőségünk</h3>
                 <ul>
-                    <li><i class="fa-solid fa-location-dot"></i>18.kerület Hengersor utca 39</li>
-                    <li><i class="fa-solid fa-envelope"></i>Aranyhaj@gmail.com</li>
-                    <li><i class="fa-solid fa-phone"></i>06 30 000 0000</li>
-                    <li><i class="fa-solid fa-phone"></i>+36 70 000 0000</li>
+                    <li id="contact"><i class="fa-solid fa-location-dot"></i>18.kerület Hengersor utca 39</li>
+                    <li id="contact"><i class="fa-solid fa-envelope"></i>Aranyhaj@gmail.com</li>
+                    <li id="contact"><i class="fa-solid fa-phone"></i>06 30 000 0000</li>
+                    <li id="contact"><i class="fa-solid fa-phone"></i>+36 70 000 0000</li>
                 </ul>
             </div>
         </footer>

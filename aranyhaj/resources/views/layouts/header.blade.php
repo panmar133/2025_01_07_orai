@@ -19,15 +19,6 @@
                     <a href="/"><img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo"></a>
                 </div>
                 <div class="d-flex align-items-center">
-                    <!--div class="dropdown ms-3">
-                        <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li class="nav-item"><a class="dropdown-item" href="/regist">Regisztráció</a></li>
-                            <li class="nav-item"><a class="dropdown-item" href="/log">Profile</a></li>
-                            <li class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></li>
-                            <li class="nav-item"><a class="dropdown-item" href="/user">Fiókom</a></li>
-                        </ul>
-                    </div-->
                     <div class="dropdown">
                         <img src="{{ asset('images/profil.png') }}" 
                             alt="Felhasználó" 
@@ -67,8 +58,6 @@
                 </div>
             </div>
             <hr>
-
-            <!-- Bottom Section: Navigation Links -->
             <div class="container text-center" id="bottomHeader">
                 <p><a href="/donate">Adományozok</a></p>
                 <p><a href="/about">Rólunk</a></p>

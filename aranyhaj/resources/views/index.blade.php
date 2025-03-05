@@ -36,29 +36,35 @@ Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél 
             </div>
         </div>
 
-
         <div id="ThirdContentMainPage" class="d-flex justify-content-center gap-4 flex-wrap">
-    <div class="card text-center" style="width: 18rem;">
-        <a href="/events"><img class="buttonImage" src="{{ asset('images/event.png') }}" class="card-img-top" alt="events"></a>
-        <div class="card-body">
-            <a id="button" href="/events" class="btn btn-dark">Események</a>
-        </div>
-    </div>
+            <div class="card text-center">
+                <a href="/events">
+                    <img src="{{ asset('images/event.png') }}" class="card-img-top" alt="events">
+                </a>
+                <div class="card-body">
+                    <a href="/events" class="btn btn-dark">Események</a>
+                </div>
+            </div>
 
-    <div class="card text-center" style="width: 18rem;">
-        <a href="/salons"><img class="buttonImage" src="{{ asset('images/salon.png') }}" class="card-img-top" alt="salons"></a>
-        <div class="card-body">
-            <a id="button" href="/salons" class="btn btn-dark">Szalonok</a>
-        </div>
-    </div>
+            <div class="card text-center">
+                <a href="/salons">
+                    <img src="{{ asset('images/salon.png') }}" class="card-img-top" alt="salons">
+                </a>
+                <div class="card-body">
+                    <a href="/salons" class="btn btn-dark">Szalonok</a>
+                </div>
+            </div>
 
-    <div class="card text-center" style="width: 18rem;">
-        <a href="/donate"><img class="buttonImage" src="{{ asset('images/donate.png') }}" class="card-img-top" alt="donations"></a>
-        <div class="card-body">
-            <a id="button" href="/donate" class="btn btn-dark">Adományozok</a>
+            <div class="card text-center">
+                <a href="/donate">
+                    <img src="{{ asset('images/donate.png') }}" class="card-img-top" alt="donations">
+                </a>
+                <div class="card-body">
+                    <a href="/donate" class="btn btn-dark">Adományozok</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div><br>
+    </div><br>
     </main>
 @endsection
 <!-- Lezárás -->

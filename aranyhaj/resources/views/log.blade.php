@@ -22,8 +22,37 @@
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Jelszó</label>
-                        <input type="password" name="password" class="form-control" id="password" required>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" id="password" required>
+                            <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </button>
+                        </div>
                     </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const togglePassword = document.getElementById("togglePassword");
+                            const passwordField = document.getElementById("password");
+
+                            togglePassword.addEventListener("click", function () {
+                                // Jelszó típus váltása
+                                const type = passwordField.type === "password" ? "text" : "password";
+                                passwordField.type = type;
+
+                                // Ikon változtatás
+                                const icon = togglePassword.querySelector("i");
+                                if (type === "password") {
+                                    icon.classList.remove("bi-eye-slash");
+                                    icon.classList.add("bi-eye");
+                                } else {
+                                    icon.classList.remove("bi-eye");
+                                    icon.classList.add("bi-eye-slash");
+                                }
+                            });
+                        });
+                    </script>
+
                     <div class="mb-2">
                         <div class="d-grid mt-4">
                             <button id="darkBrownButton" class="btn btn-primary">Bejelentkezés</button>

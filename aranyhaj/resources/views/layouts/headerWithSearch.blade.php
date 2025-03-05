@@ -12,33 +12,71 @@
 </head>
 <body>
 <header class="header">
-        <nav class="container-md d-flex flex-column align-items-center">
-            <!-- Top Section: Logo + Search + Profile -->
-            <div class="d-flex justify-content-between align-items-center w-100">
-                <div class="d-flex flex-grow-1 justify-content-center">
-                    <a href="/"><img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                </div>
-                <div class="d-flex align-items-center">
-                    <input type="text" class="form-control me-2">
-                    <button class="btn"><img src="{{ asset('images/search.png') }}" alt="Kereső" width="35px"></button>
-                    <div class="dropdown">
-                        <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                        <div class="dropdown-content">
-                        <a href="/log">Bejelentkezés</a>
-                        <a href="/registration">Regisztráció</a>
-                        <a href="/user">Fiókom</a>
-                        <a class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></a>
-                        </div>
-                </div>
-            </div>
-            <hr>
+    <nav class="container-md d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center w-100">
+            <a href="/" class="mb-3">
+                <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
+            </a>
+            <div class="d-flex align-items-center w-75 justify-content-center">
+    <input type="text" class="form-control me-2 search-input" placeholder="Keresés">
+    <button class="btn btn-search">
+        <img src="{{ asset('images/search.png') }}" id="Search" alt="Kereső" width="35px">
+    </button>
+</div>
 
-            <!-- Bottom Section: Navigation Links -->
-            <div class="container text-center" id="bottomHeader">
-                <p><a href="/donate">Adományozok</a></p>
-                <p><a href="/about">Rólunk</a></p>
-                <p><a href="/events">Események</a></p>
-                <p><a href="/salons">Szalonok</a></p>
-            </div>
-        </nav>
-    </header> <br>
+<div class="dropdown">
+    <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
+    <div class="dropdown-content" id="dropdown-content">
+        <a href="/log">Bejelentkezés</a>
+        <a href="/registration">Regisztráció</a>
+        <a href="/user">Fiókom</a>
+        <a class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Kép és a lenyíló menü deklarálása
+        let userDropdown = document.getElementById("userDropdown");
+        let dropdownContent = document.getElementById("dropdown-content");
+        let searchImg = document.getElementById("Search");
+        // Képek deklarálása
+        let profil = "{{ asset('images/profil.png') }}";
+        let hoverProfil = "{{ asset('images/aProfil.png') }}";
+        let search = "{{ asset('images/search.png') }}";
+        let hoverSearch = "{{ asset('images/aSearch.png') }}"; // Ellenőrizd, hogy ez helyes-e
+        // Kép hover változtatás
+        userDropdown.addEventListener("mouseover", function() {
+            this.src = hoverProfil;
+        });
+        userDropdown.addEventListener("mouseout", function() {
+            this.src = profil;
+        });
+        // Kereső kép hover változtatása
+        searchImg.addEventListener("mouseover", function() {
+            this.src = hoverSearch;
+        });
+        searchImg.addEventListener("mouseout", function() {
+            this.src = search;
+        });
+        // Lenýíló menü hover változtatása
+        dropdownContent.addEventListener("mouseover", function() {
+            userDropdown.src = hoverProfil;
+        });
+        dropdownContent.addEventListener("mouseout", function() {
+            userDropdown.src = profil;
+        });
+    });
+</script>
+
+        </div>
+        </div>
+        <!-- Bottom Section: Navigation Links -->
+        <div class="container text-center" id="bottomHeader">
+            <p><a href="/donate">Adományozok</a></p>
+            <p><a href="/about">Rólunk</a></p>
+            <p><a href="/events">Események</a></p>
+            <p><a href="/salons">Szalonok</a></p>
+        </div>
+    </nav>
+</header><br>
