@@ -88,7 +88,10 @@ hr {
     font-style: italic;
     font: 1em sans-serif;
 }
-
+#buttonImage:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
 #bottomHeader p:hover {
     transform: scale(1.1);
     transition: 0.4s;
@@ -99,6 +102,19 @@ hr {
     background-color: gold;
     color: #000;
 }
+.profile-img {
+    width: 35px;
+    height: 35px;
+    background-image: url("{{ asset('images/profil.png') }}");
+    background-size: cover;
+    border-radius: 50%;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+    background-image: url("{{ asset('images/aProfil.png') }}");
+}
+
 .dropdown-content {
     display: none;
     position: absolute;

@@ -29,14 +29,41 @@
                         </ul>
                     </div-->
                     <div class="dropdown">
-                        <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                        <div class="dropdown-content">
-                        <a href="/log">Bejelentkezés</a>
-                        <a href="/registration">Regisztráció</a>
-                        <a href="/user">Fiókom</a>
-                        <a class="nav-item"><button class="dropdown-item" type="submit">Kijelentkezés</button></a>
+                        <img src="{{ asset('images/profil.png') }}" 
+                            alt="Felhasználó" 
+                            class="rounded-circle dropdown-toggle" 
+                            id="userDropdown" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false" 
+                            height="35">
+
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a href="/log">Bejelentkezés</a>
+                            <a href="/registration">Regisztráció</a>
+                            <a href="/user">Fiókom</a>
+                            <a class="nav-item">
+                                <button class="dropdown-item" type="submit">Kijelentkezés</button>
+                            </a>
                         </div>
                     </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            //Kép és a lenyíló fej deklarálása
+                            let userDropdown = document.getElementById("userDropdown");
+                            let dropdownContent = document.getElementById("dropdown-content");
+                            //Képek deklarálása
+                            let normalImg = "{{ asset('images/profil.png') }}";
+                            let hoverImg = "{{ asset('images/aProfil.png') }}";
+                            //Képre rámenés megváltozatása
+                            userDropdown.addEventListener("mouseover", function() {this.src = hoverImg;});
+                            userDropdown.addEventListener("mouseout", function() {this.src = normalImg;});
+                            //Lenyílófej rámenés megváltozatása
+                            dropdownContent.addEventListener("mouseover", function() {userDropdown.src = hoverImg;});
+                            dropdownContent.addEventListener("mouseout", function() {userDropdown.src = normalImg;});
+                        });
+                    </script>
+
                 </div>
             </div>
             <hr>
