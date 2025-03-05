@@ -1,4 +1,4 @@
-<footer>
+        <footer>
             <div id="footerLeft">
                 <h3>Közösségi Média</h3>
                 <ul>
@@ -9,7 +9,7 @@
                 </ul>
             </div>
             <div id="footerCenter">
-                <h3>Haznos linkek</h3>
+                <h3>Hasznos linkek</h3>
                     <ul>
                         <li><a href="/user">Fiókom</a></li>
                         <li><a href="/donate">Adományozok</a></li>
@@ -22,7 +22,6 @@
                 <ul>
                     <li id="contact"><i class="fa-solid fa-location-dot"></i>18.kerület Hengersor utca 39</li>
                     <li id="contact"><i class="fa-solid fa-envelope"></i>Aranyhaj@gmail.com</li>
-                    <li id="contact"><i class="fa-solid fa-phone"></i>06 30 000 0000</li>
                     <li id="contact"><i class="fa-solid fa-phone"></i>+36 70 000 0000</li>
                 </ul>
             </div>

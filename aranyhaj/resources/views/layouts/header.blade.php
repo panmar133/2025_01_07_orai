@@ -20,13 +20,8 @@
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="dropdown">
-                        <img src="{{ asset('images/profil.png') }}" 
-                            alt="Felhasználó" 
-                            class="rounded-circle dropdown-toggle" 
-                            id="userDropdown" 
-                            data-bs-toggle="dropdown" 
-                            aria-expanded="false" 
-                            height="35">
+                        <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" 
+                            data-bs-toggle="dropdown" aria-expanded="false" height="35">
 
                         <div class="dropdown-content" id="dropdown-content">
                             <a href="/log">Bejelentkezés</a>
