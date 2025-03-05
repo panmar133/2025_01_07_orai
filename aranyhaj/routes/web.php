@@ -36,13 +36,12 @@ Route::get('/salons', [SalonController::class, 'index'])->name('salons.index');
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/events', [EventController::class, 'listAllEvents'], function () {
-    return view('events');
-});
-    Route::get('/events', [EventController::class, 'showEventsDatas']);
 
+Route::get('/events', [EventController::class, 'showEventsDatas']);
 Route::post('/event/Like', [InteractionController::class, 'likeEvent'])->name('event.like');
 Route::post('/event/participate', [InteractionController::class, 'participateEvent'])->name('event.participate');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+
 
 
 Route::get('/salons', [SalonController::class, 'listAllSalons'], function () {

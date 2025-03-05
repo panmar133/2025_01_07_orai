@@ -5,7 +5,7 @@
 @section("content")
 <!-- Kontent kiszedés -->
 <main>
-    <h1>Események</h1>
+    <h1 id="eventTitle" class="text-center">Események</h1>
     <div class="container">
         @if(session('success'))
             <div class="alert alert-success">
@@ -22,30 +22,23 @@
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="mb-1"><strong>Közzétéve:</strong> {{ $event->posted_time }}</p>
-                                    <p class="mb-0"><strong>Esemény kezdete:</strong> {{ $event->starts_at }}</p>
+                                    <p class="mb-0"><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y/m/d H:i') }}órakor</p>
                                 </div>
                             </div>
-                            <img id="image" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3">
-                            <p class="card-text">{{ $event->information }}</p>
-                            <p class="card-text">
-                                <strong>Location:</strong>
-                                <a href="">{{ $event->location }}</a>
-                            </p>
-                            <p class="card-text">
-                                <strong>Likeok száma:</strong>
-                                <a href="">{{ $event->likes_count ?? 0 }}</a>
-                            </p>
-                            <p class="card-text">
-                                <strong>Résztvevők száma:</strong>
-                                <a href="">{{ $event->participants_count ?? 0 }}</a>
-                            </p>
+                            <img id="image" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3" style="width: 370px; height: auto;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark">Továbbiak</a>
+                                <p class="card-text mb-0 ms-3">
+                                    <strong>Résztvevők száma:</strong>
+                                    <a href="">{{ $event->participants_count ?? 0 }}</a>
+                                </p>
+                            </div>
                         </div>
                         <div class="card-footer text-center" id="eventFooter">
                             <form action="{{ route('event.like') }}" method="POST" class="d-inline">
                                 @csrf
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                <button type="submit" class="btn btn-brown me-2">👍</button>
+                                <button type="submit" class="btn btn-brown me-2">{{ $event->likes_count ?? 0 }} 👍</button>
                             </form>
 
                             <form action="{{ route('event.participate') }}" method="POST" class="d-inline">
@@ -60,6 +53,6 @@
             @endforeach
         </div>
     </div>
-</main>
+</main><br>
 @endsection
 <!-- Lezárás -->

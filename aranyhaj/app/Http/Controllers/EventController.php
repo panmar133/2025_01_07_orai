@@ -22,4 +22,10 @@ class EventController extends Controller
 
     return view('events', compact('events'));
     }
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);  
+        return view('events.program', compact('event'));
+    }
 }
+

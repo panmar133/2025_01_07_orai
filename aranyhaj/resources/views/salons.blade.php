@@ -5,13 +5,7 @@
 @section("content")
 <!-- Kontent kiszedés -->
 <main>
-    <h1>Szalonok</h1>
-    <p></p>     <!-- rövid leírás -->
-    
-
-<!-- PHP-s kilistázás --> 
-
-
+    <h1 id="eventTitle" class="text-center">Szalonok</h1>
 <div class="container">
     <div class="row">
         @foreach ($salons as $salon)
@@ -32,7 +26,7 @@
 
                         <div class="mt-auto">
                             <p class="card-text">
-                                <strong>Location:</strong>
+                                <strong>Hel:</strong>
                                 <a class="copy-text" onclick="copyText()">{{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</a>
                             </p>
                         </div>
