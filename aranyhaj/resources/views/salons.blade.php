@@ -26,7 +26,7 @@
 
                         <div class="mt-auto">
                             <p class="card-text">
-                                <strong>Hel:</strong>
+                                <strong>Szalon helye:</strong>
                                 <a class="copy-text" onclick="copyText()">{{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</a>
                             </p>
                         </div>
