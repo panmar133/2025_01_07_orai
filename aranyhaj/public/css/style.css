@@ -182,6 +182,18 @@ hr {
     background-color: gold;
     color: #000;
 }
+#yellowButtonEye:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+    background-color: #000;
+    color: white;
+}
+#yellowButton:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+    background-color: #000;
+    color: gold;
+}
 .profile-img {
     width: 35px;
     height: 35px;

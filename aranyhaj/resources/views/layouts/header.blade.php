@@ -26,7 +26,13 @@
                         <a href="/registration">Regisztráció</a>
                         <a href="/user">Fiókom</a>
                         <a class="nav-item">
-                            <button class="dropdown-item" type="submit">Kijelentkezés</button></a>
+                        @auth
+                            <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn dropdown-item" type="submit">Kijelentkezés</button>
+                            </form>
+                        @endauth
                     </div>
                 </div>
                 <script>

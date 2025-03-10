@@ -32,7 +32,7 @@
                         <label for="password">Jelszó</label>
                         <div class="input-group">
                             <input type="password" id="password" class="form-control" name="password" placeholder="Jelszó">
-                            <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                            <button id="button" type="button" id="togglePassword" class="btn btn-outline-secondary">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
                         </div>
@@ -50,18 +50,18 @@
                                 // Ikon változtatás
                                 const icon = togglePassword.querySelector("i");
                                 if (type === "password") {
-                                    icon.classList.remove("bi-eye-slash");
-                                    icon.classList.add("bi-eye");
+                                    icon.classList.remove("fa-eye-slash");
+                                    icon.classList.add("fa-eye");
                                 } else {
-                                    icon.classList.remove("bi-eye");
-                                    icon.classList.add("bi-eye-slash");
+                                    icon.classList.remove("fa-eye");
+                                    icon.classList.add("fa-eye-slash");
                                 }
                             });
                         });
-                    </script> <br>
+                    </script><br>
                     <div class="mb-3">
                         <div class="d-grid">
-                            <button id="darkBrownButton" class="btn btn-primary">Regisztráció</button><br>
+                            <button id="button" id="darkBrownButton" class="btn btn-primary">Regisztráció</button><br>
                         </div>
                     </div>
                 </form>

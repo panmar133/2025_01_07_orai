@@ -24,7 +24,7 @@
                         <label for="password" class="form-label">Jelszó</label>
                         <div class="input-group">
                             <input type="password" name="password" class="form-control" id="password" required>
-                            <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                            <button id="yellowButtonEye" type="button" id="togglePassword" class="btn btn-outline-secondary">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
                         </div>
@@ -55,7 +55,7 @@
 
                     <div class="mb-2">
                         <div class="d-grid mt-4">
-                            <button id="darkBrownButton" class="btn btn-primary">Bejelentkezés</button>
+                            <button id="button" class="btn btn-dark">Bejelentkezés</button>
                         </div>
                         <div class="mt-5"></div> <!-- Extra hely a gomb után -->
                     </div>

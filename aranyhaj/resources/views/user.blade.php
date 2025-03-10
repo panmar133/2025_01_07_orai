@@ -28,7 +28,7 @@
                     <form action="{{ route('profile.updateUrl') }}" method="POST">
                     @csrf
                     <input type="text" class="form-control mb-2" name="profileUrlTb" placeholder="Profilkép URL" value="{{ Auth::user()->image_name }}">
-                    <button type="submit" class="btn btn-dark w-100">Mentés</button>
+                    <button id="button" type="submit" class="btn btn-dark w-100">Mentés</button>
                     </form>
                 </div>
 
@@ -48,7 +48,7 @@
                         <form action="{{ route('email.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="text" class="form-control mb-2" name="profileEmail" placeholder="Email cím" value="{{ Auth::user()->email }}">
-                            <button type="submit" class="btn btn-dark w-100">Mentés</button>
+                            <button id="button" type="submit" class="btn btn-dark w-100">Mentés</button>
                         </form>
 
                         <!-- Jelszó módosítása gomb -->
@@ -57,14 +57,14 @@
                             <input type="password" class="form-control" id="currentPassword" name="current_password" placeholder="Jelenlegi jelszó" required>
                             <input type="password" class="form-control" name="password" placeholder="Új jelszó" required>
                             <input type="password" class="form-control" name="password_confirmation" placeholder="Új jelszó megerősítése" required>
-                            <button type="submit" class="btn btn-dark w-100">Jelszó módosítás</button>
+                            <button id="button" type="submit" class="btn btn-dark w-100">Jelszó módosítás</button>
                         </form>
 
                         <!-- Lakcím módosítása gomb -->
                         <form action="{{ route('address.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="text" class="form-control mb-2" name="profileAddress" placeholder="Lakcím" value="{{ Auth::user()->address }}">
-                            <button type="submit" class="btn btn-dark w-100">Mentés</button>
+                            <button id="button" type="submit" class="btn btn-dark w-100">Mentés</button>
                         </form>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
         <!-- Ha nincs bejelentkezve -->
         <div class="text-center">
             <h2>Bejelentkezés szükséges</h2>
-            <a href="{{ route('login') }}" class="btn btn-primary">Bejelentkezés</a>
+            <a id="button" href="{{ route('login') }}" class="btn btn-dark">Bejelentkezés</a>
         </div>
     @endauth
 </main>

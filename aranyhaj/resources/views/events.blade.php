@@ -48,7 +48,7 @@
                             <form action="{{ route('event.participate') }}" method="POST" class="d-inline">
                                 @csrf
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                <button type="submit" class="btn btn-warning">Részt veszek</button>
+                                <button id="yellowButton" type="submit" class="btn btn-warning">Részt veszek</button>
                             </form>
                         </div>
 
@@ -59,7 +59,7 @@
     </div>
 </main><br>
 <div class="text d-flex justify-content-center">
-    <a href="/adminEvent" class="btn btn-dark col-lg-3 text-center">Esemény hozzáadása</a>
+    <a id="button" href="/adminEvent" class="btn btn-dark col-lg-3 text-center">Esemény hozzáadása</a>
 </div><br>
 @endsection
 <!-- Lezárás -->
