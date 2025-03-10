@@ -33,23 +33,23 @@
                     <div class="form-group">
                         <label for="password">Jelszó</label>
                         <div class="input-group">
-                            <input type="password" id="password" class="form-control" name="password" placeholder="Jelszó">
-                            <button id="button" type="button" id="togglePassword" class="btn btn-outline-secondary">
-                                <i class="fa-solid fa-eye-slash"></i>
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                            <button id="yellowButtonEye" type="button" class="btn btn-dark">
+                                <i class="fa-solid fa-eye"></i>
                             </button>
                         </div>
                     </div>
                     <script>
                         document.addEventListener("DOMContentLoaded", function () {
-                            const togglePassword = document.getElementById("togglePassword");
+                            const togglePassword = document.getElementById("yellowButtonEye");
                             const passwordField = document.getElementById("password");
 
                             togglePassword.addEventListener("click", function () {
-                                // Jelszó típus váltása
+                                // Toggle password field visibility
                                 const type = passwordField.type === "password" ? "text" : "password";
                                 passwordField.type = type;
 
-                                // Ikon változtatás
+                                // Toggle icon (Font Awesome icons)
                                 const icon = togglePassword.querySelector("i");
                                 if (type === "password") {
                                     icon.classList.remove("fa-eye-slash");
@@ -63,7 +63,7 @@
                     </script><br>
                     <div class="mb-3">
                         <div class="d-grid">
-                            <button id="button" id="darkBrownButton" class="btn btn-primary">Regisztráció</button><br>
+                            <button id="button" class="btn btn-dark">Regisztráció</button><br>
                         </div>
                     </div>
                 </form>

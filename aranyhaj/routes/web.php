@@ -5,14 +5,16 @@ use App\Http\Controllers\SalonController;
 use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
+
+
 
 /* Authentication */
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+Route::get('/registration', [AuthController::class, 'register'])->name('register');
+Route::post('/registration', [AuthController::class, 'registerPost'])->name('register');
 Route::get('/log', [AuthController::class, 'login'])->name('login');
 Route::post('/log', [AuthController::class, 'loginPost'])->name('login');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 /* Home */
 Route::get('/', [HomeController::class, 'index']);
@@ -43,7 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/updatePassword', [ProfileController::class, 'changePassword'])->name('password.change');
     Route::post('/profile/updateAddress', [ProfileController::class, 'changeAddress'])->name('address.change');
 });
-
 /* Static Pages */
 Route::view('/user', 'user'); // user.blade.php
 Route::view('/donate', 'donate'); // donate.blade.php

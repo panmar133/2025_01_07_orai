@@ -21,18 +21,22 @@
                 <div class="dropdown">
                     <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" 
                         data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                    <div class="dropdown-content" id="dropdown-content">
-                        <a href="/log">Bejelentkezés</a>
-                        <a href="/registration">Regisztráció</a>
-                        <a href="/user">Fiókom</a>
-                        <a class="nav-item">
+                        <div class="dropdown-content" id="dropdown-content">
+                        @guest
+                            <!-- Ha nincs bejelentkezve, akkor a bejelentkezés és regisztráció linkek jelennek meg -->
+                            <a href="/log">Bejelentkezés</a>
+                            <a href="/registration">Regisztráció</a>
+                        @endguest
+
                         @auth
-                            <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn dropdown-item" type="submit">Kijelentkezés</button>
-                            </form>
-                        @endauth
+                        <!-- Ha be van jelentkezve, akkor a fiók link és kijelentkezés gomb jelennek meg -->
+                        <a href="/user" class="btn dropdown-item">Fiókom</a>
+                        <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                            @csrf
+                            @method('DELETE')
+                            <a><button id="button" class="btn dropdown-item" type="submit">Kijelentkezés</button></a>
+                        </form>
+                    @endauth
                     </div>
                 </div>
                 <script>

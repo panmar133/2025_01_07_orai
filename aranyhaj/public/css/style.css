@@ -3,6 +3,7 @@ body {
     font-family:  Helvetica;
     display: flex;
     flex-direction: column;
+    font-size: 1.2em;
 }
 html, body {
     height: 100%;
@@ -17,53 +18,51 @@ header {
     background-color: #ffffff;
     padding: 20px 0;
     text-align: center;
+    margin-bottom: 1%;
 }
 
 #FirstContentMainPage {
     box-shadow: 0px 0px 2px 4px #f3e8d7;
     padding-top: 2%;
     padding-bottom: 2%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
 }
 
 #SecondContentMainPage {
     box-shadow: 0px 0px 2px 4px #f3e8d7;
     padding-top: 2%;
     padding-bottom: 2%;
+    margin-bottom: 10%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
 }
+#ThirdContentMainPage {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+.container .row {
+    animation: fadeInScale 2s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+
+#buttonImage:hover {
+    transform: scale(1.01); 
+    box-shadow: 0 3px 12px rgba(255, 193, 5, 0.516); 
+}
+
 #logo {
     height: 10em;
     mix-blend-mode: multiply;
     position: relative;
     animation: fadeIn 2.5s ease-in-out;
     z-index: 2;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-#Search {
-    transition: transform 0.3s ease; 
-}
-
-#Search:hover {
-    transform: scale(1.1);
-}
-.search-input {
-    max-width: 350px !important;
-    width: 100%;
-    height: 40px;
-    font-size: 1.1em;
-}
-.btn-search {
-    border: none;
-    padding: 10px 15px;
-}
-.dropdown {
-    position: relative;
-}
-
-.dropdown img {
-    cursor: pointer;
 }
 .header .d-flex {
     justify-content: center;
@@ -80,12 +79,14 @@ header {
     transition: 0.2s;
 }
 #girl {
-    border-radius: 8%;
-    width: 20em;
-    transition: width 0.3s ease-in-out;
+    width: 22em;
+    max-height: 100%;
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 0.9em;
+    }
     #girl {
         width: 16em;
     }
@@ -196,6 +197,7 @@ hr {
     color: gold;
 }
 .profile-img {
+    margin-right: 5%;
     width: 35px;
     height: 35px;
     background-image: url("{{ asset('images/profil.png') }}");
@@ -216,7 +218,14 @@ hr {
     border-left: none;
     background-color: transparent;
 }
- 
+.dropdown {
+    position: relative;
+}
+
+.dropdown img {
+    cursor: pointer;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -224,6 +233,8 @@ hr {
     min-width: 160px;
     box-shadow: 0 4px 4px #f3e8d7;
     z-index: 1;
+    right: 0;
+    left: auto;
 }
   
 .dropdown-content a {
@@ -423,11 +434,16 @@ footer ul li:hover {
     font-family: Brush Script;
     color: #000000;
     text-shadow: 0.45px 0.45px #000;
+    animation: fadeIn 1s ease-in-out;
+}
+#eventTitle:hover {
+    transform: scale(1.01);
 }
 a {
     text-decoration: none;
     color: black;
 }
+
 div p a {
     padding-right: 5px;
 }
@@ -482,5 +498,20 @@ div p a {
 
     #event-page h1 {
         font-size: 2rem;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }

@@ -26,30 +26,30 @@
                         <label for="password" class="form-label">Jelszó</label>
                         <div class="input-group">
                             <input type="password" name="password" class="form-control" id="password" required>
-                            <button id="yellowButtonEye" type="button" id="togglePassword" class="btn btn-outline-secondary">
-                                <i class="fa-solid fa-eye-slash"></i>
+                            <button id="yellowButtonEye" type="button" id="togglePassword" class="btn btn-dark">
+                                <i class="fa-solid fa-eye"></i>
                             </button>
                         </div>
                     </div>
 
                     <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const togglePassword = document.getElementById("togglePassword");
+                         document.addEventListener("DOMContentLoaded", function () {
+                            const togglePassword = document.getElementById("yellowButtonEye");
                             const passwordField = document.getElementById("password");
 
                             togglePassword.addEventListener("click", function () {
-                                // Jelszó típus váltása
+                                // Toggle password field visibility
                                 const type = passwordField.type === "password" ? "text" : "password";
                                 passwordField.type = type;
 
-                                // Ikon változtatás
+                                // Toggle icon (Font Awesome icons)
                                 const icon = togglePassword.querySelector("i");
                                 if (type === "password") {
-                                    icon.classList.remove("bi-eye-slash");
-                                    icon.classList.add("bi-eye");
+                                    icon.classList.remove("fa-eye-slash");
+                                    icon.classList.add("fa-eye");
                                 } else {
-                                    icon.classList.remove("bi-eye");
-                                    icon.classList.add("bi-eye-slash");
+                                    icon.classList.remove("fa-eye");
+                                    icon.classList.add("fa-eye-slash");
                                 }
                             });
                         });
