@@ -31,6 +31,5 @@ class SalonController extends Controller
     {
         $salon = Salon::findOrFail($id); // Az adott szalon keresése az ID alapján
         return view('events.salon', compact('salon'));
-
     }
 }

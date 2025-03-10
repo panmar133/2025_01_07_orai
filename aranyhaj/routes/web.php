@@ -50,17 +50,4 @@ Route::view('/donate', 'donate'); // donate.blade.php
 Route::view('/about', 'about'); // about.blade.php
 Route::view('/help', 'help'); // help.blade.php
 
-/* Select-Based Redirect */
-Route::get('/redirect', function () {
-    $routes = [
-        'log' => '/log',
-        'registration' => '/registration',
-        'user' => '/user',
-        'donate' => '/donate',
-        'about' => '/about',
-        'events' => '/events',
-        'salons' => '/salons'
-    ];
 
-    return redirect($routes[request('select')] ?? '/');
-});
