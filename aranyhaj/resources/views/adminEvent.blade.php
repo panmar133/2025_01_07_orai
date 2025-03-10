@@ -25,8 +25,8 @@
                         <input type="text" name="address" class="form-control" id="email" placeholder="Címe" required>
                     </div>
                     <div class="mb-3">
-                        <label for="location" class="form-label">Esemény időpontja</label>
-                        <input type="text" name="address" class="form-control" id="email" placeholder="időpontja" required>
+                        <label for="date" class="form-label">Esemény időpontja</label>
+                        <input type="date" name="date" class="form-control" id="email" placeholder="időpontja" required>
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label">Esemény képre</label>

@@ -36,5 +36,8 @@
                 .catch(error => alert('Failed to copy text: ' + error));
         }
     </script>
-</main>
+</main><br>
+<div class="text d-flex justify-content-center">
+    <a href="/adminSalon" class="btn btn-dark col-lg-3 text-center">Szalon hozzáadása</a>
+</div><br>
 @endsection

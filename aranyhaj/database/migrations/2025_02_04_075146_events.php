@@ -14,11 +14,12 @@ return new class extends Migration
         //
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->string('title', 50);
             $table->string('location', 150)->nullable();
-            $table->string('information', 500)->nullable();
+            $table->string('short_information')->nullable();
+            $table->text('information')->nullable();
             $table->string('image_name', 500)->nullable()->default('https://cdni.iconscout.com/illustration/premium/thumb/event-planning-illustration-download-in-svg-png-gif-file-formats--plan-party-managing-service-manager-pack-entertainment-illustrations-4693328.png');
-            $table->timestamp('posted_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('starts_at');
             $table->timestamps();
         });

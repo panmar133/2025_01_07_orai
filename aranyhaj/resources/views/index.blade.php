@@ -39,10 +39,10 @@ Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél 
         <div id="ThirdContentMainPage" class="d-flex justify-content-center gap-4 flex-wrap">
             <div class="card text-center">
                 <a href="/events">
-                    <img src="{{ asset('images/event.png') }}" class="card-img-top" alt="events">
+                    <img  src="{{ asset('images/event.png') }}" class="card-img-top" alt="events">
                 </a>
                 <div class="card-body">
-                    <a href="/events" class="btn btn-dark">Események</a>
+                    <a id="button" href="/events" class="btn btn-dark">Események</a>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@ Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél 
                     <img src="{{ asset('images/salon.png') }}" class="card-img-top" alt="salons">
                 </a>
                 <div class="card-body">
-                    <a href="/salons" class="btn btn-dark">Szalonok</a>
+                    <a id="button" href="/salons" class="btn btn-dark">Szalonok</a>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@ Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél 
                     <img src="{{ asset('images/donate.png') }}" class="card-img-top" alt="donations">
                 </a>
                 <div class="card-body">
-                    <a href="/donate" class="btn btn-dark">Adományozok</a>
+                    <a id="button" href="/donate" class="btn btn-dark">Adományozok</a>
                 </div>
             </div>
         </div>
