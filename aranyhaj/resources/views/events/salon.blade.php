@@ -1,8 +1,10 @@
-@extends('layouts.layoutSearch')
+@extends("layouts.layout")
+<!-- Fejléc kiszedés -->
+@section("title", "Adományozok")
+<!-- Cím adás az oldalnak változó által -->
+@section("content")
+<!-- Kontent kiszedés -->
 
-@section('title', $salon->salon_name)
-
-@section('content')
 <main>
     <div class="container">
         <div class="row">
@@ -13,7 +15,7 @@
                         <h1 class="text-center">{{ $salon->salon_name }}</h1><hr><br>
                         <div class="text-center">
                             <strong>Szalon helye:</strong>
-                            <a class="copy-text" onclick="copyText(this)" 
+                            <a class="copy-text" onclick="copyText(this)" id="copyLink"
                                 data-city="{{ $salon->city }}" data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
                                 {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
                             </a>
@@ -38,4 +40,5 @@
             .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>
+<!-- Lezárás -->
 @endsection

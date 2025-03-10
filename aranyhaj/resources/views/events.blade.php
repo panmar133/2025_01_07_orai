@@ -1,9 +1,10 @@
-@extends("layouts.layoutSearch")
+@extends("layouts.layout")
 <!-- Fejléc kiszedés -->
 @section("title", "Események")
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
+
 <main>
     <h1 id="eventTitle" class="text-center">Események</h1>
     <div class="container">
@@ -61,5 +62,6 @@
 <div class="text d-flex justify-content-center">
     <a id="button" href="/adminEvent" class="btn btn-dark col-lg-3 text-center">Esemény hozzáadása</a>
 </div><br>
+
 @endsection
 <!-- Lezárás -->

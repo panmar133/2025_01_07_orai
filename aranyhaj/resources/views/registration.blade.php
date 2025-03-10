@@ -1,5 +1,7 @@
 @extends("layouts.layout")
+<!-- Fejléc kiszedés -->
 @section("title", "Regisztráció")
+<!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
 
@@ -68,6 +70,7 @@
             </div>
         </div>
     </div>
-</div>
-<br>
+</div><br>
+
 @endsection
+<!-- Lezárás -->

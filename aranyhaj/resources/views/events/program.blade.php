@@ -19,7 +19,10 @@
                         <div class="col-12 mb-3">
                             <p><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
                         </div>
-                        <p><strong>Location:</strong> {{ $event->location }}</p>
+                        <p><strong>Esemény helyszíne:</strong>
+                            <a class="copy-text" onclick="copyText(this)" id="copyLink"="{{ $event->location }}">
+                                {{ $event->location }}</a></p>
+
                         <p><strong>Likeok száma:</strong> {{ $event->likes_count ?? 0 }}</p>
                         <p><strong>Résztvevők száma:</strong> {{ $event->participants_count ?? 0 }}</p>
                         <p><strong>Rövid leírás:</strong> {{ $event->short_information }}</p>
@@ -31,6 +34,18 @@
         </div>
     </div>
 </main><br>
+
+
+<script>
+    function copyText(element) {
+        const location = element.getAttribute(' data-location');
+
+        navigator.clipboard.writeText(location)
+            .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
+            .catch(error => alert('Nem sikerült lementened: ' + error));
+    }
+</script>
+
 <!-- Lezárás -->
 @endsection
 

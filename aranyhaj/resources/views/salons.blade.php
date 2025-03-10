@@ -1,8 +1,10 @@
-@extends("layouts.layoutSearch")
-
+@extends("layouts.layout")
+<!-- Fejléc kiszedés -->
 @section("title", "Szalonok")
-
+<!-- Cím adás az oldalnak változó által -->
 @section("content")
+<!-- Kontent kiszedés -->
+
 <main>
     <h1 id="eventTitle" class="text-center">Szalonok</h1>
     <div class="container">
@@ -18,7 +20,7 @@
                             <div class="mt-auto">
                                 <p class="card-text">
                                     <strong>Szalon helye:</strong>
-                                    <a class="copy-text" onclick="copyText(this)" 
+                                    <a id="copyLink" class="copy-text" onclick="copyText(this)" 
                                         data-city="{{ $salon->city }}" data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
                                         {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
                                     </a>
@@ -44,7 +46,10 @@
         }
     </script>
 </main><br>
+
 <div class="text d-flex justify-content-center">
     <a id="button" href="/adminSalon" class="btn btn-dark col-lg-3 text-center">Szalon hozzáadása</a>
 </div><br>
+
 @endsection
+<!-- Lezárás -->

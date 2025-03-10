@@ -5,18 +5,21 @@
 @section("content")
 <!-- Kontent kiszedés -->
 <main>
-        <div id="FirstContentMainPage" class="card px-3 px-md-5 mt-5 mx-auto" style="max-width: 90%;">
+        <!-- Első "kártya" a fő menüben gombbal. Leírás, hogy miért jó hajat adományozni.-->
+        <div id="FirstContentMainPage"  class="card px-3 px-md-5 mt-5 mx-auto" style="max-width: 90%;">
             <h3><b>Adj reményt egy kis szeretettel! </b></h3><br> 
-            <p>Üdvözlünk a hajadományozás közösségében!
-
-Mi azért hoztuk létre ezt a platformot, hogy összekössük azokat, akik segíteni szeretnének, azokkal, akiknek igazán szükségük van rá. A hajadományozás nem csupán egy gesztus – ez egy lehetőség arra, hogy valaki újra önmagára találjon.
-
-Sokan küzdenek betegségek, kezelések vagy genetikai tényezők miatt hajhullással, ami nemcsak a külsőt, hanem az önbizalmat és a lelki jólétet is befolyásolhatja. Egy adományozott hajtincs azonban reményt és örömöt hozhat azok életébe, akik elveszítették saját hajukat.
-
-Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél részese ennek a különleges közösségnek, amelyben minden hajszál egy új mosolyt jelenthet valakinek. </p>
-            <a id="button" href="/donate" class="btn btn-dark btn-sm d-block mx-auto">Adományozni szeretnék</a> <br>
+            <p>Üdvözlünk a hajadományozás közösségében! Mi azért hoztuk létre ezt a platformot, hogy összekössük azokat,
+                akik segíteni szeretnének, azokkal, akiknek igazán szükségük van rá. A hajadományozás nem csupán egy gesztus
+                – ez egy lehetőség arra, hogy valaki újra önmagára találjon. Sokan küzdenek betegségek, kezelések
+                vagy genetikai tényezők miatt hajhullással, ami nemcsak a külsőt, hanem az önbizalmat
+                és a lelki jólétet is befolyásolhatja. Egy adományozott hajtincs azonban reményt
+                és örömöt hozhat azok életébe, akik elveszítették saját hajukat.Ha Te is szeretnéd támogatni
+                ezt a nemes ügyet, csatlakozz hozzánk! Legyél részese ennek a különleges közösségnek,
+                amelyben minden hajszál egy új mosolyt jelenthet valakinek.</p><br>
+            <a id="button" href="/donate" class="btn btn-dark d-block mx-auto">Adományozni szeretnék</a> 
         </div>
         
+                <!-- Második "kártya" a fő menüben képpel. Válaszok kérdésekkre a kontexusa a szövegnek.-->
         <div id="SecondContentMainPage" class="card px-3 px-md-5 mt-5 mb-5 mx-auto" style="max-width: 90%;">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -65,6 +68,7 @@ Ha Te is szeretnéd támogatni ezt a nemes ügyet, csatlakozz hozzánk! Legyél 
             </div>
         </div>
     </div><br>
-    </main>
+</main>
+
 @endsection
 <!-- Lezárás -->

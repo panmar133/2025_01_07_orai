@@ -1,8 +1,9 @@
 @extends("layouts.layout")
-
+<!-- Fejléc kiszedés -->
 @section("title", "Fiókom")
-
+<!-- Cím adás az oldalnak változó által -->
 @section("content")
+<!-- Kontent kiszedés -->
 <main class="container py-5">
     @auth    
         <div class="card shadow-lg p-4">
@@ -78,4 +79,6 @@
         </div>
     @endauth
 </main>
+
 @endsection
+<!-- Lezárás -->
