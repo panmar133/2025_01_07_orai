@@ -49,5 +49,5 @@ Route::view('/user', 'user'); // user.blade.php
 Route::view('/donate', 'donate'); // donate.blade.php
 Route::view('/about', 'about'); // about.blade.php
 Route::view('/help', 'help'); // help.blade.php
-
-
+Route::view('/adminEvent', 'adminEvent'); // adminEvent.blade.php
+Route::view('/adminSalon', 'adminSalon'); // adminSalon.blade.php

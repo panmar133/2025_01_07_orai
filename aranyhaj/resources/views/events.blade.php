@@ -54,5 +54,6 @@
         </div>
     </div>
 </main><br>
+<a href="/adminEvent"><button>Esemény hozzá adása</button></a>
 @endsection
 <!-- Lezárás -->

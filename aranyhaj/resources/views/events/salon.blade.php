@@ -1,5 +1,3 @@
-<!-- resources/views/salons/show.blade.php -->
-
 @extends('layouts.layoutSearch')
 
 @section('title', $salon->salon_name)
