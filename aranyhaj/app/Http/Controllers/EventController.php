@@ -23,9 +23,14 @@ class EventController extends Controller
     return view('events', compact('events'));
     }
     public function show($id)
-    {
-        $event = Event::findOrFail($id);  
-        return view('events.program', compact('event'));
-    }
+{
+    $event = Event::withCount([
+        'likes as likes_count',
+        'participants as participants_count'
+    ])->findOrFail($id);
+
+    return view('events.program', compact('event'));
+}
+
 }
 
