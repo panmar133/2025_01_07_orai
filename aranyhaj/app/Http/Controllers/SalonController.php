@@ -1,24 +1,36 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Salon;
 use Illuminate\View\View;
 
 class SalonController extends Controller
 {
+    // Főoldalhoz szalonok listázása (owner nélkül)
     public function index(): View
     {
-        $salons = Salon::with('owner')->get(); 
-        return view('salons.index', compact('salons'));
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
+        return view('salons', compact('salons'));
     }
 
+    // Összes szalon listázása (owner nélkül)
     public function listAllSalons(): View
     {
-        $salons = Salon::all();
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
         return view('salons', ['salons' => $salons]);
     }
 
+    // Külön metódus a szalon adatokhoz (owner nélkül)
+    public function showSalonsDatas() 
+    {
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
+        return view('salons', compact('salons'));
+    }
+    public function show($id)
+    {
+        $salon = Salon::findOrFail($id); // Az adott szalon keresése az ID alapján
+        return view('events.salon', compact('salon'));
+
+    }
 }

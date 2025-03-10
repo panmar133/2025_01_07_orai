@@ -22,7 +22,7 @@
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="mb-0"><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y/m/d H:i') }}órakor</p>
+                                    <p class="mb-0"><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y/m/d H:i') }} órakor</p>
                                 </div>
                             </div>
                             <img id="image" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3" style="width: 370px; height: auto;">

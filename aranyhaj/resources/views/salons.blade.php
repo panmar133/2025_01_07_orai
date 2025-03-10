@@ -1,57 +1,40 @@
 @extends("layouts.layoutSearch")
-<!-- Fejléc kiszedés -->
+
 @section("title", "Szalonok")
-<!-- Cím adás az oldalnak változó által -->
+
 @section("content")
-<!-- Kontent kiszedés -->
 <main>
     <h1 id="eventTitle" class="text-center">Szalonok</h1>
-<div class="container">
-    <div class="row">
-        @foreach ($salons as $salon)
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column" id="eventCards">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5 class="card-title">{{ $salon->salon_name }}</h5>
+    <div class="container">
+        <div class="row">
+            @foreach ($salons as $salon)
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column" id="eventCards">
+                            <h5 class="card-title">{{ $salon->salon_name }}</h5>
+                            <img id="image" src="{{ asset($salon->image_name) }}" alt="Szalon Kép" class="img-fluid my-3">
+                            <p class="card-text">{{ $salon->information }}</p>
+                            <a href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
+                            <div class="mt-auto">
+                                <p class="card-text">
+                                    <strong>Szalon helye:</strong>
+                                    <a class="copy-text" onclick="copyText()">{{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</a>
+                                </p>
                             </div>
-                            <div class="col-6 text-end">
-                                <p class="mb-1"><strong>Szalon tulajdonosa: </strong> {{$salon->owner->user_name ?? 'N/A'}}</p>
-                            </div>
-                        </div>
-                        <img id="image" src="{{ asset($salon->image_name) }}" alt="Szalon Kép" class="img-fluid my-3">
-
-                        <p class="card-text">{{ $salon->information }}</p>
-
-                        <div class="mt-auto">
-                            <p class="card-text">
-                                <strong>Szalon helye:</strong>
-                                <a class="copy-text" onclick="copyText()">{{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</a>
-                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
-</div>
-<script>
+
+    <script>
         function copyText() {
-            // Select the text inside the paragraph
             const textToCopy = document.querySelector('.copy-text').innerText;
-
-            // Use the Clipboard API to copy the text to the clipboard
             navigator.clipboard.writeText(textToCopy)
-                .then(function() {
-                    alert('Text copied to clipboard!');
-                })
-                .catch(function(error) {
-                    alert('Failed to copy text: ' + error);
-                });
+                .then(() => alert('Text copied to clipboard!'))
+                .catch(error => alert('Failed to copy text: ' + error));
         }
-</script>
+    </script>
 </main>
-
 @endsection
-<!-- Lezárás -->
