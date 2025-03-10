@@ -13,6 +13,7 @@
                         <h1 class="text-center">{{ $salon->salon_name }}</h1><hr><br>
                         <div class="text-center">
                             <p><strong>Helyszín:</strong> {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}</p>
+                            <p><strong>Rövid leírás:</strong> {{ $salon->short_information }}</p>
                             <p><strong>Információ:</strong> {{ $salon->information }}</p>
                         </div>
                     </div>

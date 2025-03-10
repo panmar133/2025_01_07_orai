@@ -14,7 +14,7 @@
         @endif
         <div class="row">
             @foreach ($events as $event)
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="col-12 col-md-4 col-lg-4 mb-4">
                     <div class="card h-100">
                         <div class="card-body" id="eventCards">
                             <div class="row">
@@ -25,7 +25,10 @@
                                     <p class="mb-0"><strong>Időpontja:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y.M.d. H:i') }}</p>
                                 </div>
                             </div>
+
                             <img id="image" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid my-3" style="width: 370px; height: auto;">
+                            <p class="text-center">{{ $event->short_information }}</p>
+                            
                             <div class="d-flex justify-content-between align-items-center">
                                 <a id="button" href="{{ route('events.show', $event->id) }}" class="btn btn-dark">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">
@@ -34,6 +37,7 @@
                                 </p>
                             </div>
                         </div>
+
                         <div class="card-footer text-center" id="eventFooter">
                             <form action="{{ route('event.like') }}" method="POST" class="d-inline">
                                 @csrf

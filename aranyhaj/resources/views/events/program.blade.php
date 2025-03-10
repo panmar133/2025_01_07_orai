@@ -22,7 +22,8 @@
                         <p><strong>Location:</strong> {{ $event->location }}</p>
                         <p><strong>Likeok száma:</strong> {{ $event->likes_count ?? 0 }}</p>
                         <p><strong>Résztvevők száma:</strong> {{ $event->participants_count ?? 0 }}</p>
-                        <p>{{ $event->information }}</p>
+                        <p><strong>Rövid leírás:</strong> {{ $event->short_information }}</p>
+                        <p><strong>Leírás:</strong> {{ $event->information }}</p>
                     </div>
                     </div>
                 </div>
