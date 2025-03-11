@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->string('title', 50);
             $table->string('location', 150)->nullable();
+            $table->string('x-location', 20)->nullable();
+            $table->string('y-location', 20)->nullable();
             $table->string('short_information')->nullable();
             $table->text('information')->nullable();
             $table->string('image_name', 500)->nullable()->default('https://cdni.iconscout.com/illustration/premium/thumb/event-planning-illustration-download-in-svg-png-gif-file-formats--plan-party-managing-service-manager-pack-entertainment-illustrations-4693328.png');

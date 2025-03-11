@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('image_name', 500)->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbi3vhR6pmsVH4vEmM9xbYFajAJXlOaUFI6Q&s');
             $table->string('short_information', 150)->nullable();
             $table->text('information')->nullable();
-            $table->string('city', 21);
-            $table->string('street', 80);
-            $table->integer('zip_code');
+            $table->string('location', 150);
+            $table->string('x-location', 20)->nullable();
+            $table->string('y-location', 20)->nullable();
             $table->timestamps();
         });
     }

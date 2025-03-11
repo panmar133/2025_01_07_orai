@@ -19,9 +19,8 @@
 
                         <div class="salon-info text-center">
                             <p><strong>Szalon helye:</strong>
-                                <a class="copy-text" onclick="copyText(this)" id="copyLink" data-city="{{ $salon->city }}" 
-                                    data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
-                                    {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
+                                <a class="copy-text" onclick="copyText(this)" id="copyLink" data-location="{{ $salon->location}}">
+                                    {{ $salon->location}}
                                 </a>
                             </p>
                             <p><strong>Rövid leírás:</strong> {{ $salon->short_information }}</p>
@@ -35,13 +34,10 @@
 </main><br>
 <script>
     function copyText(element) {
-        const city = element.getAttribute('data-city');
-        const street = element.getAttribute('data-street');
-        const zipCode = element.getAttribute('data-zip-code');
-        const textToCopy = city + ' ' + street + ' ' + zipCode;
+        const location = element.getAttribute('data-location');
 
-        navigator.clipboard.writeText(textToCopy)
-            .then(() => alert('Lemmentetted ezt a helyszínt: ' + city + ' ' + street + ' ' + zipCode))
+        navigator.clipboard.writeText(location)
+            .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
             .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>

@@ -58,7 +58,7 @@
             <ul>
                 <li>Oszd meg a történetünket</li>
                 <li>Csatlakozz hozzánk</li>
-                <li>Adományoz bármilyen formában</li>
+                <li>Adományozz bármilyen formában</li>
                 <li>Támogasd kezdeményezésünket</li>
             </ul>
         </div>

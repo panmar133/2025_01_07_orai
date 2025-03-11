@@ -9,7 +9,7 @@ class Salon extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['salon_name', 'owner_id', 'image_name', 'information', 'city', 'street', 'zip_code'];
+    protected $fillable = ['salon_name', 'owner_id', 'image_name', 'information', 'location', 'x-location', 'y-location'];
 
     public function owner()
     {

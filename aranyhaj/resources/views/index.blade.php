@@ -24,8 +24,8 @@
                         Egy hajadomány nem csupán fizikai ajándék – ez egy új kezdet és egy mosoly forrása is lehet! </p>
                     <h3><b>Hogyan tudsz segíteni?</b></h3>
                     <ul>
-                        <li><b>Adományozd le a hajad – </b>Tudj meg többet az adományozás feltételeiről!</li>
-                        <li><b>Támogasd a kezdeményezést anyagilag –</b> Segítsd a paróka készítés költségeit!</li>
+                        <li><b>Adományozd el a hajad – </b>Tudj meg többet az adományozás feltételeiről!</li>
+                        <li><b>Támogasd a kezdeményezést –</b> és vegyél részt az eseményeinken</li>
                         <li><b>Oszd meg a történetünket –</b> Minél többen tudnak róla, annál több emberhez érhet el a segítség!</li>
                     </ul>
                 </div>

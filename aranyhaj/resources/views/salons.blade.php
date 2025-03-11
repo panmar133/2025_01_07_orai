@@ -24,8 +24,8 @@
                                 <p class="card-text">
                                     <strong>Szalon helye:</strong>
                                     <a id="copyLink" class="copy-text" onclick="copyText(this)" 
-                                        data-city="{{ $salon->city }}" data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
-                                        {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
+                                        data-location="{{ $salon->location }}">
+                                        {{$salon->location}} T
                                     </a>
                                 </p>
                             </div>
@@ -60,13 +60,10 @@
 
         //Cím másolása
         function copyText(element) {
-            const city = element.getAttribute('data-city');
-            const street = element.getAttribute('data-street');
-            const zipCode = element.getAttribute('data-zip-code');
-            const textToCopy = city + ' ' + street + ' ' + zipCode;
+            const location = element.getAttribute('data-location');
 
-            navigator.clipboard.writeText(textToCopy)
-                .then(() => alert('Lemmentetted ezt a helyszínt: ' + city + ' ' + street + ' ' + zipCode))
+            navigator.clipboard.writeText(location)
+                .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
                 .catch(error => alert('Nem sikerült lementened: ' + error));
         }
     </script>

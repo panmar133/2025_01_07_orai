@@ -58,7 +58,7 @@
             </div>
         </div><hr>
         <div class="container text-center" id="bottomHeader">
-            <p><a href="/donate">Adományozok</a></p>
+            <p><a href="/donate">Adományozók</a></p>
             <p><a href="/about">Rólunk</a></p>
             <p><a href="/events">Események</a></p>
             <p><a href="/salons">Szalonok</a></p>

@@ -10,21 +10,21 @@ class SalonController extends Controller
     // Főoldalhoz szalonok listázása (owner nélkül)
     public function index(): View
     {
-        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'x-location', 'y-location')->get();
         return view('salons', compact('salons'));
     }
 
     // Összes szalon listázása (owner nélkül)
     public function listAllSalons(): View
     {
-        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'x-information', 'y-information')->get();
         return view('salons', ['salons' => $salons]);
     }
 
     // Külön metódus a szalon adatokhoz (owner nélkül)
     public function showSalonsDatas() 
     {
-        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'city', 'street', 'zip_code')->get();
+        $salons = Salon::select('id', 'salon_name', 'image_name', 'information', 'x-information', 'y-information')->get();
         return view('salons', compact('salons'));
     }
     public function show($id)
