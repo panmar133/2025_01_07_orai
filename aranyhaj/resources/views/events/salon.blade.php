@@ -5,20 +5,25 @@
 @section("content")
 <!-- Kontent kiszedés -->
 
-<main>
+<main id="salon-page">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card salon-card">
                     <div class="card-body">
-                        <img src="{{ asset($salon->image_name) }}" class="img-fluid" alt="Szalon kép">
-                        <h1 class="text-center">{{ $salon->salon_name }}</h1><hr><br>
-                        <div class="text-center">
-                            <strong>Szalon helye:</strong>
-                            <a class="copy-text" onclick="copyText(this)" id="copyLink"
-                                data-city="{{ $salon->city }}" data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
-                                {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
-                            </a>
+                        <div class="salon-header text-center">
+                            <img src="{{ asset($salon->image_name) }}" class="salon-image img-fluid" alt="Szalon kép">
+                            <h1 class="salon-title">{{ $salon->salon_name }}</h1>
+                            <hr class="salon-separator">
+                        </div>
+
+                        <div class="salon-info text-center">
+                            <p><strong>Szalon helye:</strong>
+                                <a class="copy-text" onclick="copyText(this)" id="copyLink" data-city="{{ $salon->city }}" 
+                                    data-street="{{ $salon->street }}" data-zip-code="{{ $salon->zip_code }}">
+                                    {{ $salon->city }} {{ $salon->street }} {{ $salon->zip_code }}
+                                </a>
+                            </p>
                             <p><strong>Rövid leírás:</strong> {{ $salon->short_information }}</p>
                             <p><strong>Információ:</strong> {{ $salon->information }}</p>
                         </div>

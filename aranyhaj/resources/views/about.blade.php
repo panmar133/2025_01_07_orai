@@ -15,7 +15,7 @@
         </div>
             <button id="prev" class="nav-button">&lt;</button>
             <button id="next" class="nav-button">&gt;</button>
-        </div>
+        </div> <br>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 let currentIndex = 0;
@@ -29,7 +29,6 @@
                     } else if (index < 0) {
                         currentIndex = totalSlides - 1;  // Vissza az utolsó képre
                     }
-
                     slides.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
                 }
 
@@ -51,8 +50,8 @@
         </script>
 
         <div id="aboutText">
-            <p>Mi, azért hoztuk létre ezt az oldalt, mert hiszünk abban, hogy közösen nagy dolgokat érhetünk el. Az adománygyűjtés számunkra nemcsak egy lehetőség, hanem egy küldetés, amely segít jobbá tenni a világot.</p>
-        </div>
+            <p style="max-width:900px">Mi, azért hoztuk létre ezt az oldalt, mert hiszünk abban, hogy közösen nagy dolgokat érhetünk el. Az adománygyűjtés számunkra nemcsak egy lehetőség, hanem egy küldetés, amely segít jobbá tenni a világot.</p>
+        </div> <br>
 
         <div id="aboutAlignLeft">
             <p><b> Hogyan segíthetsz? </b></p>

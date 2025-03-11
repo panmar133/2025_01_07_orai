@@ -15,7 +15,7 @@
                         <div id="aboutAlignLeft">
                             <ol>
                                 <li>Ellenőrizd a hajhosszúságot – A minimális hossz 35cm</li>
-                                <li>Válassz egy szalont – Keresd meg a hozzád legközelebb esőt.</li>
+                                <li><a href="/salons" id="salonChoseOnDonatePage">Válassz egy szalont </a>– Keresd meg a hozzád legközelebb esőt.</li>
                                 <li>Lépj kapcsolatba velük – Egyeztess időpontot a hajvágásra és az adományozás részleteiről.</li>
                                 <li>Tiszta, száraz, összefogott hajjal érkezz a vágásra!</li>
                             </ol>
