@@ -1,10 +1,8 @@
 @extends("layouts.layout")
-<!-- Fejléc kiszedés -->
-@section("title", "Adományozok")
-<!-- Cím adás az oldalnak változó által -->
-@section("content")
-<!-- Kontent kiszedés -->
 
+@section("title", "Adományozok")
+
+@section("content")
 <main id="donation-page"> 
     <div class="container">
         <div class="row">
@@ -15,40 +13,43 @@
                         <h1 class="text-center my-4">{{ $event->title }}</h1>
                         <hr class="mb-4">
                         
-                        <div>
                         <!-- Google Maps beágyazott térkép -->
-                            <div class="map-container my-4">
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q={{ urlencode($event->location) }}"
-                                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="">
-                                </iframe>
-                            </div>
+                        <div class="map-container my-4">
+                            <iframe
+                                id="mapFrame"
+                                width="600"
+                                height="450"
+                                style="border:0"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
 
                         <div class="event-details text-start">
                             <div class="row">
-                                        <div class="col-md-6 mb-1">
-                                            <p><strong>Közzétéve:</strong> {{ \Carbon\Carbon::parse($event->posted_time)->format('Y-m-d H:i') }}</p>
-                                        </div>
-                                        <div class="col-md-6 mb-1">
-                                            <p><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
-                                        </div>
-                                    </div>
-                        <div class="event-details text-start">
+                                <div class="col-md-6 mb-1">
+                                    <p><strong>Közzétéve:</strong> {{ \Carbon\Carbon::parse($event->posted_time)->format('Y-m-d H:i') }}</p>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <p><strong>Esemény kezdete:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
+                                </div>
+                            </div>
+
                             <div class="row">
-                            <div class="col-md-3 mb-1">
-                                    <p><strong>Résztvevők száma:</strong> 
-                                        {{ $event->participants_count ?? 0 }}</span>
-                                    </p>
+                                <div class="col-md-3 mb-1">
+                                    <p><strong>Résztvevők száma:</strong> {{ $event->participants_count ?? 0 }}</p>
                                 </div>
                                 <div class="col-md-8 mb-1">
                                     <p><strong>Helyszín:</strong>
-                                    <a class="copy-text" onclick="copyText(this)" id="copyLink"
-                                    data-location="{{ $event->location }}">$cim = urlencode({{ $event->location }});
-                                    </a></p>   
+                                        <a class="copy-text" onclick="copyText(this)" id="copyLink"
+                                        data-location="{{ $event->location }}">
+                                            {{ $event->location }}
+                                        </a>
+                                    </p>   
                                 </div>
                             </div>
-                        </div>
+
                             <p><strong>Rövid leírás:</strong> {{ $event->short_information }}</p>
                             <p><strong>Leírás:</strong> {{ $event->information }}</p>
                             
@@ -71,20 +72,29 @@
             </div>
         </div>
     </div>
-</main><br>
+</main>
 
 <script>
+    function formatAddress(address) {
+        return address.replace(/\s+/g, "+"); 
+    }
+
+    // Ensure the location is a valid string
+    let address = {!! json_encode($event->location) !!};
+    let formattedAddress = formatAddress(address);
+    console.log(formattedAddress); // Debugging
+
+    // Set the Google Maps iframe source dynamically
+    document.getElementById("mapFrame").src = `https://www.google.com/maps?q=${formattedAddress}&output=embed`;
+
     function copyText(element) {
         const location = element.getAttribute('data-location');
-        // URL kódolás JavaScript-ben
-        const cim = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
+        const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-        navigator.clipboard.writeText(cim)
-            .then(() => alert('Lemmentetted ezt a helyszínt: ' + cim))
-                    .catch(error => alert('Nem sikerült lementened: ' + error));
+        navigator.clipboard.writeText(mapUrl)
+            .then(() => alert('Lemmentetted ezt a helyszínt: ' + mapUrl))
+            .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>
 
-<!-- Lezárás -->
 @endsection
-

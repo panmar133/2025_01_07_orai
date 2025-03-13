@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('short_information', 150)->nullable();
             $table->text('information')->nullable();
             $table->string('location', 150);
-            $table->string('x-location', 20)->nullable();
-            $table->string('y-location', 20)->nullable();
             $table->timestamps();
         });
     }
