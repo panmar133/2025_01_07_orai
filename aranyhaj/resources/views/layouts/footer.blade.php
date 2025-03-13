@@ -2,7 +2,7 @@
     <div id="footerLeft">
         <h3>Közösségi Média</h3>
         <ul>
-            <li><a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+            <li><a href="https://www.facebook.com/aranyhajadomany/"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
                     <li><a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
                     <li><a href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i>Tiktok</a></li>
                     <li><a href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i>Youtube</a></li>

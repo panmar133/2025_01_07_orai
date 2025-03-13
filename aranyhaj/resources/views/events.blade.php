@@ -1,10 +1,6 @@
 @extends("layouts.layout")
-<!-- Fejléc kiszedés -->
 @section("title", "Események")
-<!-- Cím adás az oldalnak változó által -->
 @section("content")
-<!-- Kontent kiszedés -->
-
 <main>
     <h1 id="eventTitle" class="text-center">Események</h1>
     <div class="search-container text-center">
@@ -26,7 +22,7 @@
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y.M.d. H:i') }}</p>
+                                    <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
                                 </div>
                             </div>
 
@@ -70,11 +66,12 @@
         Nincs ilyen találat.
     </div>
 </main><br>
-<script> 
+
+<script>
     // Kereső mező eseményekhez
     document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search");
-        const cards = document.querySelectorAll(".col-12.col-md-4.col-lg-4");
+        const cards = document.querySelectorAll(".event-card");
         const noResultsDiv = document.getElementById("no-results");
 
         function filterEvents() {
@@ -82,9 +79,12 @@
             let hasResults = false;
 
             cards.forEach(card => {
+                // Lekérdezzük az esemény nevét
                 const eventName = card.querySelector(".card-title").textContent.toLowerCase();
-                const eventLocation = card.querySelector(".text-center strong").nextSibling.textContent.toLowerCase();
+                // Lekérdezzük az esemény helyszínét
+                const eventLocation = card.querySelector(".copy-text").textContent.toLowerCase();
 
+                // Ellenőrizzük, hogy a név vagy hely tartalmazza-e a keresett szöveget
                 const matchesSearch = eventName.includes(searchText) || eventLocation.includes(searchText);
                 card.style.display = matchesSearch ? "block" : "none";
 
@@ -97,9 +97,11 @@
             noResultsDiv.style.display = hasResults ? "none" : "block";
         }
 
+        // Keresés esemény figyelése
         searchInput.addEventListener("input", filterEvents);
     });
-    
+
+    // Helyszín másolása
     function copyText(element) {
         const location = element.getAttribute('data-location');
 
@@ -114,4 +116,3 @@
 </div><br>
 
 @endsection
-<!-- Lezárás -->

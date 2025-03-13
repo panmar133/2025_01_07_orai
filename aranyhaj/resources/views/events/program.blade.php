@@ -17,9 +17,7 @@
                         <div class="map-container my-4">
                             <iframe
                                 id="mapFrame"
-                                width="600"
-                                height="450"
-                                style="border:0"
+                                class="responsive-map"
                                 loading="lazy"
                                 allowfullscreen
                                 referrerpolicy="no-referrer-when-downgrade">
@@ -72,7 +70,7 @@
             </div>
         </div>
     </div>
-</main>
+</main><br>
 
 <script>
     function formatAddress(address) {

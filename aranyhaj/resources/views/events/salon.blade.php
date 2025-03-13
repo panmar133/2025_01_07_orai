@@ -20,6 +20,7 @@
                         <div class="map-container my-4 text-center">
                             <iframe
                                 id="mapFrame"
+                                class="responsive-map"
                                 width="600"
                                 height="450"
                                 style="border:0"
@@ -43,7 +44,7 @@
             </div>
         </div>
     </div>
-</main>
+</main><br>
 
 <script>
     function formatAddress(address) {
@@ -56,7 +57,9 @@
     console.log(formattedAddress); // Debugging
 
     // Set Google Maps iframe source dynamically
-    document.getElementById("mapFrame").src = `https://www.google.com/maps?q=${formattedAddress}&output=embed`;
+    let mapUrl = `https://www.google.com/maps?q=${formattedAddress}&output=embed`;
+    let mapFrame = document.getElementById("mapFrame");
+    mapFrame.src = mapUrl;
 
     function copyText(element) {
         const location = element.getAttribute('data-location');

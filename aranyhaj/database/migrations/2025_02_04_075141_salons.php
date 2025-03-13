@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
-            $table->string('salon_name', 100);
+            $table->string('salon_name', 45);
             $table->string('image_name', 500)->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbi3vhR6pmsVH4vEmM9xbYFajAJXlOaUFI6Q&s');
-            $table->string('short_information', 150)->nullable();
+            $table->string('short_information', 50)->nullable();
             $table->text('information')->nullable();
             $table->string('location', 150);
             $table->timestamps();
