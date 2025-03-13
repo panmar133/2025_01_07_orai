@@ -25,7 +25,7 @@
                                     <strong>Szalon helye:</strong>
                                     <a id="copyLink" class="copy-text" onclick="copyText(this)" 
                                         data-location="{{ $salon->location }}">
-                                        {{$salon->location}} T
+                                        {{ $salon->location }}
                                     </a>
                                 </p>
                             </div>
@@ -35,37 +35,51 @@
             @endforeach
         </div>
     </div>
+    <div id="no-results" style="display: none; text-align: center;">
+        Nincs ilyen találat.
+    </div>
 
     <script> 
     //Kereső mező
-        document.addEventListener("DOMContentLoaded", function () {
-            const searchInput = document.getElementById("search");
-            const cards = document.querySelectorAll(".col-12");
+    document.addEventListener("DOMContentLoaded", function () { 
+        const searchInput = document.getElementById("search");
+        const cards = document.querySelectorAll(".col-12");
+        const noResultsDiv = document.getElementById("no-results");
 
-            function filterSalons() {
-                const searchText = searchInput.value.toLowerCase();
+        function filterSalons() {
+            const searchText = searchInput.value.toLowerCase();
+            let hasResults = false;
 
-                cards.forEach(card => {
-                    const salonName = card.querySelector(".card-title").textContent.toLowerCase();
-                    const salonLocation = card.querySelector(".copy-text").textContent.toLowerCase();
+            cards.forEach(card => {
+                const salonName = card.querySelector(".card-title").textContent.toLowerCase();
+                const salonLocation = card.querySelector(".copy-text").textContent.toLowerCase();
 
-                    const matchesSearch = salonName.includes(searchText) || salonLocation.includes(searchText);
+                const matchesSearch = salonName.includes(searchText) || salonLocation.includes(searchText);
+                card.style.display = matchesSearch ? "block" : "none";
 
-                    card.style.display = matchesSearch ? "block" : "none";
-                });
-            }
+                if (matchesSearch) {
+                    hasResults = true;
+                }
+            });
 
-            searchInput.addEventListener("input", filterSalons);
-        });
+            // Ha nincs találat, mutassuk az üzenetet, különben rejtsük el
+            noResultsDiv.style.display = hasResults ? "none" : "block";
+        }
+
+        searchInput.addEventListener("input", filterSalons);
+    });
 
         //Cím másolása
         function copyText(element) {
             const location = element.getAttribute('data-location');
+            // URL kódolás JavaScript-ben
+            const cim = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-            navigator.clipboard.writeText(location)
-                .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
+            navigator.clipboard.writeText(cim)
+                .then(() => alert('Lemmentetted ezt a helyszínt: ' + cim))
                 .catch(error => alert('Nem sikerült lementened: ' + error));
         }
+
     </script>
 </main><br>
 

@@ -32,7 +32,12 @@
 
                             <img src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
                             <p class="text-center">{{ $event->short_information }}</p>
-                            <p class="text-center"><strong>Helyszín:</strong> {{ $event->location }}</p>
+                            <div class="col-md-8 mb-1">
+                                <p><strong>Helyszín:</strong>
+                                <a class="copy-text" onclick="copyText(this)" id="copyLink"
+                                    data-location="{{ $event->location }}">{{ $event->location }}
+                                </a></p>   
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">
@@ -61,27 +66,47 @@
             @endforeach
         </div>
     </div>
+    <div id="no-results" style="display: none; text-align: center;">
+        Nincs ilyen találat.
+    </div>
 </main><br>
 <script> 
     // Kereső mező eseményekhez
     document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search");
         const cards = document.querySelectorAll(".col-12.col-md-4.col-lg-4");
+        const noResultsDiv = document.getElementById("no-results");
 
         function filterEvents() {
             const searchText = searchInput.value.toLowerCase();
+            let hasResults = false;
 
             cards.forEach(card => {
                 const eventName = card.querySelector(".card-title").textContent.toLowerCase();
                 const eventLocation = card.querySelector(".text-center strong").nextSibling.textContent.toLowerCase();
 
                 const matchesSearch = eventName.includes(searchText) || eventLocation.includes(searchText);
-
                 card.style.display = matchesSearch ? "block" : "none";
+
+                if (matchesSearch) {
+                    hasResults = true;
+                }
             });
+
+            // Ha nincs találat, megjelenik az üzenet, ha van, elrejtjük
+            noResultsDiv.style.display = hasResults ? "none" : "block";
         }
+
         searchInput.addEventListener("input", filterEvents);
     });
+    
+    function copyText(element) {
+        const location = element.getAttribute('data-location');
+
+        navigator.clipboard.writeText(location)
+            .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
+            .catch(error => alert('Nem sikerült lementened: ' + error));
+    }
 </script>
 
 <div class="text d-flex justify-content-center">

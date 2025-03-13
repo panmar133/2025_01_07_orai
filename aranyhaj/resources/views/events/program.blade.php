@@ -4,6 +4,7 @@
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
 <!-- Kontent kiszedés -->
+
 <main id="donation-page"> 
     <div class="container">
         <div class="row">
@@ -13,6 +14,16 @@
                         <img src="{{ asset($event->image_name) }}" alt="Event Image" class="event-image">
                         <h1 class="text-center my-4">{{ $event->title }}</h1>
                         <hr class="mb-4">
+                        
+                        <div>
+                        <!-- Google Maps beágyazott térkép -->
+                            <div class="map-container my-4">
+                                <iframe
+                                    src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q={{ urlencode($event->location) }}"
+                                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="">
+                                </iframe>
+                            </div>
+                        </div>
 
                         <div class="event-details text-start">
                             <div class="row">
@@ -33,7 +44,7 @@
                                 <div class="col-md-8 mb-1">
                                     <p><strong>Helyszín:</strong>
                                     <a class="copy-text" onclick="copyText(this)" id="copyLink"
-                                    data-location="{{ $event->location }}">{{ $event->location }}
+                                    data-location="{{ $event->location }}">$cim = urlencode({{ $event->location }});
                                     </a></p>   
                                 </div>
                             </div>
@@ -62,14 +73,15 @@
     </div>
 </main><br>
 
-
 <script>
     function copyText(element) {
         const location = element.getAttribute('data-location');
+        // URL kódolás JavaScript-ben
+        const cim = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-        navigator.clipboard.writeText(location)
-            .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
-            .catch(error => alert('Nem sikerült lementened: ' + error));
+        navigator.clipboard.writeText(cim)
+            .then(() => alert('Lemmentetted ezt a helyszínt: ' + cim))
+                    .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>
 
