@@ -5,6 +5,7 @@ use App\Http\Controllers\SalonController;
 use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 
 

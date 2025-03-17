@@ -16,6 +16,15 @@
                         {{ Session::get('success') }}
                     </div>
                 @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="mb-3">
@@ -33,7 +42,7 @@
                     <div class="form-group">
                         <label for="password">Jelszó</label>
                         <div class="input-group">
-                            <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
                             <button id="yellowButtonEye" type="button" class="btn btn-dark">
                                 <i class="fa-solid fa-eye"></i>
                             </button>

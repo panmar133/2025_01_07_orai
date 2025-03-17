@@ -16,12 +16,15 @@ class User extends Authenticatable
      * A mass assignment-nél engedélyezett mezők.
      */
     protected $fillable = [
+        'id',
         'user_name',
         'email',
-        'password',
         'address',
+        'password',
         'image_name',
         'admin',
+        'created_at',
+        'updated_at',
     ];
 
     /**
