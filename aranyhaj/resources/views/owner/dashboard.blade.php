@@ -1,9 +1,6 @@
 @extends("layouts.layout")
 
 @section('content')
-<head>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
 <body>
     
     <h1>Szalontulajdonos Felület</h1>
