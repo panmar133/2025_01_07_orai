@@ -6,6 +6,8 @@ use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OwnerController;
 
 
 
@@ -53,3 +55,11 @@ Route::view('/about', 'about'); // about.blade.php
 Route::view('/help', 'help'); // help.blade.php
 Route::view('/adminEvent', 'adminEvent'); // adminEvent.blade.php
 Route::view('/adminSalon', 'adminSalon'); // adminSalon.blade.php
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+Route::middleware(['auth', 'owner'])->group(function () {
+    Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
+});

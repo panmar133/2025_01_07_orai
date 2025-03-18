@@ -38,7 +38,23 @@
                     <h1 class="mb-4">Fiókom</h1>
                     <ul class="list-group">
                         <li class="list-group-item"><strong>Felhasználónév:</strong> {{ Auth::user()->user_name }}</li>
-                        <li class="list-group-item"><strong>Admin:</strong> {{ Auth::user()->is_admin ? 'Igen' : 'Nem' }}</li>
+                        <li class="list-group-item"><strong>Jogosultság:</strong>
+                                @if(Auth::user()->admin == 1)
+                                    Szalontulajdonos
+                                    @if(Auth::user()->salons->isNotEmpty()) <!-- Ellenőrizzük, hogy van-e szalon -->
+                                        - Szalon neve: {{ Auth::user()->salons->first()->salon_name }} <!-- Szalon neve -->
+                                    @else
+                                        - Nincs szalonhoz rendelve <!-- Ha nincs szalon -->
+                                    @endif
+                                @elseif(Auth::user()->admin == 2)
+                                    Admin
+                                @elseif(Auth::user()->admin == 0)
+                                    Felhasználó
+                                @else
+                                    Hibás adat: {{ Auth::user()->admin }}
+                                @endif
+                            </li>
+
                         <li class="list-group-item"><strong>Email cím:</strong> {{ Auth::user()->email }}</li>
                         <li class="list-group-item"><strong>Lakcím:</strong> {{ Auth::user()->address }}</li>
                     </ul>
