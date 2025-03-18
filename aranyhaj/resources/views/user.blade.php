@@ -41,10 +41,10 @@
                         <li class="list-group-item"><strong>Jogosultság:</strong>
                                 @if(Auth::user()->admin == 1)
                                     Szalontulajdonos
-                                    @if(Auth::user()->salons->isNotEmpty()) <!-- Ellenőrizzük, hogy van-e szalon -->
-                                        - Szalon neve: {{ Auth::user()->salons->first()->salon_name }} <!-- Szalon neve -->
+                                    @if(Auth::user()->salons->isNotEmpty())
+                                        - Szalon neve: {{ Auth::user()->salons->first()->salon_name }}
                                     @else
-                                        - Nincs szalonhoz rendelve <!-- Ha nincs szalon -->
+                                        - Nincs szalonhoz rendelve
                                     @endif
                                 @elseif(Auth::user()->admin == 2)
                                     Admin
@@ -59,16 +59,16 @@
                         <li class="list-group-item"><strong>Lakcím:</strong> {{ Auth::user()->address }}</li>
                     </ul>
                     
-                    <!-- Módosítási gombok -->
+                    <!-- Módosítási rész -->
                     <div class="mt-4">
-                        <!-- Email cím módosítása gomb -->
+                        <!-- email módosítás -->
                         <form action="{{ route('email.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="text" class="form-control mb-2" name="profileEmail" placeholder="Email cím" value="{{ Auth::user()->email }}">
                             <button id="button" type="submit" class="btn btn-dark w-100">Mentés</button>
                         </form>
 
-                        <!-- Jelszó módosítása gomb -->
+                        <!-- jelszó módosítás -->
                         <form action="{{ route('password.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="password" class="form-control" id="currentPassword" name="current_password" placeholder="Jelenlegi jelszó" required>
@@ -77,7 +77,7 @@
                             <button id="button" type="submit" class="btn btn-dark w-100">Jelszó módosítás</button>
                         </form>
 
-                        <!-- Lakcím módosítása gomb -->
+                        <!-- lakcím módosítás -->
                         <form action="{{ route('address.change') }}" method="POST" class="d-inline">
                             @csrf
                             <input type="text" class="form-control mb-2" name="profileAddress" placeholder="Lakcím" value="{{ Auth::user()->address }}">
@@ -88,7 +88,7 @@
             </div>
         </div>
     @else
-        <!-- Ha nincs bejelentkezve -->
+        <!-- Nem bejelentkezett felhasználók kezelése -->
         <div class="text-center">
             <h2>Bejelentkezés szükséges</h2>
             <a id="button" href="{{ route('login') }}" class="btn btn-dark">Bejelentkezés</a>
@@ -97,4 +97,3 @@
 </main>
 
 @endsection
-<!-- Lezárás -->

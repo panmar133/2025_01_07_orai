@@ -12,9 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * A mass assignment-nél engedélyezett mezők.
-     */
     protected $fillable = [
         'id',
         'user_name',
@@ -27,25 +24,16 @@ class User extends Authenticatable
         'updated_at',
     ];
 
-    /**
-     * A sorosításnál elrejtendő mezők.
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Az attribútumok típuskényszerítése.
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'admin' => 'integer',
     ];
 
-    /**
-     * Kapcsolat a szalonokkal (egy user-nek több szalonja lehet).
-     */
     public function salons()
     {
         return $this->hasMany(Salon::class, 'owner_id', 'id');

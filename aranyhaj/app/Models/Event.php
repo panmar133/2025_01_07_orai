@@ -28,12 +28,11 @@ class Event extends Model
     }
     public function salon()
     {
-        return $this->belongsTo(Salon::class, 'salon_id'); // Az esemény egy szalonhoz tartozik
+        return $this->belongsTo(Salon::class, 'salon_id');
     }
 
-    // Kapcsolat a tulajdonos (user) modellel
     public function owner()
     {
-        return $this->belongsTo(User::class, 'owner_id'); // Az eseményhez egy tulajdonos is tartozik
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }

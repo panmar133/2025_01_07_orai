@@ -2,7 +2,6 @@
 
 @section('content')
 <head>
-    <!-- Egyéb fejlécek -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +15,6 @@
         @endforeach
     </ul>
 
-    <!-- Gomb az új esemény létrehozásához -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEventModal">
         Esemény létrehozása
     </button>
@@ -30,7 +28,7 @@
                     <strong>{{ $event->title }}</strong> - {{ $event->starts_at }}
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
 
-                    <!-- Esemény törlésének űrlapja -->
+                    <!-- esemény törlés -->
                     <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
@@ -38,7 +36,7 @@
                     </form>
                 </li>
 
-                <!-- Esemény módosítására szolgáló modal -->
+                <!-- Esemény módosítás -->
                 <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel{{ $event->id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -52,31 +50,26 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
-                                    <!-- Esemény neve -->
                                     <div class="form-group">
                                         <label for="title">Esemény neve</label>
                                         <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
                                     </div>
 
-                                    <!-- Helyszín -->
                                     <div class="form-group">
                                         <label for="location">Helyszín</label>
                                         <input type="text" name="location" class="form-control" value="{{ $event->location }}">
                                     </div>
 
-                                    <!-- Rövid információ -->
                                     <div class="form-group">
                                         <label for="short_information">Rövid információ</label>
                                         <input type="text" name="short_information" class="form-control" value="{{ $event->short_information }}">
                                     </div>
 
-                                    <!-- Bővebb információ -->
                                     <div class="form-group">
                                         <label for="information">Bővebb információ</label>
                                         <textarea name="information" class="form-control">{{ $event->information }}</textarea>
                                     </div>
 
-                                    <!-- Esemény kezdete -->
                                     <div class="form-group">
                                         <label for="starts_at">Esemény kezdete</label>
                                         <input type="datetime-local" name="starts_at" class="form-control" value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
@@ -94,7 +87,7 @@
         </ul>
     @endforeach
 
-    <!-- Modal az új esemény létrehozásához -->
+    <!-- Új esemény -->
     <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -107,37 +100,31 @@
                 <form action="{{ route('events.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <!-- Esemény neve -->
                         <div class="form-group">
                             <label for="title">Esemény neve</label>
                             <input type="text" name="title" class="form-control" required>
                         </div>
 
-                        <!-- Helyszín -->
                         <div class="form-group">
                             <label for="location">Helyszín</label>
                             <input type="text" name="location" class="form-control">
                         </div>
 
-                        <!-- Rövid információ -->
                         <div class="form-group">
                             <label for="short_information">Rövid információ</label>
                             <input type="text" name="short_information" class="form-control">
                         </div>
 
-                        <!-- Bővebb információ -->
                         <div class="form-group">
                             <label for="information">Bővebb információ</label>
                             <textarea name="information" class="form-control"></textarea>
                         </div>
 
-                        <!-- Esemény kezdete -->
                         <div class="form-group">
                             <label for="starts_at">Esemény kezdete</label>
                             <input type="datetime-local" name="starts_at" class="form-control" required>
                         </div>
 
-                        <!-- Szalon választás -->
                         <div class="form-group">
                             <label for="salon_id">Szalon</label>
                             <select name="salon_id" class="form-control" required>

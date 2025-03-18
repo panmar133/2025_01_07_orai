@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    // Események listázása
     public function listAllEvents()
     {
-        $events = Event::all(); // Minden esemény lekérése
-        return view('events.index', compact('events')); // events.index nézet visszaadása
+        $events = Event::all();
+        return view('events.index', compact('events'));
     }
 
-    // Események és azok interakcióinak (likes, participants) lekérése
     public function showEventsDatas()
     {
         $events = Event::withCount([
@@ -25,7 +23,6 @@ class EventController extends Controller
         return view('events', compact('events'));
     }
 
-    // Egy adott esemény részletes adatainak megjelenítése
     public function show($id)
     {
         $event = Event::withCount([
@@ -36,42 +33,36 @@ class EventController extends Controller
         return view('events.program', compact('event'));
     }
 
-    // Új esemény létrehozása (form megjelenítése)
     public function create()
     {
         return view('events.create');
     }
 
-    // Új esemény mentése
     public function store(Request $request)
     {
-        // Validáljuk az adatokat
         $request->validate([
             'title' => 'required|string|max:50',
             'location' => 'nullable|string|max:150',
             'short_information' => 'nullable|string',
             'information' => 'nullable|string',
             'starts_at' => 'required|date',
-            'salon_id' => 'required|exists:salons,id',  // Feltételezzük, hogy a szalonok a 'salons' táblában vannak
+            'salon_id' => 'required|exists:salons,id',
         ]);
 
-        // Az új esemény mentése
         $event = new Event();
-        $event->owner_id = auth()->id();  // Az esemény tulajdonosának beállítása (a bejelentkezett felhasználó)
+        $event->owner_id = auth()->id();
         $event->title = $request->title;
         $event->location = $request->location;
         $event->short_information = $request->short_information;
         $event->information = $request->information;
         $event->starts_at = $request->starts_at;
-        $event->salon_id = $request->salon_id;  // Szalon hozzárendelése
+        $event->salon_id = $request->salon_id;
         $event->save();
 
-        // Átirányítás a sikeres mentés után
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
     }
     public function update(Request $request, $id)
     {
-        // Validáljuk az adatokat
         $request->validate([
             'title' => 'required|string|max:50',
             'location' => 'nullable|string|max:150',
@@ -80,9 +71,8 @@ class EventController extends Controller
             'starts_at' => 'required|date',
         ]);
 
-        // Esemény módosítása
         $event = Event::findOrFail($id);
-        $event->update($request->all()); // Az új adatokat frissítjük
+        $event->update($request->all());
 
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen frissítve!');
     }
