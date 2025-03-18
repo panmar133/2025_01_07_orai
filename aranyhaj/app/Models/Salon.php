@@ -15,4 +15,8 @@ class Salon extends Model
     {
         return $this->belongsTo(User::class, 'owner_id', 'id');
     }
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'salon_id');  // Az események a szalonhoz tartoznak
+    }
 }

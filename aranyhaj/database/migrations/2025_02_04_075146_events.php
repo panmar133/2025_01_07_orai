@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('salon_id')->constrained('salons')->onDelete('cascade');
             $table->string('title', 50);
             $table->string('location', 150)->nullable();
             $table->string('short_information')->nullable();
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->dateTime('starts_at');
             $table->timestamps();
         });
+        
     }
 
     /**

@@ -61,5 +61,23 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {
+
+    // Szalontulajdonosok dashboardja
     Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
+
+    // Események listázása
+    Route::get('/events', [EventController::class, 'listAllEvents'])->name('events.index');
+
+    // Esemény létrehozása (form)
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); 
+
+    // Esemény mentése
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+
+    // Esemény módosítása (form)
+    Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+    Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+
+    // Esemény törlése
+    Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 });

@@ -26,4 +26,14 @@ class Event extends Model
     {
         return $this->hasMany(Interaction::class, 'event_id')->where('participation', 1);
     }
+    public function salon()
+    {
+        return $this->belongsTo(Salon::class, 'salon_id'); // Az esemény egy szalonhoz tartozik
+    }
+
+    // Kapcsolat a tulajdonos (user) modellel
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id'); // Az eseményhez egy tulajdonos is tartozik
+    }
 }
