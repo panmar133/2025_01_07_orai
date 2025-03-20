@@ -64,11 +64,10 @@ Route::middleware(['auth', 'owner'])->group(function () {
 
     Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
 
-    Route::get('/events', [EventController::class, 'listAllEvents'])->name('events.index'); //események kilistázása;
-    Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); //Esemény létrehozás 
+    //Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); //Esemény létrehozás 
     Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Esemény létrehozás + mentése
 
-    Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit'); //Esemény módosítás
+    //Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit'); //Esemény módosítás
     Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update'); //Esemény módosítás
 
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');

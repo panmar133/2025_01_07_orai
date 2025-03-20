@@ -7,12 +7,6 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function listAllEvents()
-    {
-        $events = Event::all();
-        return view('events.index', compact('events'));
-    }
-
     public function showEventsDatas()
     {
         $events = Event::withCount([
@@ -45,6 +39,7 @@ class EventController extends Controller
             'location' => 'nullable|string|max:150',
             'short_information' => 'nullable|string',
             'information' => 'nullable|string',
+            'image_name' => 'nullable|string|max:500',
             'starts_at' => 'required|date',
             'salon_id' => 'required|exists:salons,id',
         ]);
@@ -55,6 +50,7 @@ class EventController extends Controller
         $event->location = $request->location;
         $event->short_information = $request->short_information;
         $event->information = $request->information;
+        $event->image_name = $request->image_name;
         $event->starts_at = $request->starts_at;
         $event->salon_id = $request->salon_id;
         $event->save();
@@ -68,6 +64,7 @@ class EventController extends Controller
             'location' => 'nullable|string|max:150',
             'short_information' => 'nullable|string',
             'information' => 'nullable|string',
+            'image_name' => 'string|max:500',
             'starts_at' => 'required|date',
         ]);
 

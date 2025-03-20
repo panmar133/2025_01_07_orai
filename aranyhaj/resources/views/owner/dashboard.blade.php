@@ -68,6 +68,11 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="image_name">Kép URL</label>
+                                        <textarea name="image_name" class="form-control">{{ $event->image_name }}</textarea>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="starts_at">Esemény kezdete</label>
                                         <input type="datetime-local" name="starts_at" class="form-control" value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
                                     </div>
@@ -115,6 +120,11 @@
                         <div class="form-group">
                             <label for="information">Bővebb információ</label>
                             <textarea name="information" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image_name">Kép URL</label>
+                            <textarea name="image_name" class="form-control"></textarea>
                         </div>
 
                         <div class="form-group">
