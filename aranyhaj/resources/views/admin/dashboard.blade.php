@@ -1,5 +1,5 @@
 @extends("layouts.layout")
-
+@section("title", "Admin felület")
 @section('content')
     <h1>Admin Felület</h1>
 

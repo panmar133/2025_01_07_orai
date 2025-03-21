@@ -1,5 +1,5 @@
 @extends("layouts.layout")
-
+@section("title", "Szalontulajdonos felület")
 @section('content')
 <body>
     
