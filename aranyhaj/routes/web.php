@@ -58,6 +58,17 @@ Route::view('/adminSalon', 'adminSalon'); // adminSalon.blade.php
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::post('/admin/make-admin/{id}', [AdminController::class, 'makeAdmin'])->name('admin.makeAdmin');
+    Route::post('/admin/remove-admin/{id}', [AdminController::class, 'removeAdmin'])->name('admin.removeAdmin');
+    Route::delete('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.deleteUser');
+    Route::get('/admin/user/{id}', [AdminController::class, 'showUser'])->name('admin.showUser');
+
+    Route::post('/admin/create-salon', [AdminController::class, 'createSalon'])->name('admin.createSalon');
+
+    Route::post('/admin/create-event', [AdminController::class, 'createEvent'])->name('admin.createEvent');
+    Route::put('/admin/update-event/{id}', [AdminController::class, 'updateEvent'])->name('admin.updateEvent');
+    Route::delete('/admin/delete-event/{id}', [AdminController::class, 'deleteEvent'])->name('admin.deleteEvent');
 });
 
 Route::middleware(['auth', 'owner'])->group(function () {

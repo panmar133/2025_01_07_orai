@@ -31,8 +31,11 @@
                         @auth
                         <!-- Ha be van jelentkezve, akkor a fiók link és kijelentkezés gomb jelennek meg -->
                         <a href="/user" class="btn dropdown-item">Fiókom</a>
-                        <a href="/owner" class="btn dropdown-item">Szalontulajdonos felület</a>
-                        <a href="/admin" class="btn dropdown-item">Admin felület</a>
+                        @if(auth()->user()->admin == 1)
+                            <a href="/owner" class="btn dropdown-item">Szalontulajdonos felület</a>
+                        @elseif(auth()->user()->admin == 2)
+                            <a href="/admin" class="btn dropdown-item">Admin felület</a>
+                        @endif
                         <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                             @csrf
                             @method('DELETE')
