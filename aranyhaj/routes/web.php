@@ -56,6 +56,7 @@ Route::view('/help', 'help'); // help.blade.php
 Route::view('/adminEvent', 'adminEvent'); // adminEvent.blade.php
 Route::view('/adminSalon', 'adminSalon'); // adminSalon.blade.php
 
+//admin felület
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
@@ -66,20 +67,19 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::post('/admin/create-salon', [AdminController::class, 'createSalon'])->name('admin.createSalon');
 
+    Route::delete('/admin/delete-salon/{salon}', [AdminController::class, 'deleteSalon'])->name('admin.deleteSalon');
+    Route::put('/admin/update-salon/{salon}', [AdminController::class, 'updateSalon'])->name('admin.updateSalon');
+
     Route::post('/admin/create-event', [AdminController::class, 'createEvent'])->name('admin.createEvent');
     Route::put('/admin/update-event/{id}', [AdminController::class, 'updateEvent'])->name('admin.updateEvent');
     Route::delete('/admin/delete-event/{id}', [AdminController::class, 'deleteEvent'])->name('admin.deleteEvent');
 });
 
+//szalontulajdonos felület
 Route::middleware(['auth', 'owner'])->group(function () {
 
     Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
-
-    //Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); //Esemény létrehozás 
     Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Esemény létrehozás + mentése
-
-    //Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit'); //Esemény módosítás
     Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update'); //Esemény módosítás
-
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 });

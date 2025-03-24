@@ -49,14 +49,24 @@ class AdminController extends Controller
     {
         $request->validate([
             'salon_name' => 'required|string|max:255',
+            'image_name' => 'nullable|string|max:500',
+            'short_information' => 'required|string|max:50',
+            'information' => 'required|string',
             'location' => 'required|string|max:255',
             'owner_id' => 'required|exists:users,id',
         ]);
+        
 
         $salon = new Salon();
         $salon->salon_name = $request->salon_name;
+        $salon->short_information = $request->short_information;
+        $salon->information = $request->information;
         $salon->location = $request->location;
         $salon->owner_id = $request->owner_id;
+
+        if (!empty($request->image_name)) {
+            $salon->image_name = $request->image_name;
+        }
         $salon->save();
 
         $owner = User::find($request->owner_id);
@@ -65,6 +75,26 @@ class AdminController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen létrehozva!');
     }
+
+    public function updateSalon(Request $request, $salonId)
+    {
+    $salon = Salon::findOrFail($salonId);
+
+    $salon->salon_name = $request->salon_name;
+    $salon->location = $request->location;
+
+    $salon->save();
+
+    return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen módosítva!');
+    }
+
+public function deleteSalon($salonId)
+    {
+    $salon = Salon::findOrFail($salonId);
+    $salon->delete();
+
+    return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen törölve!');
+    }   
 
     public function createEvent(Request $request)
     {
