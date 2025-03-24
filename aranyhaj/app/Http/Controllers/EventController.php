@@ -50,9 +50,13 @@ class EventController extends Controller
         $event->location = $request->location;
         $event->short_information = $request->short_information;
         $event->information = $request->information;
-        $event->image_name = $request->image_name;
         $event->starts_at = $request->starts_at;
         $event->salon_id = $request->salon_id;
+
+        if (!empty($request->image_name)) {
+            $event->image_name = $request->image_name;
+        }
+
         $event->save();
 
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
