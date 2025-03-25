@@ -114,7 +114,7 @@ public function deleteSalon($salonId)
         'information' => $request->information,
         'image_name' => $request->image_name,
         'starts_at' => $request->starts_at,
-        'owner_id' => auth()->id(), // Az aktuálisan bejelentkezett admin ID-ja
+        'owner_id' => auth()->id(),
         'salon_id' => 1,
     ]);
 
