@@ -180,61 +180,115 @@
             </div>
         </div>
     </div>
-
     <!-- esemény rész -->
     <h2>Események</h2>
-    <button class="btn btn-success" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
+<button class="btn btn-success" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
 
-    @foreach($events as $event)
-        <li>
-            {{ $event->title }} - {{ $event->location }}
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
-        </li>
+<!-- esemény létrehozás-->
+<div class="modal fade" id="createEventModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Új esemény létrehozása</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('admin.createEvent') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="title">Esemény neve</label>
+                        <input type="text" name="title" class="form-control" required>
+                    </div>
 
-        <!-- esemény szerkesztés -->
-        <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Esemény módosítása</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="form-group">
+                        <label for="location">Helyszín</label>
+                        <input type="text" name="location" class="form-control" required>
                     </div>
-                    <div class="modal-body">
-                        <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
-                            <input type="text" name="location" class="form-control" value="{{ $event->location }}">
-                            <button type="submit" class="btn btn-primary mt-2">Mentés</button>
-                        </form>
+
+                    <div class="form-group">
+                        <label for="short_information">Rövid leírás</label>
+                        <input type="text" name="short_information" class="form-control">
                     </div>
+
+                    <div class="form-group">
+                        <label for="information">Részletes információ</label>
+                        <textarea name="information" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image_name">Kép URL</label>
+                        <input type="text" name="image_name" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="starts_at">Kezdés időpontja</label>
+                        <input type="datetime-local" name="starts_at" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-2">Létrehozás</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach($events as $event)
+    <li>
+        {{ $event->title }} - {{ $event->location }}
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
+    </li>
+
+    <!-- esemény mod. -->
+    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Esemény módosítása</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
+                        <input type="text" name="location" class="form-control mt-2" value="{{ $event->location }}">
+                        <input type="datetime-local" name="date" class="form-control mt-2" value="{{ $event->date }}" required>
+                        <textarea name="description" class="form-control mt-2" required>{{ $event->description }}</textarea>
+                        <select name="salon_id" class="form-control mt-2" required>
+                            @foreach($salons as $salon)
+                                <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>{{ $salon->salon_name }}</option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- esemény törlés -->
-        <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Esemény törlése</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Biztosan törlöd az eseményt?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <form action="{{ route('admin.deleteEvent', $event->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Igen</button>
-                        </form>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                    </div>
+    <!-- esemény törlés -->
+    <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Esemény törlése</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Biztosan törlöd az eseményt?</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('admin.deleteEvent', $event->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Igen</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
                 </div>
             </div>
         </div>
+    </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

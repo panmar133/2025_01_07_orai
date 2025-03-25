@@ -9,7 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'location', 'x-location', 'y-location', 'image_name', 'posted_time', 'starts_at', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'location', 'salon_id', 'owner_id', 'image_name', 'posted_time', 'starts_at', 'created_at', 'updated_at'];
 
 
     public function interactions()
