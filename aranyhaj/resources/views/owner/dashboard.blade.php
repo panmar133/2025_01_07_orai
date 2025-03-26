@@ -218,8 +218,8 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="card-body">          
-                                        <button id="button"  type="button" class="btn btn-btn-dark" data-dismiss="modal">Mégsem</button>
-                                        <button id="button" type="submit" class="btn btn-btn-dark">Esemény létrehozása</button>
+                                        <button id="button"  type="button" class="btn btn-dark" data-dismiss="modal">Mégsem</button>
+                                        <button id="button" type="submit" class="btn btn-dark">Esemény létrehozása</button>
                                     </div>
                                 </div>
                             </form>
@@ -227,9 +227,8 @@
                     </div>
                 </div>
 
-                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </main><br>
 @endsection
