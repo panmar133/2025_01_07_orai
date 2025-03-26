@@ -82,9 +82,4 @@
 
     </script>
 </main><br>
-
-<div class="text d-flex justify-content-center">
-    <a id="button" href="/adminSalon" class="btn btn-dark col-lg-3 text-center">Szalon hozzáadása</a>
-</div><br>
-
 @endsection

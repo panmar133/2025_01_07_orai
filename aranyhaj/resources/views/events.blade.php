@@ -110,9 +110,4 @@
             .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>
-
-<div class="text d-flex justify-content-center">
-    <a id="button" href="/adminEvent" class="btn btn-dark col-lg-3 text-center">Esemény hozzáadása</a>
-</div><br>
-
 @endsection
