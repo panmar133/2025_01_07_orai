@@ -50,7 +50,7 @@
                                 </div>
 
                                 <!-- Admin jog visszavonás modal -->
-                                <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -71,6 +71,58 @@
                                         </div>
                                     </div>
                                 </div>
+                                  <!-- felh. adatok megtekintése -->
+            <div class="modal fade" id="viewUserModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Felhasználó adatai</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Név:</strong> {{ $user->user_name }}</p>
+                            <p><strong>Email:</strong> {{ $user->email }}</p>
+                            <p><strong>Jogosultság:</strong> 
+                                @if ($user->admin == 2)
+                                    Admin
+                                @elseif ($user->admin == 1)
+                                    Szalontulajdonos
+                                @else
+                                    Felhasználó
+                                @endif
+                            </p>
+                            <p><strong>Létrehozva:</strong> {{ $user->created_at->format('Y-m-d H:i') }}</p>
+                            <p><strong>Utoljára frissítve:</strong> {{ $user->updated_at->format('Y-m-d H:i') }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Bezárás</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteUserModalLabel{{ $user->id }}">Felhasználó törlése</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Bezárás">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Biztosan törölni szeretnéd <strong>{{ $user->name }}</strong> felhasználót?</p>
+            </div>
+            <div class="modal-footer">
+                <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Igen, törlöm</button>
+                </form>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+            </div>
+        </div>
+    </div>
+</div>
 
                             @endforeach
                         <!-- Szalon kiilistázása -->
@@ -95,7 +147,7 @@
                                     </div>
 
                                     <!-- Szalon szerkesztése -->
-                                    <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog">
+                                    <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -116,7 +168,7 @@
                                     </div>
 
                                     <!-- Szalon törlés -->
-                                    <div class="modal fade" id="deleteSalonModal{{ $salon->id }}" tabindex="-1" role="dialog">
+                                    <div class="modal fade" id="deleteSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -144,7 +196,7 @@
                         <button id="button"  class="btn btn-dark" data-toggle="modal" data-target="#createSalonModal">Új Szalon</button>
                     </div><br>
                 
-                    <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog">
+                    <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog" data-backdrop="false">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -173,9 +225,9 @@
                     </div>
                 <!-- esemény rész -->
                 <h2>Események</h2><hr><br>
-                <button  id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
+                <button  id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal" >Új Esemény</button>
                 <!-- esemény létrehozás-->
-                <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog">
+                <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" data-backdrop="false">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -277,7 +329,7 @@
                     </div>
 
                     <!-- Esemény Módosítása -->
-                    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog">
+                    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -305,7 +357,7 @@
                     </div>
                 
                     <!-- Esemény Törlés -->
-                    <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog">
+                    <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">

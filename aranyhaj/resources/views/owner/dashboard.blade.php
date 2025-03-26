@@ -99,7 +99,7 @@
                                             </div>
 
                             <!-- Esemény módosítás -->
-                            <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel{{ $event->id }}" aria-hidden="true">
+                            <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel{{ $event->id }}" aria-hidden="true" data-backdrop="false">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -165,7 +165,7 @@
         </div>
     </div>
                 <!-- Új esemény -->
-                <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true">
+                <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true" data-backdrop="false">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
