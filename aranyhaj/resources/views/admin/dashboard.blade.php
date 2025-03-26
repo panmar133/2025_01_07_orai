@@ -25,15 +25,15 @@
             <li>
                 {{ $user->user_name }} - {{ $user->email }}
 
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">Megtekintés</button>
+                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">Megtekintés</button>
 
                 @if($user->admin != 2)
-                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">Admin jog</button>
+                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">Admin jog</button>
                 @else
-                    <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">Admin jog visszavonása</button>
+                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">Admin jog visszavonása</button>
                 @endif
 
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
+                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
             </li>
 
             <!-- felh. adatok megtekintése -->
@@ -60,7 +60,7 @@
                             <p><strong>Utoljára frissítve:</strong> {{ $user->updated_at->format('Y-m-d H:i') }}</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bezárás</button>
+                            <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Bezárás</button>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                             <form action="{{ route('admin.removeAdmin', $user->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="btn btn-danger">Visszavonás</button>
+                                <button id="button" type="submit" class="btn btn-dark">Visszavonás</button>
                             </form>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                            <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
                         </div>
                     </div>
                 </div>
@@ -100,8 +100,8 @@
             {{ $salon->salon_name }} - {{ $salon->location }}
             
             <!-- szalon szerk., törlés gomb -->
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editSalonModal{{ $salon->id }}">Szerkesztés</button>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteSalonModal{{ $salon->id }}">Törlés</button>
+            <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editSalonModal{{ $salon->id }}">Szerkesztés</button>
+            <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteSalonModal{{ $salon->id }}">Törlés</button>
         </li>
 
         <!-- szalon szerk. -->
@@ -118,7 +118,7 @@
                             @method('PUT')
                             <input type="text" name="salon_name" class="form-control" value="{{ $salon->salon_name }}" required>
                             <input type="text" name="location" class="form-control" value="{{ $salon->location }}" required>
-                            <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+                            <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
                         </form>
                     </div>
                 </div>
@@ -140,9 +140,9 @@
                         <form action="{{ route('admin.deleteSalon', $salon->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Igen</button>
+                            <button id="button" type="submit" class="btn btn-dark">Igen</button>
                         </form>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                        <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
     @endforeach
 </ul>
 
-<button class="btn btn-success" data-toggle="modal" data-target="#createSalonModal">Új Szalon</button>
+<button id="button" class="btn btn-dark" data-toggle="modal" data-target="#createSalonModal">Új Szalon</button>
 
     <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -174,7 +174,7 @@
                                 <option value="{{ $user->id }}">{{ $user->user_name }}</option>
                             @endforeach
                         </select>
-                        <button type="submit" class="btn btn-primary mt-2">Létrehozás</button>
+                        <button id="button" type="submit" class="btn btn-dark mt-2">Létrehozás</button>
                     </form>
                 </div>
             </div>
@@ -182,7 +182,7 @@
     </div>
     <!-- esemény rész -->
     <h2>Események</h2>
-<button class="btn btn-success" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
+<button id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
 
 <!-- esemény létrehozás-->
 <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog">
@@ -225,7 +225,7 @@
                         <input type="datetime-local" name="starts_at" class="form-control" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-2">Létrehozás</button>
+                    <button id="button" type="submit" class="btn btn-dark mt-2">Létrehozás</button>
                 </form>
             </div>
         </div>
@@ -235,8 +235,8 @@
 @foreach($events as $event)
     <li>
         {{ $event->title }} - {{ $event->location }}
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
-        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
+        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
     </li>
 
     <!-- esemény mod. -->
@@ -260,7 +260,7 @@
                                 <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>{{ $salon->salon_name }}</option>
                             @endforeach
                         </select>
-                        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+                        <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
                     </form>
                 </div>
             </div>

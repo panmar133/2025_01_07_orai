@@ -12,7 +12,7 @@
         @endforeach
     </ul>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEventModal">
+    <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">
         Esemény létrehozása
     </button>
 
@@ -23,13 +23,13 @@
             @foreach ($salon->events as $event)
                 <li>
                     <strong>{{ $event->title }}</strong> - {{ $event->starts_at }}
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+                    <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
 
                     <!-- esemény törlés -->
                     <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Törlés</button>
+                        <button id="button" type="submit" class="btn btn-danger">Törlés</button>
                     </form>
                 </li>
 
@@ -39,7 +39,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="editEventModalLabel{{ $event->id }}">Esemény módosítása</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -82,8 +82,10 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
-                                    <button type="submit" class="btn btn-primary">Frissítés</button>
+                                    <div class="card-body">          
+                                        <button id="button"  type="button" class="btn btn-btn-dark" data-dismiss="modal">Mégsem</button>
+                                        <button id="button" type="submit" class="btn btn-btn-dark">Frissítés</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -146,8 +148,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
-                        <button type="submit" class="btn btn-primary">Esemény létrehozása</button>
+                        <div class="card-body">          
+                            <button id="button"  type="button" class="btn btn-btn-dark" data-dismiss="modal">Mégsem</button>
+                            <button id="button" type="submit" class="btn btn-btn-dark">Esemény létrehozása</button>
+                        </div>
                     </div>
                 </form>
             </div>
