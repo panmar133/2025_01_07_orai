@@ -8,7 +8,7 @@
                 <div class="card donation-card">
                     <div class="card-body text-center">
                         <h1 class="text-center my-4">Szalontulajdonos Felület</h1><hr>
-                        
+
                         <h4 class="text-center my-4">A Te Szalonjaid:</h4>
                         <div class="container">
                             <div class="row">
@@ -43,19 +43,61 @@
                         <h4>Szalonhoz tartozó események:</h4>
                         @foreach ($salons as $salon)
                             <h5>{{ $salon->salon_name }} - Események:</h5>
-                            <ul>
                                 @foreach ($salon->events as $event)
-                                    <li>
-                                        <strong>{{ $event->title }}</strong> - {{ $event->starts_at }}
-                                        <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
 
-                                        <!-- esemény törlés -->
-                                        <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button id="button" type="submit" class="btn btn-danger">Törlés</button>
-                                        </form>
-                                    </li>
+                                <div class="container">
+                                        @if(session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
+                                        <div class="row">
+                                                <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
+                                                    <div class="card h-100 shadow">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h5 class="card-title">{{ $event->title }}</h5>
+                                                                </div>
+                                                                <div class="col-6 text-end">
+                                                                    <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <img src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
+                                                            <p class="text-center">{{ $event->short_information }}</p>
+                                                            <div class="col-md-8 mb-1">
+                                                                <p><strong>Helyszín:</strong>
+                                                                <a class="copy-text" onclick="copyText(this)" id="copyLink"
+                                                                    data-location="{{ $event->location }}">{{ $event->location }}
+                                                                </a></p>   
+                                                            </div>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
+                                                                <p class="card-text mb-0 ms-3">
+                                                                    <strong>Résztvevők:</strong>
+                                                                    <a href="">{{ $event->participants_count ?? 0 }}</a>
+                                                                </p>
+                                                                <p class="card-text mb-0 ms-3">
+                                                                    <strong>Likok:</strong>
+                                                                    <a href="">{{ $event->likes_count ?? 0}}</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-footer text-center">
+                                                            <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+                                                            <!-- esemény törlés -->
+                                                            <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button id="button" type="submit" class="btn btn-dark">Törlés</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                             <!-- Esemény módosítás -->
                             <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel{{ $event->id }}" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
