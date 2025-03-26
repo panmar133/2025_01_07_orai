@@ -73,6 +73,10 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <img src="{{ asset($event->image_name) }}" class="event-image img-fluid" alt=" ">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="starts_at">Esemény kezdete</label>
                                         <input type="datetime-local" name="starts_at" class="form-control" value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
                                     </div>
