@@ -49,6 +49,30 @@
                                     </div>
                                 </div>
 
+                                <!-- Felh. admin adás -->
+<div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="makeAdminModalLabel{{ $user->id }}">Felhasználó adminná tétele</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Bezárás">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.makeAdmin', $user->id) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <p>Biztosan adminná szeretnéd tenni <strong>{{ $user->name }}</strong> felhasználót?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
+                    <button type="submit" class="btn btn-success">Igen, admin lesz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
                                 <!-- Admin jog visszavonás modal -->
                                 <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
@@ -63,7 +87,6 @@
                                             <div class="modal-footer">
                                                 <form action="{{ route('admin.removeAdmin', $user->id) }}" method="POST">
                                                     @csrf
-                                                    @method('PUT')
                                                     <button id="button" type="submit" class="btn btn-dark">Visszavonás</button>
                                                 </form>
                                                 <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
