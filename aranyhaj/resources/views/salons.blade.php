@@ -10,21 +10,21 @@
         <div class="row">
             @foreach ($salons as $salon)
                 <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
-                    <div class="card h-100">
+                    <div class="card h-100 shadow">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $salon->salon_name }}</h5>
-                            <img id="image" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid my-3">
+                            <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid rounded my-3">
                             <p class="card-text">{{ $salon->short_information }}</p>
-                            <a id="button" href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
                             <div class="mt-auto">
                                 <p class="card-text">
                                     <strong>Szalon helye:</strong>
                                     <a id="copyLink" class="copy-text" onclick="copyText(this)" 
                                         data-location="{{ $salon->location }}">
-                                        {{ $salon->location }}
+                                        {{ Str::limit($salon->location, 30, '...') }}
                                     </a>
                                 </p>
                             </div>
+                            <a id="button" href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
                         </div>
                     </div>
                 </div>

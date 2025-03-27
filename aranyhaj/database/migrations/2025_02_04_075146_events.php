@@ -16,10 +16,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('salon_id')->constrained('salons')->onDelete('cascade');
-            $table->string('title', 50);
-            $table->string('location', 150)->nullable();
-            $table->string('short_information')->nullable();
-            $table->text('information')->nullable();
+            $table->string('title', 14);
+            $table->string('location', 150);
+            $table->string('short_information', 100);
+            $table->text('information');
             $table->string('image_name', 500)->nullable()->default('https://cdni.iconscout.com/illustration/premium/thumb/event-planning-illustration-download-in-svg-png-gif-file-formats--plan-party-managing-service-manager-pack-entertainment-illustrations-4693328.png');
             $table->dateTime('starts_at');
             $table->timestamps();

@@ -213,6 +213,13 @@ hr {
 .profile-img:hover {
     background-image: url("{{ asset('images/aProfil.png') }}");
 }
+
+#postImage {
+    width: 370px;
+    height: 200px;
+    object-fit: cover;
+}
+
 .input-group {
     display: flex;
     align-items: center;

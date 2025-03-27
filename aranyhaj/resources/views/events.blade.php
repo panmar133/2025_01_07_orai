@@ -9,26 +9,37 @@
     <div class="container">
         <div class="row">
             @foreach ($events as $event)
-                <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
+                <div class="col-12 col-md-6 col-lg-4 mb-4  event-card">
                     <div class="card h-100 shadow">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="card-title">{{ $event->title }}</h5>
+                                    <h5 class="card-title text-center">{{ $event->title }}</h5>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
+                                <p class="mb-0">
+                                    <strong>Időpont:</strong> 
+                                    <span class="date">{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d') }}</span> 
+                                    <span class="time">{{ \Carbon\Carbon::parse($event->starts_at)->format('H:i') }}</span>
+                                </p>
+
+
                                 </div>
                             </div>
 
-                            <img src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
+                            <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
+
                             <p class="text-center">{{ $event->short_information }}</p>
                             <div class="col-md-8 mb-1">
                                 <p><strong>Helyszín:</strong>
-                                <a class="copy-text" onclick="copyText(this)" id="copyLink"
-                                    data-location="{{ $event->location }}">{{ $event->location }}
-                                </a></p>   
+                                    <a id="copyLink" class="copy-text tooltip-trigger" onclick="copyText(this)" 
+                                    data-location="{{ $event->location }}">
+                                        {{ Str::limit($event->location, 30, '...') }}
+                                    </a>
+                                </p>   
                             </div>
+
+
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">
