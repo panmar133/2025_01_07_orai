@@ -25,8 +25,11 @@ Route::get('/', [HomeController::class, 'index']);
 /* Events */
 Route::get('/events', [EventController::class, 'showEventsDatas']);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-Route::post('/event/Like', [InteractionController::class, 'likeEvent'])->name('event.like')->middleware('auth');
+
+// Like és participate műveletek
+Route::post('/event/like', [InteractionController::class, 'likeEvent'])->name('event.like')->middleware('auth');
 Route::post('/event/participate', [InteractionController::class, 'participateEvent'])->name('event.participate')->middleware('auth');
+
 
 /* Salons */
 Route::get('/salons', [SalonController::class, 'index'])->name('salons.index');

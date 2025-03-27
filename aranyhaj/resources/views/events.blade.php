@@ -7,11 +7,6 @@
         <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
     </div>
     <div class="container">
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="row">
             @foreach ($events as $event)
                 <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
@@ -38,32 +33,30 @@
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">
                                     <strong>Résztvevők:</strong>
-                                    <a href="">{{ $event->participants_count ?? 0 }}</a>
+                                    <a href="" class="participants-count" data-event-id="{{ $event->id }}">{{ $event->participants_count ?? 0 }}</a>
                                 </p>
                             </div>
                         </div>
 
                         <div class="card-footer text-center">
-                            <form action="{{ route('event.like') }}" method="POST" class="d-inline">
+                            <!-- Like gomb -->
+                            <form action="{{ route('event.like') }}" method="POST" class="like-form">
                                 @csrf
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 <button type="submit" class="btn btn-brown like-btn">{{ $event->likes_count ?? 0 }} 👍</button>
                             </form>
 
-                            <form action="{{ route('event.participate') }}" method="POST" class="d-inline">
+                            <!-- Résztvétel gomb -->
+                            <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
                                 @csrf
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 <button type="submit" class="btn btn-warning participate-btn">Részt veszek</button>
                             </form>
                         </div>
-
                     </div>
                 </div>
             @endforeach
         </div>
-    </div>
-    <div id="no-results" style="display: none; text-align: center;">
-        Nincs ilyen találat.
     </div>
 </main><br>
 
@@ -79,12 +72,9 @@
             let hasResults = false;
 
             cards.forEach(card => {
-                // Lekérdezzük az esemény nevét
                 const eventName = card.querySelector(".card-title").textContent.toLowerCase();
-                // Lekérdezzük az esemény helyszínét
                 const eventLocation = card.querySelector(".copy-text").textContent.toLowerCase();
 
-                // Ellenőrizzük, hogy a név vagy hely tartalmazza-e a keresett szöveget
                 const matchesSearch = eventName.includes(searchText) || eventLocation.includes(searchText);
                 card.style.display = matchesSearch ? "block" : "none";
 
@@ -93,21 +83,18 @@
                 }
             });
 
-            // Ha nincs találat, megjelenik az üzenet, ha van, elrejtjük
             noResultsDiv.style.display = hasResults ? "none" : "block";
         }
 
-        // Keresés esemény figyelése
         searchInput.addEventListener("input", filterEvents);
     });
 
-    // Helyszín másolása
     function copyText(element) {
         const location = element.getAttribute('data-location');
-
         navigator.clipboard.writeText(location)
             .then(() => alert('Lemmentetted ezt a helyszínt: ' + location))
             .catch(error => alert('Nem sikerült lementened: ' + error));
     }
+
 </script>
 @endsection

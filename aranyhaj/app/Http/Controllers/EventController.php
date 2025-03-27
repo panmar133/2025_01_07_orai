@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Event;
@@ -7,6 +6,7 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    // Események adatainak betöltése
     public function showEventsDatas()
     {
         $events = Event::withCount([
@@ -17,6 +17,7 @@ class EventController extends Controller
         return view('events', compact('events'));
     }
 
+    // Egy esemény részletes megjelenítése
     public function show($id)
     {
         $event = Event::withCount([
@@ -27,11 +28,48 @@ class EventController extends Controller
         return view('events.program', compact('event'));
     }
 
+    // Like egy eseményre
+    public function likeEvent(Request $request)
+    {
+        $event = Event::find($request->event_id);
+        if ($event) {
+            // Vagy logikát alkalmazhatsz, pl. új "like" rekordot hozol létre, ha nem akarod közvetlenül módosítani a likes_count-t
+            $event->likes_count += 1;
+            $event->save();
+
+            return response()->json([
+                'status' => 'success',
+                'likes_count' => $event->likes_count
+            ]);
+        }
+
+        return response()->json(['status' => 'error', 'message' => 'Esemény nem található.'], 404);
+    }
+
+    // Résztvevőként való regisztrálás egy eseményhez
+    public function participateEvent(Request $request)
+    {
+        $event = Event::find($request->event_id);
+        if ($event) {
+            $event->participants_count += 1;
+            $event->save();
+
+            return response()->json([
+                'status' => 'success',
+                'participants_count' => $event->participants_count
+            ]);
+        }
+
+        return response()->json(['status' => 'error', 'message' => 'Esemény nem található.'], 404);
+    }
+
+    // Esemény létrehozása
     public function create()
     {
         return view('events.create');
     }
 
+    // Esemény mentése
     public function store(Request $request)
     {
         $request->validate([
@@ -61,6 +99,8 @@ class EventController extends Controller
 
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
     }
+
+    // Esemény frissítése
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -77,6 +117,8 @@ class EventController extends Controller
 
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen frissítve!');
     }
+
+    // Esemény törlése
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
