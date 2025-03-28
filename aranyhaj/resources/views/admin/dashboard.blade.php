@@ -32,25 +32,24 @@
                                         <div class="card h-100 shadow">
                                             <div class="card-body d-flex flex-column">
                                                 <img id="image" src="{{ $user->image_name }}" alt="Felhasználó Profilkép" class="img-fluid">
-                                                <h4 class="card-title"> {{ $user->user_name }}</h4>
+                                                <h4 class="card-title">{{ $user->user_name }}</h4>
                                                 <p class="card-text">{{ $user->email }}</p>
                                                 <p class="card-text">{{ $user->address }}</p>
-                                                <div class="d-flex justify-content-between" style="gap: 10px;">
-                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">
-                                                        Megtekintés</button>
-                                                    @if($user->admin != 2)
-                                                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">
-                                                            Admin jog</button>
-                                                    @else
-                                                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">
-                                                        Admin jog visszavonása</button>
-                                                    @endif
-                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
-                                                </div>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between text-center">
+                                                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">
+                                                    Megtekintés</button>
+                                                @if($user->admin != 2)
+                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">
+                                                        Admin jog</button>
+                                                @else
+                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">
+                                                    Admin jog visszavonása</button>
+                                                @endif
+                                                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
                                             </div>
                                         </div>
                                     </div>
-
                                 <!-- Felhasználó admin adás -->
                                 <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog userModalPosition" role="document">
@@ -150,25 +149,28 @@
                             </div>
                         @endforeach
                         <!-- Szalon kiilistázása -->
-                        <br><hr><h3>Szalonok</h3><hr>
-                        <div class="container">
-                            <div class="row">
-                                @foreach ($salons as $salon)
-                                    <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
-                                        <div class="card h-100 shadow">
-                                            <div class="card-body d-flex flex-column">
-                                                <h5 class="card-title">{{ $salon->salon_name }}</h5>
-                                                <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid rounded my-3">
-                                                <p class="card-text">{{ $salon->short_information }}</p>
-                                                <a id="button" href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
-                                                <div class="mt-auto">
-                                                    <p class="card-text"><strong>Szalon helye:</strong>{{ $salon->location }}</p>
-                                                </div>
-                                            </div>
-                                            <button id="button" class="btn btn-dark" data-toggle="modal" data-target="#editSalonModal{{ $salon->id }}">Szerkesztés</button>
-                                            <button id="button" class="btn btn-dark" data-toggle="modal" data-target="#deleteSalonModal{{ $salon->id }}">Törlés</button>
-                                        </div>
-                                    </div>
+
+<div class="container">
+    <div class="row">
+    <hr><h3>Szalonok</h3><br><hr>
+        @foreach ($salons as $salon)
+            <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
+                <div class="card h-100 shadow">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ $salon->salon_name }}</h5>
+                        <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid rounded my-3">
+                        <p class="card-text">{{ $salon->short_information }}</p>
+                        <a href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark mb-2">Továbbiak</a>
+                        <div class="mt-auto">
+                            <p class="card-text"><strong>Szalon helye:</strong> {{ $salon->location }}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button id="button" class="btn btn-dark btn-sm mr-2" data-toggle="modal" data-target="#editSalonModal{{ $salon->id }}">Szerkesztés</button>
+                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteSalonModal{{ $salon->id }}">Törlés</button>
+                    </div>
+                </div>
+            </div>
 
                                     <!-- Szalon szerkesztése -->
                                     <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
@@ -344,71 +346,69 @@
                     @endforeach
                 </div>
             </div>
-
-
                     <div class="card-body text-center">
                         <button id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
                     </div>
             <!-- Esemény Módosítása -->
             @foreach($events as $event)
-    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false" data-keyboard="true">
-        <!-- Modal párbeszédablak (szélesebbre állítva) -->
-        <div class="modal-dialog  modal-lg " role="document">
-            <div class="modal-content" style="background-color: #ffffff;"> <!-- Fehér háttér a modalnak -->
-                <div class="modal-header">
-                    <h5 class="modal-title">Esemény módosítása</h5>
-                    <!-- X gomb a jobb oldalra igazítva -->
-                    <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        
-                        <div class="form-group">
-                            <label for="title">Esemény neve</label>
-                            <input type="text" name="title" class="form-control w-100" value="{{ old('title', $event->title) }}" required autofocus> <!-- Autofocus -->
+            <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false" data-keyboard="true">
+                <!-- Modal párbeszédablak (szélesebbre állítva) -->
+                <div class="modal-dialog  modal-lg " role="document">
+                    <div class="modal-content" style="background-color: #ffffff;"> <!-- Fehér háttér a modalnak -->
+                        <div class="modal-header">
+                            <h5 class="modal-title">Esemény módosítása</h5>
+                            <!-- X gomb a jobb oldalra igazítva -->
+                            <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="location">Helyszín</label>
-                            <input type="text" name="location" class="form-control mt-2 w-100" value="{{ old('location', $event->location) }}">
-                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                
+                                <div class="form-group">
+                                    <label for="title">Esemény neve</label>
+                                    <input type="text" name="title" class="form-control w-100" value="{{ old('title', $event->title) }}" required autofocus> <!-- Autofocus -->
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="location">Helyszín</label>
+                                    <input type="text" name="location" class="form-control mt-2 w-100" value="{{ old('location', $event->location) }}">
+                                </div>
 
-                        <div class="form-group">
-                            <label for="short_information">Rövid leírás</label>
-                            <input type="text" name="short_information" class="form-control mt-2 w-100" value="{{ old('short_information', $event->short_information) }}" required>
-                        </div>
+                                <div class="form-group">
+                                    <label for="short_information">Rövid leírás</label>
+                                    <input type="text" name="short_information" class="form-control mt-2 w-100" value="{{ old('short_information', $event->short_information) }}" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="date">Kezdés időpontja</label>
-                            <input type="datetime-local" name="starts_at" class="form-control mt-2 w-100" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
-                        </div>
+                                <div class="form-group">
+                                    <label for="date">Kezdés időpontja</label>
+                                    <input type="datetime-local" name="starts_at" class="form-control mt-2 w-100" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="information">Részletes információ</label>
-                            <textarea name="information" class="form-control mt-2 w-100" required>{{ old('information', $event->information) }}</textarea>
-                        </div>
+                                <div class="form-group">
+                                    <label for="information">Részletes információ</label>
+                                    <textarea name="information" class="form-control mt-2 w-100" required>{{ old('information', $event->information) }}</textarea>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="salon_id">Szalon</label>
-                            <select name="salon_id" class="form-control mt-2 w-100" required>
-                                @foreach($salons as $salon)
-                                    <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>
-                                        {{ $salon->salon_name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
+                                <div class="form-group">
+                                    <label for="salon_id">Szalon</label>
+                                    <select name="salon_id" class="form-control mt-2 w-100" required>
+                                        @foreach($salons as $salon)
+                                            <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>
+                                                {{ $salon->salon_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                        <button id="button" type="submit" class="btn btn-dark mt-2 w-100">Mentés</button>
-                    </form>
+                                <button id="button" type="submit" class="btn btn-dark mt-2 w-100">Mentés</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 @endforeach
 
 
