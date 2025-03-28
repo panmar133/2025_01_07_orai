@@ -51,7 +51,7 @@
 
                                 <!-- Felhasználó admin adás -->
                                 <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog userModalPosition" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="makeAdminModalLabel{{ $user->id }}">Felhasználó adminná tétele</h5>
@@ -75,7 +75,7 @@
 
                                 <!-- Admin jog visszavonás modal -->
                                 <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog userModalPosition" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Admin jog visszavonása</h5>
@@ -96,7 +96,7 @@
                                 </div>
                                   <!-- Felhasználó adatok megtekintése -->
                             <div class="modal fade" id="viewUserModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                <div class="modal-dialog" role="document">
+                                <div class="modal-dialog userModalPosition" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Felhasználó adatai</h5>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
-                                <div class="modal-dialog" role="document">
+                                <div class="modal-dialog userModalPosition" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteUserModalLabel{{ $user->id }}">Felhasználó törlése</h5>
@@ -170,7 +170,7 @@
 
                                     <!-- Szalon szerkesztése -->
                                     <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog salonModalPosition" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Szalon módosítása</h5>
@@ -191,7 +191,7 @@
 
                                     <!-- Szalon törlés -->
                                     <div class="modal fade" id="deleteSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog salonModalPosition" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Szalon törlése</h5>
@@ -220,7 +220,7 @@
                     </div><br>
                 
                     <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog salonCreateModalPosition" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Új Szalon létrehozása</h5>
@@ -253,7 +253,7 @@
                 
                 <!-- Esemény létrehozás-->
                 <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" data-backdrop="false">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog eventModalPosition" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Új esemény létrehozása</h5>
@@ -274,12 +274,12 @@
                 
                                     <div class="form-group">
                                         <label for="short_information">Rövid leírás</label>
-                                        <input type="text" name="short_information" class="form-control">
+                                        <input type="text" name="short_information" class="form-control" required>
                                     </div>
                 
                                     <div class="form-group">
                                         <label for="information">Részletes információ</label>
-                                        <textarea name="information" class="form-control"></textarea>
+                                        <textarea name="information" class="form-control" required></textarea>
                                     </div>
                 
                                     <div class="form-group">
@@ -298,109 +298,281 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Esemény kiilistázása -->
-                @foreach($events as $event)
-                <div class="container">
-                        <div class="row">
-                            @foreach ($events as $event)
-                                <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
-                                    <div class="card h-100 shadow">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <h5 class="card-title">{{ $event->title }}</h5>
-                                                </div>
-                                                <div class="col-6 text-end">
-                                                    <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
-                                                </div>
-                                            </div>
-
-                                            <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
-                                            <p class="text-center">{{ $event->short_information }}</p>
-                                            <div class="col-md-8 mb-1">
-                                                <p><strong>Helyszín:</strong>{{ $event->location }}</p>   
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
-                                                <p class="card-text mb-0 ms-3">
-                                                    <strong>Résztvevők:</strong>
-                                                    <a href="">{{ $event->participants_count ?? 0 }}</a>
-                                                </p>
-                                                <p class="card-text mb-0 ms-3">
-                                                    <strong>Likok:</strong>
-                                                    <a href="">{{ $event->likes_count ?? 0}}</a>
-                                                </p>
-                                            </div>
+                <!-- Események listázása -->
+            <div class="container">
+                <div class="row">
+                    @foreach($events as $event)
+                        <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
+                            <div class="card h-100 shadow">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h5 class="card-title">{{ $event->title }}</h5>
                                         </div>
-
-                                        <div class="card-footer text-center">
-                                            <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
-                                            <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
+                                        <div class="col-6 text-end">
+                                            <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
                                         </div>
+                                    </div>
 
+                                    <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
+                                    <p class="text-center">{{ $event->short_information }}</p>
+                                    <div class="col-md-8 mb-1">
+                                        <p><strong>Helyszín:</strong>{{ $event->location }}</p>   
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
+                                        <p class="card-text mb-0 ms-3">
+                                            <strong>Résztvevők:</strong>
+                                            <a href="">{{ $event->participants_count ?? 0 }}</a>
+                                        </p>
+                                        <p class="card-text mb-0 ms-3">
+                                            <strong>Likok:</strong>
+                                            <a href="">{{ $event->likes_count ?? 0}}</a>
+                                        </p>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
 
-                    <!-- Esemény Módosítása -->
-                    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Esemény módosítása</h5>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="card-footer text-center">
+                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
-                                        <input type="text" name="location" class="form-control mt-2" value="{{ $event->location }}">
-                                        <input type="datetime-local" name="date" class="form-control mt-2" value="{{ $event->date }}" required>
-                                        <textarea name="description" class="form-control mt-2" required>{{ $event->description }}</textarea>
-                                        <select name="salon_id" class="form-control mt-2" required>
-                                            @foreach($salons as $salon)
-                                                <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>{{ $salon->salon_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
-                                    </form>
-                                </div>
+
                             </div>
                         </div>
-                    </div>
-                
-                    <!-- Esemény Törlés -->
-                    <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Esemény törlése</h5>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Biztosan törlöd az eseményt?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <form action="{{ route('admin.deleteEvent', $event->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button id="button" type="submit" class="btn btn-dark">Igen</button>
-                                    </form>
-                                    <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
+            </div>
+
+            <!-- Esemény Módosítása -->
+            @foreach($events as $event)
+                <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
+                    <div class="modal-dialog eventModalPosition" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Esemény módosítása</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    
+                                    <div class="form-group">
+                                        <label for="title">Esemény neve</label>
+                                        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="location">Helyszín</label>
+                                        <input type="text" name="location" class="form-control mt-2" value="{{ $event->location }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="short_information">Rövid leírás</label>
+                                        <input type="text" name="short_information" class="form-control mt-2" value="{{ $event->short_information }}" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="date">Kezdés időpontja</label>
+                                        <input type="datetime-local" name="starts_at" class="form-control mt-2" 
+                                            value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="information">Részletes információ</label>
+                                        <textarea name="information" class="form-control mt-2" required>{{ $event->information }}</textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="salon_id">Szalon</label>
+                                        <select name="salon_id" class="form-control mt-2" required>
+                                            @foreach($salons as $salon)
+                                                <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>
+                                                    {{ $salon->salon_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            <!-- Esemény Törlés -->
+            @foreach($events as $event)
+                <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
+                    <div class="modal-dialog eventModalPosition" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Esemény törlése</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Biztosan törlöd az eseményt?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('admin.deleteEvent', $event->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button id="button" type="submit" class="btn btn-dark">Igen</button>
+                                </form>
+                                <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach                
             </div>
         </div>
     </div>
 </main><br>
+<script>
+    $(document).ready(function() {
+        $('#createEventModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#createSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+    
+    $(document).ready(function() {
+        $('#viewUserModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteEventModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
+            var modal = $(this);
+            var modalHeight = modal.find('.modal-dialog').outerHeight();
+            var windowHeight = $(window).height();
+            
+            // Kiszámoljuk a margin-top értéket, hogy középre helyezze
+            var top = (windowHeight - modalHeight) / 2;
+            modal.find('.modal-dialog').css('margin-top', top);
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#editSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteUserModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#removeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#makeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#makeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

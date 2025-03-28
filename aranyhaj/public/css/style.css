@@ -719,3 +719,28 @@ footer {
         transform: scale(1);
     }
 }
+
+.userModalPosition {
+    position: absolute;
+    top: 16em;
+    left: 20em;
+    margin: 0;
+}
+
+.salonModalPosition {
+    position: absolute;
+    top: 10em;
+    left: 25em;
+}
+
+.salonCreateModalPosition {
+    position: absolute;
+    top: 40em;
+    left: 25em;
+}
+
+.eventModalPosition {
+    position: absolute;
+    top: 80em;
+    left: 25em;
+}
