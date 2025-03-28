@@ -52,7 +52,7 @@
                         <div class="d-grid">
                             <button id="button" class="btn btn-dark">Regisztráció</button>
                         </div>
-                        <a id="notRegistedProfilLink" class="text-center" href="/registration">Nincs még fiókom</a>
+                        <a id="notRegistedProfilLink" class="text-center" href="/log">Van már fiókom</a>
                     </div>
                 </form>
             </div>

@@ -19,54 +19,76 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="dropdown">
-                    <img src="{{ asset('images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" 
-                        data-bs-toggle="dropdown" aria-expanded="false" height="35">
-                        <div class="dropdown-content" id="dropdown-content">
-                        @guest
-                            <!-- Ha nincs bejelentkezve, akkor a bejelentkezés és regisztráció linkek jelennek meg -->
-                            <a href="/log">Bejelentkezés</a>
-                            <a href="/registration">Regisztráció</a>
-                        @endguest
+                    <!-- Ha van beállítva kép, azt jelenítjük meg, ha nincs, az alapértelmezettet -->
+                    <img src="{{ asset(Auth::check() ? Auth::user()->image_name : 'images/profil.png') }}" alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown" 
+                        data-bs-toggle="dropdown" aria-expanded="false" height="55">
+                    <div class="dropdown-content" id="dropdown-content">
+                    @guest
+                        <!-- Ha nincs bejelentkezve, akkor a bejelentkezés és regisztráció linkek jelennek meg -->
+                        <a href="/log">Bejelentkezés</a>
+                        <a href="/registration">Regisztráció</a>
+                    @endguest
 
-                        @auth
-                        <!-- Ha be van jelentkezve, akkor a fiók link és kijelentkezés gomb jelennek meg -->
-                        <a href="/user" class="btn dropdown-item">Fiókom</a>
-                        @if(auth()->user()->admin == 1)
-                            <a href="/owner" class="btn dropdown-item">Szalontulajdonos felület</a>
-                        @elseif(auth()->user()->admin == 2)
-                            <a href="/admin" class="btn dropdown-item">Admin felület</a>
-                        @endif
-                        <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
-                            @csrf
-                            @method('DELETE')
-                            <a><button id="button" class="btn dropdown-item" type="submit">Kijelentkezés</button></a>
-                        </form>
-                    @endauth
-                    </div>
+                    @auth
+                    <!-- Ha be van jelentkezve, akkor a fiók link és kijelentkezés gomb jelennek meg -->
+                    <a href="/user" class="btn dropdown-item">Fiókom</a>
+                    <a href="/partcipates" class="btn dropdown-item">Saját eseményeim</a>
+                    @if(auth()->user()->admin == 1)
+                        <a href="/owner" class="btn dropdown-item">Szalontulajdonos felület</a>
+                    @elseif(auth()->user()->admin == 2)
+                        <a href="/admin" class="btn dropdown-item">Admin felület</a>
+                    @endif
+                    <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                        @csrf
+                        @method('DELETE')
+                        <a><button id="button" class="btn dropdown-item" type="submit">Kijelentkezés</button></a>
+                    </form>
+                @endauth
                 </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                    //Kép és a lenyíló fej deklarálása
-                    let userDropdown = document.getElementById("userDropdown");
-                    let dropdownContent = document.getElementById("dropdown-content");
-                    //Képek deklarálása
-                    let normalImg = "{{ asset('images/profil.png') }}";
-                    let hoverImg = "{{ asset('images/aProfil.png') }}";
-                    //Képre rámenés megváltozatása
-                    userDropdown.addEventListener("mouseover", function() {this.src = hoverImg;});
-                    userDropdown.addEventListener("mouseout", function() {this.src = normalImg;});
-                    //Lenyílófej rámenés megváltozatása
-                    dropdownContent.addEventListener("mouseover", function() {userDropdown.src = hoverImg;});
-                    dropdownContent.addEventListener("mouseout", function() {userDropdown.src = normalImg;});
-                    });
-                </script>
             </div>
-        </div><hr>
-        <div class="container text-center" id="bottomHeader">
-            <p><a href="/donate">Adományozók</a></p>
-            <p><a href="/about">Rólunk</a></p>
-            <p><a href="/events">Események</a></p>
-            <p><a href="/salons">Szalonok</a></p>
         </div>
-    </nav>
-</header><br>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let userDropdown = document.getElementById("userDropdown");
+        let dropdownContent = document.getElementById("dropdown-content");
+
+        let normalImg = "{{ asset(Auth::check() && Auth::user()->image_name ? Auth::user()->image_name : 'images/profil.png') }}";  // Alapértelmezett vagy felhasználói kép
+        let hoverImg = "{{ asset('images/aProfil.png') }}";  // Hover kép
+
+        // Csak akkor adjunk hozzá hover effektust, ha nincs bejelentkezve a felhasználó
+        @auth
+        // Ha be van jelentkezve, akkor ne csináljunk semmit
+        return; 
+        @endauth
+
+        // Kép forrása a hover effektusra
+        userDropdown.addEventListener("mouseover", function() {
+            this.src = hoverImg;
+        });
+
+        userDropdown.addEventListener("mouseout", function() {
+            this.src = normalImg;
+        });
+
+        // Lenézve is változzon a kép
+        dropdownContent.addEventListener("mouseover", function() {
+            userDropdown.src = hoverImg;
+        });
+
+        dropdownContent.addEventListener("mouseout", function() {
+            userDropdown.src = normalImg;
+        });
+    });
+</script>
+
+</div>
+    </div><hr>
+    <div class="container text-center" id="bottomHeader">
+        <p><a href="/donate">Adományozók</a></p>
+        <p><a href="/about">Rólunk</a></p>
+        <p><a href="/events">Események</a></p>
+        <p><a href="/salons">Szalonok</a></p>
+    </div>
+</nav>
+</header>

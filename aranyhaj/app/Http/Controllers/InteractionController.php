@@ -9,7 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class InteractionController extends Controller
 {
     // Eseményhez való részvétel
-
+    public function userParticipates()
+    {
+        // Lekérjük a felhasználó eseményeit
+        $events = Auth::user()->interactions()->with('event')->where('participation', 1)->get();
+    
+        return view('user.participates', compact('events'));
+    }    
+    
     public function participateEvent(Request $request)
     {
         $request->validate([

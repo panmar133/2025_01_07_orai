@@ -35,8 +35,8 @@
                         <div class="d-grid mt-4">
                             <button id="button" class="btn btn-dark">Bejelentkezés</button>
                         </div>
-                        <a id="registedProfilLink" class="text-center" href="/registration">Van már fiókom</a>
-                        <div class="mt-3"></div> <!-- Extra hely a gomb után -->
+                        <a id="registedProfilLink" class="text-center" href="/registration">Nincs még fiókom</a>
+                        <div class="mt-3"></div>
                     </div>
                 </form>
             </div>
