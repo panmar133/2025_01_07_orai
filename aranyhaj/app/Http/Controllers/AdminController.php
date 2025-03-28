@@ -126,13 +126,29 @@ public function deleteSalon($salonId)
     return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
 }
 
-    public function editEvent(Request $request, $id)
-    {
-        $event = Event::findOrFail($id);
-        $event->update($request->all());
+public function updateEvent(Request $request, $id)
+{
+    $event = Event::findOrFail($id);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen módosítva!');
+    $request->validate([
+        'title' => 'required|string|max:20',
+        'location' => 'required|string|max:150',
+        'short_information' => 'required|string|max:100',
+        'information' => 'required|string',
+        'image_name' => 'nullable|string|max:500',
+        'starts_at' => 'required|date',
+    ]);
+
+    $data = $request->only(['title', 'location', 'short_information', 'information', 'starts_at', 'image_name']);
+
+    if (empty($data['image_name'])) {
+        unset($data['image_name']);
     }
+
+    $event->update($data);
+
+    return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen módosítva!');
+}
 
     public function deleteEvent($id)
     {
