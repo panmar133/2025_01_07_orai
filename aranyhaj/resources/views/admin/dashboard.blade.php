@@ -1,7 +1,7 @@
 @extends("layouts.layout")
 @section("title", "Admin felület")
 @section('content')
-<main>
+<main id="admin-page">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -65,8 +65,8 @@
                                                     <p>Biztosan adminná szeretnéd tenni <strong>{{ $user->name }}</strong> felhasználót?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
-                                                    <button type="submit" class="btn btn-success">Igen, admin lesz</button>
+                                                    <button type="button" class="btn btn-dark" data-dismiss="modal">Mégsem</button>
+                                                    <button type="submit" class="btn btn-dark">Igen, admin lesz</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -139,9 +139,9 @@
                                             <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Igen, törlöm</button>
+                                                <button type="submit" class="btn btn-dark">Igen, törlöm</button>
                                             </form>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +292,7 @@
                                         <input type="datetime-local" name="starts_at" class="form-control" required>
                                     </div>
                 
-                                    <button type="submit" class="btn btn-primary mt-2">Létrehozás</button>
+                                    <button type="submit" class="btn btn-dark mt-2">Létrehozás</button>
                                 </form>
                             </div>
                         </div>
@@ -345,62 +345,68 @@
 
             <!-- Esemény Módosítása -->
             @foreach($events as $event)
-                <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                    <div class="modal-dialog eventModalPosition" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Esemény módosítása</h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    
-                                    <div class="form-group">
-                                        <label for="title">Esemény neve</label>
-                                        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="location">Helyszín</label>
-                                        <input type="text" name="location" class="form-control mt-2" value="{{ $event->location }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="short_information">Rövid leírás</label>
-                                        <input type="text" name="short_information" class="form-control mt-2" value="{{ $event->short_information }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="date">Kezdés időpontja</label>
-                                        <input type="datetime-local" name="starts_at" class="form-control mt-2" 
-                                            value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="information">Részletes információ</label>
-                                        <textarea name="information" class="form-control mt-2" required>{{ $event->information }}</textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="salon_id">Szalon</label>
-                                        <select name="salon_id" class="form-control mt-2" required>
-                                            @foreach($salons as $salon)
-                                                <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>
-                                                    {{ $salon->salon_name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="true" data-keyboard="true">
+        <!-- Modal háttér, amely eltakartja az oldalt (de nem fekete) -->
+        <div class="modal-dialog modal-lg" role="document" style="background-color: #f5f5dc;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Esemény módosítása</h5>
+                    <!-- X gomb jobb oldalra igazítva -->
+                    <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            @endforeach
+                <div class="modal-body">
+                    <form action="{{ route('admin.updateEvent', $event->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        
+                        <div class="form-group">
+                            <label for="title">Esemény neve</label>
+                            <input type="text" name="title" class="form-control w-100" value="{{ old('title', $event->title) }}" required style="background-color: {{ old('title', $event->title) ? 'transparent' : '#f8f9fa' }}">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Helyszín</label>
+                            <input type="text" name="location" class="form-control mt-2 w-100" value="{{ old('location', $event->location) }}" style="background-color: {{ old('location', $event->location) ? 'transparent' : '#f8f9fa' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="short_information">Rövid leírás</label>
+                            <input type="text" name="short_information" class="form-control mt-2 w-100" value="{{ old('short_information', $event->short_information) }}" required style="background-color: {{ old('short_information', $event->short_information) ? 'transparent' : '#f8f9fa' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Kezdés időpontja</label>
+                            <input type="datetime-local" name="starts_at" class="form-control mt-2 w-100" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required style="background-color: {{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) ? 'transparent' : '#f8f9fa' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="information">Részletes információ</label>
+                            <textarea name="information" class="form-control mt-2 w-100" required style="background-color: {{ old('information', $event->information) ? 'transparent' : '#f8f9fa' }}; height: 200px; overflow-y: auto;">{{ old('information', $event->information) }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salon_id">Szalon</label>
+                            <select name="salon_id" class="form-control mt-2 w-100" required>
+                                @foreach($salons as $salon)
+                                    <option value="{{ $salon->id }}" {{ $event->salon_id == $salon->id ? 'selected' : '' }}>
+                                        {{ $salon->salon_name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <button id="button" type="submit" class="btn btn-dark mt-2 w-100">Mentés</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
+<script>$('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+}); </script>
 
             <!-- Esemény Törlés -->
             @foreach($events as $event)
