@@ -24,30 +24,32 @@
                             </div>
                         @endif
                         <!-- Felhasználók kiiratása -->
-                        <h2>Felhasználók</h2>
+                        <h3>Felhasználók</h3><hr><br>
                         <div class="container">
                             <div class="row">
-                            @foreach($users as $user)
-                                <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
-                                    <div class="card h-100 shadow">
-                                        <div class="card-body d-flex flex-column">
-                                            <img id="image" src="{{ $user->image_name }}" alt="Felhasználó Profilkép" class="img-fluid">
-                                            <h4 class="card-title"> {{ $user->user_name }}</h4>
-                                            <p class="card-text">{{ $user->email }}</p>
-                                            <p class="card-text">{{ $user->address }}</p>
-                                            <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">
-                                                Megtekintés</button>
-                                            @if($user->admin != 2)
-                                                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">
-                                                    Admin jog</button>
-                                            @else
-                                                <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">
-                                                Admin jog visszavonása</button>
-                                            @endif
-                                         <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
+                                @foreach($users as $user)
+                                    <div class="col-12 col-md-4 col-lg-4 mb-4 salon-card">
+                                        <div class="card h-100 shadow">
+                                            <div class="card-body d-flex flex-column">
+                                                <img id="image" src="{{ $user->image_name }}" alt="Felhasználó Profilkép" class="img-fluid">
+                                                <h4 class="card-title"> {{ $user->user_name }}</h4>
+                                                <p class="card-text">{{ $user->email }}</p>
+                                                <p class="card-text">{{ $user->address }}</p>
+                                                <div class="d-flex justify-content-between" style="gap: 10px;">
+                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#viewUserModal{{ $user->id }}">
+                                                        Megtekintés</button>
+                                                    @if($user->admin != 2)
+                                                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#makeAdminModal{{ $user->id }}">
+                                                            Admin jog</button>
+                                                    @else
+                                                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#removeAdminModal{{ $user->id }}">
+                                                        Admin jog visszavonása</button>
+                                                    @endif
+                                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">Törlés</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
                                 <!-- Felhasználó admin adás -->
                                 <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
@@ -148,7 +150,7 @@
                             </div>
                         @endforeach
                         <!-- Szalon kiilistázása -->
-                        <h2>Szalonok</h2><hr>
+                        <br><hr><h3>Szalonok</h3><hr>
                         <div class="container">
                             <div class="row">
                                 @foreach ($salons as $salon)
@@ -217,7 +219,7 @@
                     <!-- Új szalon létrehozása -->
                     <div class="card-body text-center">
                         <button id="button"  class="btn btn-dark" data-toggle="modal" data-target="#createSalonModal">Új Szalon</button>
-                    </div><br>
+                    </div><br><hr>
                 
                     <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog" data-backdrop="false">
                         <div class="modal-dialog salonCreateModalPosition" role="document">
@@ -248,9 +250,8 @@
                     </div>
 
                 <!-- Esemény rész -->
-                <h2>Események</h2><hr><br>
-                <button  id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal" >Új Esemény</button>
-                
+                <h3>Események</h3><hr><br>
+
                 <!-- Esemény létrehozás-->
                 <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" data-backdrop="false">
                     <div class="modal-dialog eventModalPosition" role="document">
@@ -298,7 +299,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Események listázása -->
+
+            <!-- Események listázása -->
             <div class="container">
                 <div class="row">
                     @foreach($events as $event)
@@ -307,42 +309,46 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-6">
-                                            <h5 class="card-title">{{ $event->title }}</h5>
+                                            <h5 class="card-title large">{{ $event->title }}</h5>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <p class="mb-0"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
+                                            <p class="mb-0 small bold"><strong>Időpont:</strong> {{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d H:i') }}</p>
                                         </div>
                                     </div>
 
                                     <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3">
                                     <p class="text-center">{{ $event->short_information }}</p>
                                     <div class="col-md-8 mb-1">
-                                        <p><strong>Helyszín:</strong>{{ $event->location }}</p>   
+                                        <p class="small"><strong class="text-center">Helyszín:</strong>{{ $event->location }}</p>   
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center small">
                                         <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                         <p class="card-text mb-0 ms-3">
                                             <strong>Résztvevők:</strong>
-                                            <a href="">{{ $event->participants_count ?? 0 }}</a>
+                                            {{ $event->participants_count ?? 0 }}
                                         </p>
                                         <p class="card-text mb-0 ms-3">
                                             <strong>Likok:</strong>
-                                            <a href="">{{ $event->likes_count ?? 0}}</a>
+                                            {{ $event->likes_count ?? 0}}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="card-footer text-center">
-                                    <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+                                    <!-- Gombok közötti rés hozzáadása -->
+                                    <button id="button" class="btn btn-dark btn-sm mr-2" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Szerkesztés</button>
                                     <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteEventModal{{ $event->id }}">Törlés</button>
                                 </div>
-
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
 
+
+                    <div class="card-body text-center">
+                        <button id="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">Új Esemény</button>
+                    </div>
             <!-- Esemény Módosítása -->
             @foreach($events as $event)
     <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false" data-keyboard="true">
@@ -408,7 +414,7 @@
 
 <script>$('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
     // Modal a képernyő tetejére ugrik, és megfelelően középre kerül
-    $('html, body').animate({ scrollTop: 0 }, 'fast');
+    $('html, body').animate({ scrollTop: 1 }, 'fast');
 });
 </script>
 
@@ -440,149 +446,7 @@
         </div>
     </div>
 </main><br>
-<script>
-    $(document).ready(function() {
-        $('#createEventModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
 
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#createSalonModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-    
-    $(document).ready(function() {
-        $('#viewUserModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#deleteEventModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        $('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
-            var modal = $(this);
-            var modalHeight = modal.find('.modal-dialog').outerHeight();
-            var windowHeight = $(window).height();
-            
-            // Kiszámoljuk a margin-top értéket, hogy középre helyezze
-            var top = (windowHeight - modalHeight) / 2;
-            modal.find('.modal-dialog').css('margin-top', top);
-        });
-    });
-
-    $(document).ready(function() {
-        $('#deleteSalonModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#editSalonModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#deleteUserModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#removeAdminModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#makeAdminModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-
-    $(document).ready(function() {
-        $('#makeAdminModal').on('show.bs.modal', function () {
-            var modalDialog = $(this).find('.modal-dialog');
-            var modalHeight = modalDialog.outerHeight();
-            var windowHeight = $(window).height();
-
-            var topPosition = (windowHeight - modalHeight) / 2;
-            modalDialog.css({
-                'margin-top': topPosition + 'px'
-            });
-        });
-    });
-</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
