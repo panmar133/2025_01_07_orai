@@ -9,8 +9,15 @@
             <div class="col-12">
                 <div class="card donation-card">
                     <div class="card-body text-center">
-                        <img src="{{ asset($event->image_name) }}" alt="Event Image" class="event-image">
-                        <h1 class="text-center my-4">{{ $event->title }}</h1>
+                        <div class="event-container">
+                            <div class="event-image-container">
+                                <img src="{{ asset($event->image_name) }}" alt="Event Image" class="event-image">
+                            </div>
+                            <div class="event-text">
+                                <h1 class="event-title">{{ $event->title }}</h1>
+                            </div>
+                        </div>
+
                         <hr class="mb-4">
                         
                         <!-- Google Maps beágyazott térkép -->

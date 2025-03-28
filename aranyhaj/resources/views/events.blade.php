@@ -30,16 +30,13 @@
 
                             <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3 d-block mx-auto">
 
-
                             <p class="text-center">{{ $event->short_information }}</p>
                             <div class="col-md-8 mb-1">
                                 <p><strong>Helyszín:</strong>
                                 <a id="copyLink" class="copy-text tooltip-trigger" onclick="copyText(this)" data-location="{{ $event->location }}">
                                     @if($event->location && strlen($event->location) > 30)
                                         @php
-                                            // Szavakra bontjuk
                                             $words = explode(' ', $event->location);
-                                            // Az első két szót összefűzzük, majd hozzáadjuk a "..." jelet
                                             $shortenedLocation = implode(' ', array_slice($words, 0, 2)) . '...';
                                         @endphp
                                         {{ $shortenedLocation }}
@@ -47,16 +44,14 @@
                                         {{ $event->location }}
                                     @endif
                                 </a>
-
                                 </p>   
                             </div>
 
                             <div id="topContent" class="d-flex justify-content-between align-items-center">
-                                <!-- Továbbiak gomb -->
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">
                                     <strong>Résztvevők:</strong>
-                                    <a href="" class="participants-count" data-event-id="{{ $event->id }}">{{ $event->participants_count ?? 0 }}</a>
+                                    <a href="" class="participants-count" data-event-id="{{ $event->id }}">{{ $event->participants->count() }}</a>
                                 </p>
                             </div>
                         </div>
@@ -64,18 +59,30 @@
                         <div class="card-footer text-center">
                             <div id="bottomContent" class="action-buttons d-flex justify-content-between">
                                 <!-- Résztvétel gomb -->
-                                <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
-                                    @csrf
-                                    <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                    <button type="submit" class="btn btn-warning participate-btn">Részt veszek</button>
-                                </form>
+                                @if($event->userHasParticipated) 
+                                    <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
+                                        @csrf
+                                        <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                        <button type="submit" class="btn btn-danger participate-btn">Mégsem veszek részt</button>
+                                    </form>
+                                @else
+                                    <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
+                                        @csrf
+                                        <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                        <button type="submit" class="btn btn-warning participate-btn">Részt veszek</button>
+                                    </form>
+                                @endif
 
                                 <!-- Like gomb -->
-                                <form action="{{ route('event.like') }}" method="POST" class="like-form">
-                                    @csrf
-                                    <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                    <button type="submit" class="btn btn-brown like-btn">{{ $event->likes_count ?? 0 }} 👍</button>
-                                </form>
+                                @if($event->userHasLiked) 
+                                    <button class="btn btn-primary" disabled>Lájkoltad</button>
+                                @else
+                                    <form action="{{ route('event.like') }}" method="POST" class="like-form">
+                                        @csrf
+                                        <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                        <button type="submit" class="btn btn-brown like-btn">{{ $event->likes_count ?? 0 }} 👍</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -108,21 +115,15 @@
                 }
             });
 
-            // Ha nincs találat, mutassuk az üzenetet, különben rejtsük el
             noResultsDiv.style.display = hasResults ? "none" : "block";
         }
-        // Keresés esemény figyelése
+
         searchInput.addEventListener("input", filterEvents);
     });
 
-    // Esemény helyének másolása
     function copyText(element) {
         const location = element.getAttribute('data-location');
-
-        // URL kódolás JavaScript-ben
         const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
-
-        // A felhasználónak kiíratja a helyszínt
         alert('Lemmentetted ezt a helyszínt: ' + location + '\n url ként!');
     }
 </script>

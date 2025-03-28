@@ -455,9 +455,6 @@ footer ul li:hover {
     text-shadow: 0.45px 0.45px #000;
     animation: fadeIn 1s ease-in-out;
 }
-#eventTitle:hover {
-    transform: scale(1.01);
-}
 a {
     text-decoration: none;
     color: black;
@@ -466,44 +463,77 @@ a {
 div p a {
     padding-right: 5px;
 }
-
-#event-page .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.event-container {
+    display: flex;
+    align-items: center; /* Kép és szöveg egy sorba rendezése */
+    gap: 20px; /* Távolság a kép és a szöveg között */
+    text-align: left;
+    margin-bottom: 30px;
 }
 
-#event-page .event-image-container {
-    max-width: 100%;
+.event-image-container {
+    flex-shrink: 0; /* Kép fix méretű marad */
+    width: 150px; /* Kör átmérője */
+    height: 150px;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
 }
 
-#event-page .event-image-container img {
-    max-width: 600px;
-    height: auto;
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#event-page .event-details {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 10px;
+.event-text {
+    flex: 1;
+    min-width: 200px;
 }
 
-#event-page .event-details p {
-    margin-bottom: 1rem;
+.event-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.salon-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
-#event-page .event-details strong {
-    font-weight: bold;
+.salon-image-container {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#event-page h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1.5rem;
+.salon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #000;
+}
+#salonHeaderUnderline {
+    color: #000;
+}
+.salon-text {
+    margin-top: 35px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.salon-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 /*CICA*/
 
@@ -546,11 +576,10 @@ div p a {
 }
 .map-container {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 arány */
-    height: 0;
+    height: 300px; /* Csökkentett magasság */
+    padding-bottom: 40%; /* Arány megtartása */
     overflow: hidden;
-    border-radius: 12px; /* Lekerekített sarkok */
+    border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -571,12 +600,8 @@ div p a {
 .salon-card {
     transition: transform 0.2s ease-in-out;
 }
-.salon-card:hover {
-    transform: scale(1.02);
-}
+
 .event-card {
-    opacity: 0;
-    transform: scale(0.95);
     animation: fadeInScale 1.5s forwards ease-out;
 }
 .btn-hover:hover {
@@ -598,34 +623,20 @@ div p a {
     background-color: #000;
     color: gold;
 }
-
-.event-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+header {
+    margin-bottom: 70px;
 }
-
-.event-details {
-    margin-top: 20px;
+footer {
+    margin-top: 100px;
 }
-
-.event-details .row {
-    margin-bottom: 10px;
+#registedProfilLink , #notRegistedProfilLink {
+    color: #4d4d4d;
+    display: block; 
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 7px;
+    width: fit-content;
 }
-
-.event-details .col-md-4 {
-    display: flex;
-    justify-content: center;
-}
-
-.event-details .btn-outline-secondary {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.8rem;
-}
-
 
 .card-footer {
     display: flex;
@@ -653,42 +664,6 @@ div p a {
 .like-btn:hover, .participate-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .event-details .row {
-        flex-direction: column;
-    }
-
-    .event-details .col-md-4 {
-        text-align: center;
-    }
-
-    .event-image {
-        max-width: 100%;
-    }
-}
-
-#salon-page .salon-card {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#salon-page .salon-header {
-    margin-bottom: 20px;
-}
-
-#salon-page .salon-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#salon-page .salon-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-top: 20px;
 }
 
 #salon-page .salon-separator {

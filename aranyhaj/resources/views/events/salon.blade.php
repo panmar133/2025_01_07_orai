@@ -11,10 +11,15 @@
                 <div class="card salon-card">
                     <div class="card-body">
                         <div class="salon-header text-center">
-                            <img src="{{ asset($salon->image_name) }}" class="salon-image img-fluid" alt="Szalon kép">
-                            <h1 class="salon-title">{{ $salon->salon_name }}</h1>
-                            <hr class="salon-separator">
-                        </div>
+                            <div class="salon-container">
+                                <div class="salon-image-container">
+                                    <img src="{{ asset($salon->image_name) }}" alt="Salon Image" class="salon-image">
+                                </div>
+                                <div class="salon-text">
+                                    <h1 class="salon-title">{{ $salon->salon_name }}</h1>
+                                </div>
+                            </div>
+                        </div><hr id="salonHeaderUnderline" class="mb-4">
 
                         <!-- Google Maps Beágyazott Térkép -->
                         <div class="map-container my-4 text-center">

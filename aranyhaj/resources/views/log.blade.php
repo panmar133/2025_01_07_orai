@@ -31,40 +31,37 @@
                             </button>
                         </div>
                     </div>
-
-                    <script>
-                         document.addEventListener("DOMContentLoaded", function () {
-                            const togglePassword = document.getElementById("yellowButtonEye");
-                            const passwordField = document.getElementById("password");
-
-                            togglePassword.addEventListener("click", function () {
-                                // Toggle password field visibility
-                                const type = passwordField.type === "password" ? "text" : "password";
-                                passwordField.type = type;
-
-                                // Toggle icon (Font Awesome icons)
-                                const icon = togglePassword.querySelector("i");
-                                if (type === "password") {
-                                    icon.classList.remove("fa-eye-slash");
-                                    icon.classList.add("fa-eye");
-                                } else {
-                                    icon.classList.remove("fa-eye");
-                                    icon.classList.add("fa-eye-slash");
-                                }
-                            });
-                        });
-                    </script>
-
                     <div class="mb-2">
                         <div class="d-grid mt-4">
                             <button id="button" class="btn btn-dark">Bejelentkezés</button>
                         </div>
-                        <div class="mt-5"></div> <!-- Extra hely a gomb után -->
+                        <a id="registedProfilLink" class="text-center" href="/registration">Van már fiókom</a>
+                        <div class="mt-3"></div> <!-- Extra hely a gomb után -->
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div><br>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById("yellowButtonEye");
+        const passwordField = document.getElementById("password");
 
+        togglePassword.addEventListener("click", function () {
+            // Toggle password field visibility
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+            // Toggle icon (Font Awesome icons)
+            const icon = togglePassword.querySelector("i");
+            if (type === "password") {
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            } else {
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            }
+        });
+    });
+</script>
 @endsection

@@ -47,39 +47,39 @@
                                 <i class="fa-solid fa-eye"></i>
                             </button>
                         </div>
-                    </div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const togglePassword = document.getElementById("yellowButtonEye");
-                            const passwordField = document.getElementById("password");
-
-                            togglePassword.addEventListener("click", function () {
-                                // Toggle password field visibility
-                                const type = passwordField.type === "password" ? "text" : "password";
-                                passwordField.type = type;
-
-                                // Toggle icon (Font Awesome icons)
-                                const icon = togglePassword.querySelector("i");
-                                if (type === "password") {
-                                    icon.classList.remove("fa-eye-slash");
-                                    icon.classList.add("fa-eye");
-                                } else {
-                                    icon.classList.remove("fa-eye");
-                                    icon.classList.add("fa-eye-slash");
-                                }
-                            });
-                        });
-                    </script><br>
-                    <div class="mb-3">
+                    </div><br> <!-- Extra hely a gomb után -->
+                    <div class="mb-5">
                         <div class="d-grid">
-                            <button id="button" class="btn btn-dark">Regisztráció</button><br>
+                            <button id="button" class="btn btn-dark">Regisztráció</button>
                         </div>
+                        <a id="notRegistedProfilLink" class="text-center" href="/registration">Nincs még fiókom</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div><br>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById("yellowButtonEye");
+        const passwordField = document.getElementById("password");
 
+        togglePassword.addEventListener("click", function () {
+            // Toggle password field visibility
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+
+            // Toggle icon (Font Awesome icons)
+            const icon = togglePassword.querySelector("i");
+            if (type === "password") {
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            } else {
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            }
+        });
+    });
+</script>
 @endsection
 <!-- Lezárás -->
