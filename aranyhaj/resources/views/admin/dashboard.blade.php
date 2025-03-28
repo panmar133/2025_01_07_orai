@@ -345,13 +345,13 @@
 
             <!-- Esemény Módosítása -->
             @foreach($events as $event)
-    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="true" data-keyboard="true">
-        <!-- Modal háttér, amely eltakartja az oldalt (de nem fekete) -->
-        <div class="modal-dialog modal-lg" role="document" style="background-color: #f5f5dc;">
-            <div class="modal-content">
+    <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false" data-keyboard="true">
+        <!-- Modal párbeszédablak (szélesebbre állítva) -->
+        <div class="modal-dialog  modal-lg " role="document">
+            <div class="modal-content" style="background-color: #ffffff;"> <!-- Fehér háttér a modalnak -->
                 <div class="modal-header">
                     <h5 class="modal-title">Esemény módosítása</h5>
-                    <!-- X gomb jobb oldalra igazítva -->
+                    <!-- X gomb a jobb oldalra igazítva -->
                     <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -363,27 +363,27 @@
                         
                         <div class="form-group">
                             <label for="title">Esemény neve</label>
-                            <input type="text" name="title" class="form-control w-100" value="{{ old('title', $event->title) }}" required style="background-color: {{ old('title', $event->title) ? 'transparent' : '#f8f9fa' }}">
+                            <input type="text" name="title" class="form-control w-100" value="{{ old('title', $event->title) }}" required autofocus> <!-- Autofocus -->
                         </div>
                         
                         <div class="form-group">
                             <label for="location">Helyszín</label>
-                            <input type="text" name="location" class="form-control mt-2 w-100" value="{{ old('location', $event->location) }}" style="background-color: {{ old('location', $event->location) ? 'transparent' : '#f8f9fa' }}">
+                            <input type="text" name="location" class="form-control mt-2 w-100" value="{{ old('location', $event->location) }}">
                         </div>
 
                         <div class="form-group">
                             <label for="short_information">Rövid leírás</label>
-                            <input type="text" name="short_information" class="form-control mt-2 w-100" value="{{ old('short_information', $event->short_information) }}" required style="background-color: {{ old('short_information', $event->short_information) ? 'transparent' : '#f8f9fa' }}">
+                            <input type="text" name="short_information" class="form-control mt-2 w-100" value="{{ old('short_information', $event->short_information) }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="date">Kezdés időpontja</label>
-                            <input type="datetime-local" name="starts_at" class="form-control mt-2 w-100" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required style="background-color: {{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) ? 'transparent' : '#f8f9fa' }}">
+                            <input type="datetime-local" name="starts_at" class="form-control mt-2 w-100" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="information">Részletes információ</label>
-                            <textarea name="information" class="form-control mt-2 w-100" required style="background-color: {{ old('information', $event->information) ? 'transparent' : '#f8f9fa' }}; height: 200px; overflow-y: auto;">{{ old('information', $event->information) }}</textarea>
+                            <textarea name="information" class="form-control mt-2 w-100" required>{{ old('information', $event->information) }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -404,9 +404,13 @@
         </div>
     </div>
 @endforeach
+
+
 <script>$('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
+    // Modal a képernyő tetejére ugrik, és megfelelően középre kerül
     $('html, body').animate({ scrollTop: 0 }, 'fast');
-}); </script>
+});
+</script>
 
             <!-- Esemény Törlés -->
             @foreach($events as $event)

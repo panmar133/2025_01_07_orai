@@ -551,8 +551,8 @@ div p a {
 .bottomContent {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-start;  /* A gombokat balra igazítja */
-    gap: 30px;  /* Távolságot adunk a gombok között */
+    justify-content: flex-start;
+    gap: 30px;
     width: 100%;
 }
 
@@ -564,11 +564,11 @@ div p a {
 
 
 .card-title {
-    word-wrap: break-word; /* Engedélyezi a szöveg megtörését szavaknál */
-    hyphens:auto; /* Megakadályozza a szótagolást */
+    word-wrap: break-word;
+    hyphens:auto;
 }
 
-/*CICA*/
+
 .search-container {
     max-width: 500px;
     margin: 20px auto;
@@ -576,8 +576,8 @@ div p a {
 }
 .map-container {
     position: relative;
-    height: 300px; /* Csökkentett magasság */
-    padding-bottom: 40%; /* Arány megtartása */
+    height: 300px;
+    padding-bottom: 40%;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -720,13 +720,6 @@ footer {
     }
 }
 
-.userModalPosition {
-    position: absolute;
-    top: 16em;
-    left: 20em;
-    margin: 0;
-}
-
 .salonModalPosition {
     position: absolute;
     top: 10em;
@@ -741,6 +734,7 @@ footer {
 
 .eventModalPosition {
     position: absolute;
-    top: 80em;
-    left: 25em;
+    top: 66em;
+    left: 13em;
+    width: 650px;
 }
