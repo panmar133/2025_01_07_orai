@@ -48,11 +48,11 @@ class AdminController extends Controller
     public function createSalon(Request $request)
     {
         $request->validate([
-            'salon_name' => 'required|string|max:255',
+            'salon_name' => 'required|string|max:20',
             'image_name' => 'nullable|string|max:500',
-            'short_information' => 'required|string|max:50',
+            'short_information' => 'required|string|max:100',
             'information' => 'required|string',
-            'location' => 'required|string|max:255',
+            'location' => 'required|string|max:150',
             'owner_id' => 'required|exists:users,id',
         ]);
         
@@ -99,10 +99,10 @@ public function deleteSalon($salonId)
     public function createEvent(Request $request)
 {
     $request->validate([
-        'title' => 'required|string|max:255',
-        'location' => 'required|string|max:255',
-        'short_information' => 'nullable|string',
-        'information' => 'nullable|string',
+        'title' => 'required|string|max:20',
+        'location' => 'required|string|max:150',
+        'short_information' => 'required|string|max:100',
+        'information' => 'required|string',
         'image_name' => 'nullable|string|max:500',
         'starts_at' => 'required|date',
     ]);

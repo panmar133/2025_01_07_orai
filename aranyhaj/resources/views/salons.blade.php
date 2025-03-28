@@ -12,15 +12,20 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                     <div class="card h-100 shadow">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $salon->salon_name }}</h5>
-                            <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid rounded my-3">
-                            <p class="card-text">{{ $salon->short_information }}</p>
+                            <h5 class="card-title text-center">{{ $salon->salon_name }}</h5>
+                            <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép" class="img-fluid rounded my-3 d-block mx-auto">
+                            <p class="card-text text-center">{{ $salon->short_information }}</p>
                             <div class="mt-auto">
                                 <p class="card-text">
                                     <strong>Szalon helye:</strong>
                                     <a id="copyLink" class="copy-text" onclick="copyText(this)" 
                                         data-location="{{ $salon->location }}">
-                                        {{ Str::limit($salon->location, 30, '...') }}
+                                        @php
+                                            $location = $salon->location;
+                                            $words = explode(' ', $location); // Szavakra bontjuk
+                                            $shortenedLocation = implode(' ', array_slice($words, 0, 2));
+                                        @endphp
+                                        {{ $shortenedLocation }}...
                                     </a>
                                 </p>
                             </div>
@@ -36,49 +41,49 @@
     </div>
 
     <script> 
-    // Kereső mező
-    document.addEventListener("DOMContentLoaded", function () { 
-        const searchInput = document.getElementById("search");
-        const cards = document.querySelectorAll(".salon-card");
-        const noResultsDiv = document.getElementById("no-results");
+        // Kereső mező
+        document.addEventListener("DOMContentLoaded", function () { 
+            const searchInput = document.getElementById("search");
+            const cards = document.querySelectorAll(".salon-card");
+            const noResultsDiv = document.getElementById("no-results");
 
-        function filterSalons() {
-            const searchText = searchInput.value.toLowerCase();
-            let hasResults = false;
+            function filterSalons() {
+                const searchText = searchInput.value.toLowerCase();
+                let hasResults = false;
 
-            cards.forEach(card => {
-                // Lekérdezzük a szalon nevét
-                const salonName = card.querySelector(".card-title").textContent.toLowerCase();
-                // Lekérdezzük a szalon helyét a linkből
-                const salonLocation = card.querySelector(".copy-text").textContent.toLowerCase();
+                cards.forEach(card => {
+                    // Lekérdezzük a szalon nevét
+                    const salonName = card.querySelector(".card-title").textContent.toLowerCase();
+                    // Lekérdezzük a szalon helyét a linkből
+                    const salonLocation = card.querySelector(".copy-text").textContent.toLowerCase();
 
-                // Ellenőrizzük, hogy a név vagy hely tartalmazza-e a keresett szöveget
-                const matchesSearch = salonName.includes(searchText) || salonLocation.includes(searchText);
-                card.style.display = matchesSearch ? "block" : "none";
+                    // Ellenőrizzük, hogy a név vagy hely tartalmazza-e a keresett szöveget
+                    const matchesSearch = salonName.includes(searchText) || salonLocation.includes(searchText);
+                    card.style.display = matchesSearch ? "block" : "none";
 
-                if (matchesSearch) {
-                    hasResults = true;
-                }
-            });
+                    if (matchesSearch) {
+                        hasResults = true;
+                    }
+                });
 
-            // Ha nincs találat, mutassuk az üzenetet, különben rejtsük el
-            noResultsDiv.style.display = hasResults ? "none" : "block";
+                // Ha nincs találat, mutassuk az üzenetet, különben rejtsük el
+                noResultsDiv.style.display = hasResults ? "none" : "block";
+            }
+
+            // Keresés esemény figyelése
+            searchInput.addEventListener("input", filterSalons);
+        });
+
+        // Szalon helyének másolása
+        function copyText(element) {
+            const location = element.getAttribute('data-location');
+
+            // URL kódolás JavaScript-ben
+            const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
+
+            // A felhasználó számára kiírjuk a helyszínt, és adunk egy linket a térképre
+            alert('Lemmentetted ezt a helyszínt: ' + location + '\n url ként!');
         }
-
-        // Keresés esemény figyelése
-        searchInput.addEventListener("input", filterSalons);
-    });
-
-    // Szalon helyének másolása
-    function copyText(element) {
-        const location = element.getAttribute('data-location');
-        // URL kódolás JavaScript-ben
-        const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
-
-        navigator.clipboard.writeText(mapUrl)
-            .then(() => alert('Lemmentetted ezt a helyszínt: ' + mapUrl))
-            .catch(error => alert('Nem sikerült lementened: ' + error));
-    }
 
     </script>
 </main><br>
