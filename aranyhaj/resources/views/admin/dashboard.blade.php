@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                  <!-- Felhasználó adatok megtekintése -->
+                            <!-- Felhasználó adatok megtekintése -->
                             <div class="modal fade" id="viewUserModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                 <div class="modal-dialog userModalPosition" role="document">
                                     <div class="modal-content">
