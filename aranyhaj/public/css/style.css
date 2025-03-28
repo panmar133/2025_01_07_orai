@@ -526,6 +526,11 @@ div p a {
     width: 100%;
 }
 
+#admin-page form{
+    padding-top: 10px;
+    gap: 10px;
+    margin-top: 10px;
+}
 
 
 .card-title {
