@@ -302,11 +302,6 @@
                 <!-- Esemény kiilistázása -->
                 @foreach($events as $event)
                 <div class="container">
-                        @if(session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
                         <div class="row">
                             @foreach ($events as $event)
                                 <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
