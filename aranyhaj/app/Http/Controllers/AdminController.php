@@ -107,16 +107,21 @@ public function deleteSalon($salonId)
         'starts_at' => 'required|date',
     ]);
 
-    Event::create([
+    $data = [
         'title' => $request->title,
         'location' => $request->location,
         'short_information' => $request->short_information,
         'information' => $request->information,
-        'image_name' => $request->image_name,
         'starts_at' => $request->starts_at,
         'owner_id' => auth()->id(),
         'salon_id' => 1,
-    ]);
+    ];
+    
+    if (!empty($request->image_name)) {
+        $data['image_name'] = $request->image_name;
+    }
+    
+    Event::create($data);    
 
     return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
 }

@@ -51,7 +51,7 @@
 
                                 <!-- Felhasználó admin adás -->
                                 <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog userModalPosition" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="makeAdminModalLabel{{ $user->id }}">Felhasználó adminná tétele</h5>
@@ -75,7 +75,7 @@
 
                                 <!-- Admin jog visszavonás modal -->
                                 <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog userModalPosition" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Admin jog visszavonása</h5>
@@ -96,7 +96,7 @@
                                 </div>
                                   <!-- Felhasználó adatok megtekintése -->
                             <div class="modal fade" id="viewUserModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                <div class="modal-dialog" role="document">
+                                <div class="modal-dialog userModalPosition" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Felhasználó adatai</h5>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true" data-backdrop="false">
-                                <div class="modal-dialog" role="document">
+                                <div class="modal-dialog userModalPosition" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteUserModalLabel{{ $user->id }}">Felhasználó törlése</h5>
@@ -170,7 +170,7 @@
 
                                     <!-- Szalon szerkesztése -->
                                     <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog salonModalPosition" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Szalon módosítása</h5>
@@ -191,7 +191,7 @@
 
                                     <!-- Szalon törlés -->
                                     <div class="modal fade" id="deleteSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog salonModalPosition" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Szalon törlése</h5>
@@ -220,7 +220,7 @@
                     </div><br>
                 
                     <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog salonCreateModalPosition" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Új Szalon létrehozása</h5>
@@ -253,7 +253,7 @@
                 
                 <!-- Esemény létrehozás-->
                 <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" data-backdrop="false">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog eventModalPosition" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Új esemény létrehozása</h5>
@@ -347,7 +347,7 @@
 
                     <!-- Esemény Módosítása -->
                     <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog eventModalPosition" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Esemény módosítása</h5>
@@ -375,7 +375,7 @@
                 
                     <!-- Esemény Törlés -->
                     <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog eventModalPosition" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Esemény törlése</h5>
@@ -401,6 +401,149 @@
         </div>
     </div>
 </main><br>
+<script>
+    $(document).ready(function() {
+        $('#createEventModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#createSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+    
+    $(document).ready(function() {
+        $('#viewUserModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteEventModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
+            var modal = $(this);
+            var modalHeight = modal.find('.modal-dialog').outerHeight();
+            var windowHeight = $(window).height();
+            
+            // Kiszámoljuk a margin-top értéket, hogy középre helyezze
+            var top = (windowHeight - modalHeight) / 2;
+            modal.find('.modal-dialog').css('margin-top', top);
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#editSalonModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#deleteUserModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#removeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#makeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#makeAdminModal').on('show.bs.modal', function () {
+            var modalDialog = $(this).find('.modal-dialog');
+            var modalHeight = modalDialog.outerHeight();
+            var windowHeight = $(window).height();
+
+            var topPosition = (windowHeight - modalHeight) / 2;
+            modalDialog.css({
+                'margin-top': topPosition + 'px'
+            });
+        });
+    });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
