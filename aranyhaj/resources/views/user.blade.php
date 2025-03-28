@@ -11,23 +11,9 @@
             <div class="text-center">
                 <img src="{{ Auth::user()->image_name }}" alt="Profilkép" class="img-fluid rounded-circle shadow" width="150">
                 <p class="mt-3">
-                    <button id="button"  class="btn btn-dark" id="openModalBtn">Profilkép módosítása</button>
+                    <button id="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#profilePictureModal">Profilkép módosítása</button>
                 </p>
             </div>
-
-            @if(session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
             <!-- Felhasználói adatok -->
             <p><strong>Felhasználónév:</strong> {{ Auth::user()->user_name }}</p>
             <p><strong>Jogosultság:</strong>

@@ -410,14 +410,6 @@
                 </div>
             </div>
 @endforeach
-
-
-<script>$('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
-    // Modal a képernyő tetejére ugrik, és megfelelően középre kerül
-    $('html, body').animate({ scrollTop: 1 }, 'fast');
-});
-</script>
-
             <!-- Esemény Törlés -->
             @foreach($events as $event)
                 <div class="modal fade" id="deleteEventModal{{ $event->id }}" tabindex="-1" role="dialog" data-backdrop="false">
@@ -446,6 +438,12 @@
         </div>
     </div>
 </main><br>
+
+<script>$('#editEventModal{{ $event->id }}').on('show.bs.modal', function () {
+    // Modal a képernyő tetejére ugrik, és megfelelően középre kerül
+    $('html, body').animate({ scrollTop: 1 }, 'fast');
+});
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
