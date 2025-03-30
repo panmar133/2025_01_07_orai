@@ -153,6 +153,7 @@
 <div class="container">
     <div class="row">
     <hr><h3>Szalonok</h3><br><hr>
+    <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn btn-dark mt-2">Új szalon hozzáadása</a>
         @foreach ($salons as $salon)
             <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                 <div class="card h-100 shadow">
@@ -166,98 +167,20 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <button id="button" class="btn btn-dark btn-sm mr-2" data-toggle="modal" data-target="#editSalonModal{{ $salon->id }}">Szerkesztés</button>
-                        <button id="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#deleteSalonModal{{ $salon->id }}">Törlés</button>
+                        <a href="{{ route('admin.editSalon', $salon->id) }}" id="button" class="btn btn-dark btn-sm mr-2">Szalon kezelése</a>
                     </div>
                 </div>
             </div>
-
-                                    <!-- Szalon szerkesztése -->
-                                    <div class="modal fade" id="editSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog salonModalPosition" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Szalon módosítása</h5>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('admin.updateSalon', $salon->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <input type="text" name="salon_name" class="form-control" value="{{ $salon->salon_name }}" required>
-                                                        <input type="text" name="location" class="form-control" value="{{ $salon->location }}" required>
-                                                        <button id="button" type="submit" class="btn btn-dark mt-2">Mentés</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Szalon törlés -->
-                                    <div class="modal fade" id="deleteSalonModal{{ $salon->id }}" tabindex="-1" role="dialog" data-backdrop="false">
-                                        <div class="modal-dialog salonModalPosition" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Szalon törlése</h5>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Biztosan törlöd a szalont?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form action="{{ route('admin.deleteSalon', $salon->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button id="button" type="submit" class="btn btn-dark">Igen</button>
-                                                    </form>
-                                                        <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div><br>
-
-                    <!-- Új szalon létrehozása -->
-                    <div class="card-body text-center">
-                        <button id="button"  class="btn btn-dark" data-toggle="modal" data-target="#createSalonModal">Új Szalon</button>
-                    </div><br><hr>
-                
-                    <div class="modal fade" id="createSalonModal" tabindex="-1" role="dialog" data-backdrop="false">
-                        <div class="modal-dialog salonCreateModalPosition" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Új Szalon létrehozása</h5>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{ route('admin.createSalon') }}" method="POST">
-                                    @csrf
-                                    <input type="text" name="salon_name" class="form-control" placeholder="Szalon neve" required>
-                                    <input type="text" name="image_name" class="form-control" placeholder="Kép URL">
-                                    <input type="text" name="short_information" class="form-control" placeholder="Rövid leírás a szalonról" required>
-                                    <input type="text" name="information" class="form-control" placeholder="Leírás a szalonról" required>
-                                    <input type="text" name="location" class="form-control" placeholder="Helyszín" required>
-                                        <select name="owner_id" class="form-control" required>
-                                            <option value="">Válassz tulajdonost</option>
-                                            @foreach($users as $user)
-                                                <option value="{{ $user->id }}">{{ $user->user_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <button id="button" type="submit" class="btn btn-dark mt-2">Létrehozás</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        @endforeach
+</div><br>
 
                 <!-- Esemény rész -->
                 <div class="container">
-    <h2 class="mb-3">Események</h2>
+                <hr><h3>Események</h3><hr>
     
     <div class="row">
     <div class="container">
-    <a href="{{ route('admin.createEvent') }}" class="btn btn-primary mt-3">Új esemény létrehozása</a>
+    <a href="{{ route('admin.createEvent') }}" id="button" class="btn btn-dark mt-2">Új esemény létrehozása</a>
     </div>
         @foreach($events as $event)
             <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
@@ -294,6 +217,7 @@
 
                     <div class="card-footer text-center">
                         <a href="{{ route('admin.editEvent', $event->id) }}" id="button" class="btn btn-dark btn-sm mr-2">Esemény kezelése</a>
+                        <a href="{{ route('admin.eventDetails', $event->id) }}" id="button" class="btn btn-dark btn-sm mr-2">Részvételi adatok</a>
                     </div>
                 </div>
             </div>

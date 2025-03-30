@@ -68,14 +68,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/remove-admin/{id}', [AdminController::class, 'removeAdmin'])->name('admin.removeAdmin');
     Route::delete('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.deleteUser');
 
-    Route::get('/admin/salons', [AdminController::class, 'showSalons'])->name('admin.salons');
+    Route::get('/admin/create-salon', [AdminController::class, 'createSalonForm'])->name('admin.createSalonForm');
     Route::post('/admin/create-salon', [AdminController::class, 'createSalon'])->name('admin.createSalon');
+    Route::get('/admin/edit-salon/{salon}', [AdminController::class, 'editSalon'])->name('admin.editSalon');
     Route::put('/admin/update-salon/{salon}', [AdminController::class, 'updateSalon'])->name('admin.updateSalon');
     Route::delete('/admin/delete-salon/{salon}', [AdminController::class, 'deleteSalon'])->name('admin.deleteSalon');
 
     Route::get('/admin/create-event', [AdminController::class, 'createEventPage'])->name('admin.createEventPage');
     Route::post('/admin/create-event', [AdminController::class, 'createEvent'])->name('admin.createEvent');
     Route::get('/admin/edit-event/{id}', [AdminController::class, 'editEvent'])->name('admin.editEvent');
+    Route::get('/admin/event-details/{id}', [AdminController::class, 'showEventDetails'])->name('admin.eventDetails');
     Route::put('/admin/update-event/{id}', [AdminController::class, 'updateEvent'])->name('admin.updateEvent');
     Route::delete('/admin/delete-event/{id}', [AdminController::class, 'deleteEvent'])->name('admin.deleteEvent');
 });

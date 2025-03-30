@@ -45,6 +45,13 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Felhasználó admin joga visszavonva.');
     }
     
+    public function createSalonForm()
+    {
+        $users = User::all();
+        return view('admin.create-salon', compact('users'));
+    }
+
+
     public function createSalon(Request $request)
     {
         $request->validate([
@@ -94,7 +101,14 @@ class AdminController extends Controller
         $salon->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen törölve!');
-    }   
+    }
+    
+    public function editSalon($salonId)
+    {
+        $salon = Salon::findOrFail($salonId);
+        return view('admin.edit-salon', compact('salon'));
+    }
+
 
     public function createEvent(Request $request)
     {
@@ -167,4 +181,17 @@ class AdminController extends Controller
     {
         return view('admin.create-event');
     }
+
+public function showEventDetails($eventId)
+{
+    $event = Event::findOrFail($eventId);
+
+    // Lekérdezzük a like-olókat és a résztvevőket
+    $likes = $event->likes()->with('user')->get(); // A like-oló felhasználók
+    $participants = $event->participants()->with('user')->get(); // A résztvevő felhasználók
+
+    return view('admin.event-details', compact('event', 'likes', 'participants'));
+}
+
+
 }
