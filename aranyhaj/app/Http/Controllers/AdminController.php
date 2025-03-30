@@ -186,12 +186,9 @@ public function showEventDetails($eventId)
 {
     $event = Event::findOrFail($eventId);
 
-    // Lekérdezzük a like-olókat és a résztvevőket
-    $likes = $event->likes()->with('user')->get(); // A like-oló felhasználók
-    $participants = $event->participants()->with('user')->get(); // A résztvevő felhasználók
+    $likes = $event->likes()->with('user')->get();
+    $participants = $event->participants()->with('user')->get();
 
     return view('admin.event-details', compact('event', 'likes', 'participants'));
 }
-
-
 }
