@@ -78,77 +78,77 @@ class AdminController extends Controller
 
     public function updateSalon(Request $request, $salonId)
     {
-    $salon = Salon::findOrFail($salonId);
+        $salon = Salon::findOrFail($salonId);
 
-    $salon->salon_name = $request->salon_name;
-    $salon->location = $request->location;
+        $salon->salon_name = $request->salon_name;
+        $salon->location = $request->location;
 
-    $salon->save();
+        $salon->save();
 
-    return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen módosítva!');
+        return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen módosítva!');
     }
 
-public function deleteSalon($salonId)
+    public function deleteSalon($salonId)
     {
-    $salon = Salon::findOrFail($salonId);
-    $salon->delete();
+        $salon = Salon::findOrFail($salonId);
+        $salon->delete();
 
-    return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen törölve!');
+        return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen törölve!');
     }   
 
     public function createEvent(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string|max:20',
-        'location' => 'required|string|max:150',
-        'short_information' => 'required|string|max:100',
-        'information' => 'required|string',
-        'image_name' => 'nullable|string|max:500',
-        'starts_at' => 'required|date',
-    ]);
+    {
+        $request->validate([
+            'title' => 'required|string|max:20',
+            'location' => 'required|string|max:150',
+            'short_information' => 'required|string|max:100',
+            'information' => 'required|string',
+            'image_name' => 'nullable|string|max:500',
+            'starts_at' => 'required|date',
+        ]);
 
-    $data = [
-        'title' => $request->title,
-        'location' => $request->location,
-        'short_information' => $request->short_information,
-        'information' => $request->information,
-        'starts_at' => $request->starts_at,
-        'owner_id' => auth()->id(),
-        'salon_id' => 1,
-    ];
-    
-    if (!empty($request->image_name)) {
-        $data['image_name'] = $request->image_name;
+        $data = [
+            'title' => $request->title,
+            'location' => $request->location,
+            'short_information' => $request->short_information,
+            'information' => $request->information,
+            'starts_at' => $request->starts_at,
+            'owner_id' => auth()->id(),
+            'salon_id' => 1,
+        ];
+        
+        if (!empty($request->image_name)) {
+            $data['image_name'] = $request->image_name;
+        }
+        
+        Event::create($data);    
+
+        return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
+    }   
+
+    public function updateEvent(Request $request, $id)
+    {
+        $event = Event::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|string|max:20',
+            'location' => 'required|string|max:150',
+            'short_information' => 'required|string|max:100',
+            'information' => 'required|string',
+            'image_name' => 'nullable|string|max:500',
+            'starts_at' => 'required|date',
+        ]);
+
+        $data = $request->only(['title', 'location', 'short_information', 'information', 'starts_at', 'image_name']);
+
+        if (empty($data['image_name'])) {
+            unset($data['image_name']);
+        }
+
+        $event->update($data);
+
+        return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen módosítva!');
     }
-    
-    Event::create($data);    
-
-    return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
-}
-
-public function updateEvent(Request $request, $id)
-{
-    $event = Event::findOrFail($id);
-
-    $request->validate([
-        'title' => 'required|string|max:20',
-        'location' => 'required|string|max:150',
-        'short_information' => 'required|string|max:100',
-        'information' => 'required|string',
-        'image_name' => 'nullable|string|max:500',
-        'starts_at' => 'required|date',
-    ]);
-
-    $data = $request->only(['title', 'location', 'short_information', 'information', 'starts_at', 'image_name']);
-
-    if (empty($data['image_name'])) {
-        unset($data['image_name']);
-    }
-
-    $event->update($data);
-
-    return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen módosítva!');
-}
 
     public function deleteEvent($id)
     {
@@ -156,5 +156,15 @@ public function updateEvent(Request $request, $id)
         $event->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Esemény törölve!');
+    }
+    public function editEvent($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('admin.edit_event', compact('event'));
+    }
+
+    public function createEventPage()
+    {
+        return view('admin.create-event');
     }
 }
