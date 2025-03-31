@@ -89,4 +89,6 @@ Route::middleware(['auth', 'owner'])->group(function () {
     Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Esemény létrehozás + mentése
     Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update'); //Esemény módosítás
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+
+    Route::get('/owner/event-details/{id}', [EventController::class, 'showEventDetails'])->name('owner.eventDetails');
 });

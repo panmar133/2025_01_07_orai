@@ -82,6 +82,7 @@
 
                         <div class="card-footer text-center">
                             <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
+                            <a href="{{ route('owner.eventDetails', $event->id) }}" id="button" class="btn btn-dark">Részvételi adatok</a>
                             <!-- esemény törlés -->
                             <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
                                 @csrf
