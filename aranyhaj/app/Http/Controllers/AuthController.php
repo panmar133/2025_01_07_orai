@@ -7,64 +7,64 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
- 
+
 class AuthController extends Controller
 {
     public function register()
     {
         return view('registration');
     }
- 
+
     public function registerPost(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email|max:255',
-        'address' => 'required|string|max:255',
-        'password' => 'required|min:8',
-    ], [
-        'name.required' => 'A felhasználónév megadása kötelező!',
-        'email.required' => 'E-mail cím megadása kötelező!',
-        'adress.required' => 'Lakcím megadása kötelező!',
-        'password.min' => 'A jelszónak legalább 8 karakterből kell állnia!',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'address' => 'required|string|max:255',
+            'password' => 'required|min:8',
+        ], [
+            'name.required' => 'A felhasználónév megadása kötelező!',
+            'email.required' => 'E-mail cím megadása kötelező!',
+            'adress.required' => 'Lakcím megadása kötelező!',
+            'password.min' => 'A jelszónak legalább 8 karakterből kell állnia!',
+        ]);
 
-    $user = new User();
-    $user->user_name = $request->name;
-    $user->email = $request->email;
-    $user->address = $request->address;
-    $user->password = Hash::make($request->password);
+        $user = new User();
+        $user->user_name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->password = Hash::make($request->password);
 
-    $user->save();
+        $user->save();
 
-    return back()->with('success', 'Sikeres regisztráció! Mostmár bejelentkezhetsz.');
-}
- 
+        return back()->with('success', 'Sikeres regisztráció! Mostmár bejelentkezhetsz.');
+    }
+
     public function login()
     {
         return view('log');
     }
- 
+
     public function loginPost(Request $request)
-{
-    $adatok = [
-        'email' => $request->email,
-        'password' => $request->password,
-    ];
+    {
+        $adatok = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
 
-    Log::info('Bejelentkezés próbálkozás:', $adatok);
+        Log::info('Bejelentkezés próbálkozás:', $adatok);
 
-    if (Auth::attempt($adatok)) {
-        return redirect('/')->with('success', 'Sikeres bejelentkezés!');
+        if (Auth::attempt($adatok)) {
+            return redirect('/')->with('success', 'Sikeres bejelentkezés!');
+        }
+        Log::error('Hibás email cím vagy jelszó', $adatok);
+        return back()->with('error', 'Hibás email cím, vagy jelszó!');
     }
-    Log::error('Hibás email cím vagy jelszó', $adatok);
-    return back()->with('error', 'Hibás email cím, vagy jelszó!');
-}   
- 
+
     public function logout()
     {
         Auth::logout();
- 
+
         return redirect()->route('login');
     }
 }

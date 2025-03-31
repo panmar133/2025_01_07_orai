@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Auth;
 class InteractionController extends Controller
 {
     // Eseményhez való részvétel
-public function userParticipates()
-{
-    // Lekérjük a felhasználó eseményeit
-    $events = Auth::user()->interactions()->with('event.likes')->where('participation', 1)->get();
+    public function userParticipates()
+    {
+        // Lekérjük a felhasználó eseményeit
+        $events = Auth::user()->interactions()->with('event.likes')->where('participation', 1)->get();
 
-    // Frissítjük az események like számait
-    foreach ($events as $interaction) {
-        $interaction->event->likes_count = $interaction->event->likes->count();
+        // Frissítjük az események like számait
+        foreach ($events as $interaction) {
+            $interaction->event->likes_count = $interaction->event->likes->count();
+        }
+
+        return view('participates', compact('events'));
     }
 
-    return view('participates', compact('events'));
-}
-    
     public function participateEvent(Request $request)
     {
         $request->validate([
@@ -29,8 +29,8 @@ public function userParticipates()
         ]);
 
         $interaction = Interaction::where('user_id', Auth::id())
-                                  ->where('event_id', $request->event_id)
-                                  ->first();
+            ->where('event_id', $request->event_id)
+            ->first();
 
         // Ha létezik, és már lájkolta, akkor eltávolítjuk a lájkot
         if ($interaction) {
@@ -61,8 +61,8 @@ public function userParticipates()
         ]);
 
         $interaction = Interaction::where('user_id', Auth::id())
-                                  ->where('event_id', $request->event_id)
-                                  ->first();
+            ->where('event_id', $request->event_id)
+            ->first();
 
         // Ha létezik, és már lájkolta, akkor eltávolítjuk a lájkot
         if ($interaction) {

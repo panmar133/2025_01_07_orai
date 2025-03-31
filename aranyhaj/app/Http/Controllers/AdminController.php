@@ -19,7 +19,7 @@ class AdminController extends Controller
         $users = User::all();
         $salons = Salon::all();
         $events = Event::all();
-        return view('admin.dashboard', compact('users', 'salons', 'events')); 
+        return view('admin.dashboard', compact('users', 'salons', 'events'));
     }
 
     public function deleteUser($id)
@@ -44,7 +44,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Felhasználó admin joga visszavonva.');
     }
-    
+
     public function createSalonForm()
     {
         $users = User::all();
@@ -62,7 +62,7 @@ class AdminController extends Controller
             'location' => 'required|string|max:150',
             'owner_id' => 'required|exists:users,id',
         ]);
-        
+
 
         $salon = new Salon();
         $salon->salon_name = $request->salon_name;
@@ -102,7 +102,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Szalon sikeresen törölve!');
     }
-    
+
     public function editSalon($salonId)
     {
         $salon = Salon::findOrFail($salonId);
@@ -130,15 +130,15 @@ class AdminController extends Controller
             'owner_id' => auth()->id(),
             'salon_id' => 1,
         ];
-        
+
         if (!empty($request->image_name)) {
             $data['image_name'] = $request->image_name;
         }
-        
-        Event::create($data);    
+
+        Event::create($data);
 
         return redirect()->route('admin.dashboard')->with('success', 'Esemény sikeresen létrehozva!');
-    }   
+    }
 
     public function updateEvent(Request $request, $id)
     {

@@ -34,7 +34,6 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', 'Profil email címe frissítve!');
     }
 
-
     public function changePassword(Request $request)
     {
         $request->validate([
