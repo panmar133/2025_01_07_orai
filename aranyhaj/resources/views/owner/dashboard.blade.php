@@ -43,17 +43,13 @@
                                 @endforeach
                             </div>
                         </div><br><hr>
-
-                        <br><button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#createEventModal">
-                            Esemény létrehozása
-                        </button><br><hr>
-
-                        <h4>Szalonhoz tartozó események:</h4>
+<a href="{{ route('owner.createEvent') }}" id="button" class="btn text-center btn-fixed btn-dark mt-2">Új esemény létrehozása</a><br>
+<h4>Szalonhoz tartozó események:</h4>
 @foreach ($salons as $salon)
     <h5>{{ $salon->salon_name }} - Események:</h5>
     <div class="container">
         <div class="row">
-        <a href="{{ route('owner.createEvent') }}" id="button" class="btn btn-dark mt-2">Új esemény létrehozása</a>
+        
             @forelse ($salon->events as $event)
                 <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
                     <div class="card h-100 shadow">
@@ -94,7 +90,7 @@
                     </div>
                 </div>
             @empty
-                <h1>Nincsenek események.</h1>
+                <h5><b>Nincsenek események.</b></h5>
             @endforelse
         </div>
     </div>

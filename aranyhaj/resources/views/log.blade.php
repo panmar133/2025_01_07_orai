@@ -22,11 +22,6 @@
                         <small id="emailError" class="form-text text-danger" style="display: none;">
                             Az email címnek nem megfelelő.
                         </small>
-                    @error('email')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Jelszó</label>
@@ -39,12 +34,6 @@
                         <small id="passwordError" class="form-text text-danger" style="display: none;">
                             A jelszónak legalább 8 karakterből kell állnia!
                         </small>
-                    </div><br>
-                        @error('password')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                     <div class="mb-2">
                         <div class="d-grid mt-4">

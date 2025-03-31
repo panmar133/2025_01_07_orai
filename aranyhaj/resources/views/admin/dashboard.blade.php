@@ -152,8 +152,8 @@
 <div class="container">
     <div class="row">
         <hr><h3>Szalonok</h3><br><hr>
-        <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn text-center btn-fixed btn-dark mt-2">Új szalon hozzáadása</a>
-        <div  class="mb-3"></div>
+        <a href="{{ route('admin.createSalonForm') }}" id="button" >Új szalon hozzáadása</a>
+        <div class="mb-3"></div>
         @foreach ($salons as $salon)
             <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                 <div class="card h-100 shadow">
@@ -181,8 +181,6 @@
     
     <div class="row">
     <div class="container">
-    <a href="{{ route('admin.createEvent') }}" id="button" class="btn btn-fixed btn-dark mt-2">Új esemény létrehozása</a>
-    </div>
         @foreach($events as $event)
             <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
                 <div class="card h-100 shadow">
