@@ -86,7 +86,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth', 'owner'])->group(function () {
 
     Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
-    Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Esemény létrehozás + mentése
-    Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update'); //Esemény módosítás
-    Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+    
+    Route::get('/owner/create-event', [OwnerController::class, 'createEventPage'])->name('owner.createEventPage');
+    Route::post('/owner/create-event', [OwnerController::class, 'createEvent'])->name('owner.createEvent');
+
+    Route::get('/owner/event-details/{id}', [EventController::class, 'showEventDetails'])->name('owner.eventDetails');
+
+    Route::get('/owner/edit-event/{id}', [OwnerController::class, 'editEvent'])->name('owner.editEvent');
+    Route::put('/owner/update-event/{id}', [OwnerController::class, 'updateEvent'])->name('owner.updateEvent');
+    Route::delete('/owner/delete-event/{id}', [OwnerController::class, 'deleteEvent'])->name('owner.deleteEvent');
 });

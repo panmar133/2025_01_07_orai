@@ -8,7 +8,19 @@
                 <div class="card donation-card">
                     <div class="card-body text-center">
                         <h1 class="text-center my-4">Szalontulajdonos Felület</h1><hr>
-
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                        @endif
                         <h4 class="text-center my-4">A Te Szalonjaid:</h4>
                         <div class="container">
                             <div class="row">
@@ -40,12 +52,8 @@
 @foreach ($salons as $salon)
     <h5>{{ $salon->salon_name }} - Események:</h5>
     <div class="container">
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="row">
+        <a href="{{ route('owner.createEvent') }}" id="button" class="btn btn-dark mt-2">Új esemény létrehozása</a>
             @forelse ($salon->events as $event)
                 <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
                     <div class="card h-100 shadow">
@@ -81,72 +89,7 @@
                         </div>
 
                         <div class="card-footer text-center">
-                            <button id="button" type="button" class="btn btn-dark" data-toggle="modal" data-target="#editEventModal{{ $event->id }}">Módosítás</button>
-                            <!-- esemény törlés -->
-                            <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button id="button" type="submit" class="btn btn-dark">Törlés</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Esemény módosítás -->
-                <div class="modal fade" id="editEventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel{{ $event->id }}" aria-hidden="true" data-backdrop="false">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editEventModalLabel{{ $event->id }}">Esemény módosítása</h5>
-                                <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form action="{{ route('events.update', $event->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="title">Esemény neve</label>
-                                        <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="location">Helyszín</label>
-                                        <input type="text" name="location" class="form-control" value="{{ $event->location }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="short_information">Rövid információ</label>
-                                        <input type="text" name="short_information" class="form-control" value="{{ $event->short_information }}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="information">Bővebb információ</label>
-                                        <textarea name="information" class="form-control">{{ $event->information }}</textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="image_name">Kép URL</label>
-                                        <textarea name="image_name" class="form-control">{{ $event->image_name }}</textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <img src="{{ asset($event->image_name) }}" class="event-image img-fluid" alt=" ">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="starts_at">Esemény kezdete</label>
-                                        <input type="datetime-local" name="starts_at" class="form-control" value="{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i') }}" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="card-body">          
-                                        <button id="button"  type="button" class="btn btn-btn-dark" data-dismiss="modal">Mégsem</button>
-                                        <button id="button" type="submit" class="btn btn-btn-dark">Frissítés</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <a href="{{ route('owner.editEvent', $event->id) }}" id="button" class="btn btn-dark btn-sm mr-2">Esemény kezelése</a>
                         </div>
                     </div>
                 </div>

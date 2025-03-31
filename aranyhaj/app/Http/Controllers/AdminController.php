@@ -182,13 +182,13 @@ class AdminController extends Controller
         return view('admin.create-event');
     }
 
-public function showEventDetails($eventId)
-{
-    $event = Event::findOrFail($eventId);
+    public function showEventDetails($eventId)
+    {
+        $event = Event::findOrFail($eventId);
 
-    $likes = $event->likes()->with('user')->get();
-    $participants = $event->participants()->with('user')->get();
+        $likes = $event->likes()->with('user')->get();
+        $participants = $event->participants()->with('user')->get();
 
-    return view('admin.event-details', compact('event', 'likes', 'participants'));
-}
+        return view('admin.event-details', compact('event', 'likes', 'participants'));
+    }
 }

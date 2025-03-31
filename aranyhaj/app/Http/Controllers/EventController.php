@@ -126,4 +126,14 @@ class EventController extends Controller
 
         return redirect()->route('owner.dashboard')->with('success', 'Esemény sikeresen törölve!');
     }
+
+    public function showEventDetails($eventId)
+    {
+        $event = Event::findOrFail($eventId);
+
+        $likes = $event->likes()->with('user')->get();
+        $participants = $event->participants()->with('user')->get();
+
+        return view('owner.event-details', compact('event', 'likes', 'participants'));
+    }
 }
