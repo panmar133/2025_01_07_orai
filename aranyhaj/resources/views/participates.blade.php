@@ -6,8 +6,7 @@
     <h1>Részt vett események</h1>
     <ul>
         @foreach($events as $event)
-            <li>{{ $event->event->name }}</li> <!-- Az esemény neve -->
+            <li>Esemény címe: {{ $event->event->title }} Kezdés időpontja: {{ $event->event->starts_at }}; Helyszín: {{ $event->event->location }}</li> <!-- Az esemény neve -->
         @endforeach
     </ul>
 @endsection
-

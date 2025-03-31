@@ -30,7 +30,7 @@ Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show'
 Route::post('/event/like', [InteractionController::class, 'likeEvent'])->name('event.like')->middleware('auth');
 Route::post('/event/participate', [InteractionController::class, 'participateEvent'])->name('event.participate')->middleware('auth');
 
-Route::get('/user/participates', [InteractionController::class, 'userParticipates'])->name('user.participates');
+Route::get('/participates', [InteractionController::class, 'userParticipates'])->name('user.participates');
 
 /* Salons */
 Route::get('/salons', [SalonController::class, 'index'])->name('salons.index');

@@ -14,7 +14,7 @@ class InteractionController extends Controller
         // Lekérjük a felhasználó eseményeit
         $events = Auth::user()->interactions()->with('event')->where('participation', 1)->get();
     
-        return view('user.participates', compact('events'));
+        return view('participates', compact('events'));
     }    
     
     public function participateEvent(Request $request)

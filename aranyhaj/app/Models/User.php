@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Salon::class, 'owner_id', 'id');
     }
+
+    public function interactions()
+    {
+        return $this->hasMany(Interaction::class, 'user_id', 'id');
+    }
 }

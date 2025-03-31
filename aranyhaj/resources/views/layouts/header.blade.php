@@ -32,7 +32,7 @@
                     @auth
                     <!-- Ha be van jelentkezve, akkor a fiók link és kijelentkezés gomb jelennek meg -->
                     <a href="/user" class="btn dropdown-item">Fiókom</a>
-                    <a href="/partcipates" class="btn dropdown-item">Saját eseményeim</a>
+                    <a href="/participates" class="btn dropdown-item">Saját eseményeim</a>
                     @if(auth()->user()->admin == 1)
                         <a href="/owner" class="btn dropdown-item">Szalontulajdonos felület</a>
                     @elseif(auth()->user()->admin == 2)
