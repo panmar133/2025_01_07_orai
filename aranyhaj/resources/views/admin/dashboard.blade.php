@@ -8,7 +8,6 @@
                 <div class="card donation-card">
                     <div class="card-body text-center">
                         <h1 class="text-center my-4">Admin Felület</h1><hr>
-                        <!--Hiba üzenetek kezelése-->
                         @if(session('success'))
                             <div class="alert alert-success">
                             {{ session('success') }}
@@ -74,7 +73,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Admin jog visszavonás modal -->
+                                <!-- admin jog visszavonás -->
                                 <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog" data-backdrop="false">
                                     <div class="modal-dialog userModalPosition" role="document">
                                         <div class="modal-content">
