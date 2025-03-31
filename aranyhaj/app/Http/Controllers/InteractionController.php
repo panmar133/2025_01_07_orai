@@ -9,13 +9,18 @@ use Illuminate\Support\Facades\Auth;
 class InteractionController extends Controller
 {
     // Eseményhez való részvétel
-    public function userParticipates()
-    {
-        // Lekérjük a felhasználó eseményeit
-        $events = Auth::user()->interactions()->with('event')->where('participation', 1)->get();
-    
-        return view('participates', compact('events'));
-    }    
+public function userParticipates()
+{
+    // Lekérjük a felhasználó eseményeit
+    $events = Auth::user()->interactions()->with('event.likes')->where('participation', 1)->get();
+
+    // Frissítjük az események like számait
+    foreach ($events as $interaction) {
+        $interaction->event->likes_count = $interaction->event->likes->count();
+    }
+
+    return view('participates', compact('events'));
+}
     
     public function participateEvent(Request $request)
     {

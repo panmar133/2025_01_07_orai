@@ -22,6 +22,11 @@ class AuthController extends Controller
         'email' => 'required|email|unique:users,email|max:255',
         'address' => 'required|string|max:255',
         'password' => 'required|min:8',
+    ], [
+        'name.required' => 'A felhasználónév megadása kötelező!',
+        'email.required' => 'E-mail cím megadása kötelező!',
+        'adress.required' => 'Lakcím megadása kötelező!',
+        'password.min' => 'A jelszónak legalább 8 karakterből kell állnia!',
     ]);
 
     $user = new User();

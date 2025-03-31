@@ -152,7 +152,8 @@
 <div class="container">
     <div class="row">
         <hr><h3>Szalonok</h3><br><hr>
-        <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn btn-dark mt-2">Új szalon hozzáadása</a><br><br>
+        <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn text-center btn-fixed btn-dark mt-2">Új szalon hozzáadása</a>
+        <div  class="mb-3"></div>
         @foreach ($salons as $salon)
             <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                 <div class="card h-100 shadow">
@@ -180,7 +181,7 @@
     
     <div class="row">
     <div class="container">
-    <a href="{{ route('admin.createEvent') }}" id="button" class="btn btn-dark mt-2">Új esemény létrehozása</a>
+    <a href="{{ route('admin.createEvent') }}" id="button" class="btn btn-fixed btn-dark mt-2">Új esemény létrehozása</a>
     </div>
         @foreach($events as $event)
             <div class="col-12 col-md-4 col-lg-4 mb-4 event-card">
@@ -207,11 +208,15 @@
                         <div class="d-flex justify-content-between align-items-center small">
                             <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                             <p class="card-text mb-0 ms-3">
-                                <strong>Résztvevők:</strong> {{ $event->participants_count ?? 0 }}
+                                <strong>Résztvevők:</strong>
+                                <a href="" class="participants-count" data-event-id="{{ $event->id }}">{{ $event->participants_count ?? 0 }}</a> 
                             </p>
                             <p class="card-text mb-0 ms-3">
-                                <strong>Likok:</strong> {{ $event->likes_count ?? 0 }}
+                                <strong>Likok:</strong>
+                                <a href="" class="like-count" data-event-id="{{ $event->id }}">{{ $event->likes_count ?? 0 }}</a>
                             </p>
+
+
                         </div>
                     </div>
 
@@ -224,8 +229,6 @@
         @endforeach
     </div>
 </div>
-
-    </div>
 </main><br>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

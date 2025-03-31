@@ -1,10 +1,8 @@
 @extends("layouts.layout")
-<!-- Fejléc kiszedés -->
-@section("title", "Bejelentkezés")
-<!-- Cím adás az oldalnak változó által -->
-@section("content")
-<!-- Kontent kiszedés -->
 
+@section("title", "Bejelentkezés")
+
+@section("content")
 <h2 class="text-center">Bejelentkezés</h2>
 <div class="container d-flex justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
@@ -21,15 +19,29 @@
                     <div class="mb-2">
                         <label for="email" class="form-label">E-mail cím</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        @error('email')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-3">
                         <label for="password" class="form-label">Jelszó</label>
                         <div class="input-group">
-                            <input type="password" name="password" class="form-control" id="password" required>
-                            <button id="yellowButtonEye" type="button" id="togglePassword" class="btn btn-dark">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Jelszó" required>
+                            <button id="yellowButtonEye" type="button" class="btn btn-dark">
                                 <i class="fa-solid fa-eye"></i>
                             </button>
                         </div>
+                        <small id="passwordError" class="form-text text-danger" style="display: none;">
+                            A jelszónak legalább 8 karakterből kell állnia!
+                        </small>
+                    </div><br>
+                        @error('password')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="mb-2">
                         <div class="d-grid mt-4">
@@ -44,6 +56,23 @@
     </div>
 </div><br>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const passwordField = document.getElementById("password");
+        const passwordError = document.getElementById("passwordError");
+
+        passwordField.addEventListener("input", function () {
+            const password = passwordField.value;
+
+            // Ha a jelszó hossza kisebb, mint 8, akkor megjelenítjük a hibát
+            if (password.length < 8) {
+                passwordError.style.display = "block";
+            } else {
+                passwordError.style.display = "none";  // Ha 8 vagy több karakter, eltüntetjük a hibát
+            }
+        });
+    });
+
+
     document.addEventListener("DOMContentLoaded", function () {
         const togglePassword = document.getElementById("yellowButtonEye");
         const passwordField = document.getElementById("password");

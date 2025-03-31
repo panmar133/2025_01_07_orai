@@ -188,6 +188,11 @@ hr {
     background-color: gold;
     color: #000;
 }
+.btn-fixed {
+    display: block;
+    width: fit-content; /* vagy egy fix szélesség: width: 200px; */
+    margin: 0 auto;
+}
 #yellowButtonEye:hover {
     transform: scale(1.1);
     transition: 0.4s;
