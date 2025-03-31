@@ -36,7 +36,7 @@
                         <label for="email" class="form-label">Email cím</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="Pl.: aranyhaj@gmail.com" required>
                         <small id="emailError" class="form-text text-danger" style="display: none;">
-                            Az email címnek tartalmaznia kell az '@' karaktert.
+                            Az email címnek nem megfelelő.
                         </small>
                     </div>
                     <div class="mb-3">

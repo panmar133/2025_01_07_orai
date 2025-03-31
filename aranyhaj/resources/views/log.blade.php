@@ -16,10 +16,13 @@
                 @endif
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
-                    <div class="mb-2">
-                        <label for="email" class="form-label">E-mail cím</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
-                        @error('email')
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email cím</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Pl.: aranyhaj@gmail.com" required>
+                        <small id="emailError" class="form-text text-danger" style="display: none;">
+                            Az email címnek nem megfelelő.
+                        </small>
+                    @error('email')
                             <div class="alert alert-danger mt-2">
                                 {{ $message }}
                             </div>
@@ -57,31 +60,32 @@
 </div><br>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const emailField = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
         const passwordField = document.getElementById("password");
         const passwordError = document.getElementById("passwordError");
+        const togglePassword = document.getElementById("yellowButtonEye");
 
-        passwordField.addEventListener("input", function () {
-            const password = passwordField.value;
-
-            // Ha a jelszó hossza kisebb, mint 8, akkor megjelenítjük a hibát
-            if (password.length < 8) {
-                passwordError.style.display = "block";
+        emailField.addEventListener("input", function () {
+            if (!emailField.value.includes("@")) {
+                emailError.style.display = "block";
             } else {
-                passwordError.style.display = "none";  // Ha 8 vagy több karakter, eltüntetjük a hibát
+                emailError.style.display = "none";
             }
         });
-    });
 
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const togglePassword = document.getElementById("yellowButtonEye");
-        const passwordField = document.getElementById("password");
+        passwordField.addEventListener("input", function () {
+            if (passwordField.value.length < 8) {
+                passwordError.style.display = "block";
+            } else {
+                passwordError.style.display = "none";
+            }
+        });
 
         togglePassword.addEventListener("click", function () {
-            // Toggle password field visibility
             const type = passwordField.type === "password" ? "text" : "password";
             passwordField.type = type;
-            // Toggle icon (Font Awesome icons)
+
             const icon = togglePassword.querySelector("i");
             if (type === "password") {
                 icon.classList.remove("fa-eye-slash");
