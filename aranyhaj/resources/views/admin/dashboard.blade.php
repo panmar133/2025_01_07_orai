@@ -32,8 +32,8 @@
                                         <div class="col-12 col-md-4 col-lg-4 mb-4 salon-card">
                                             <div class="card h-100 shadow">
                                                 <div class="card-body d-flex flex-column">
-                                                    <img id="image" class="rounded-circle" src="{{ $user->image_name }}" alt="Felhasználó Profilkép"
-                                                        class="img-fluid">
+                                                    <img id="image" class="rounded-circle" src="{{ $user->image_name }}"
+                                                        alt="Felhasználó Profilkép" class="img-fluid">
                                                     <h4 class="card-title">{{ $user->user_name }}</h4>
                                                     <p class="card-text">{{ $user->email }}</p>
                                                     <p class="card-text">{{ $user->address }}</p>
@@ -184,26 +184,25 @@
                                         <div class="row">
                                             <hr>
                                             <h3>Szalonok</h3><br>
-                                            <a href="{{ route('admin.createSalonForm') }}" class="btn btn-dark btn-fixed">Új Szalon hozzáadása</a>
+                                            <a href="{{ route('admin.createSalonForm') }}" class="btn btn-dark btn-fixed">Új
+                                                Szalon hozzáadása</a>
                                             <div class="mb-3"></div>
                                             @foreach ($salons as $salon)
                                                 <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                                                     <div class="card h-100 shadow">
                                                         <div class="card-body d-flex flex-column">
-                                                            <h5 class="card-title">{{ $salon->salon_name }}</h5>
+                                                            <h5 class="card-title text-center">{{ $salon->salon_name }}</h5>
                                                             <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép"
                                                                 class="img-fluid rounded my-3">
                                                             <p class="card-text">{{ $salon->short_information }}</p>
-                                                            <a href="{{ route('salons.show', $salon->id) }}"
-                                                                class="btn btn-dark mb-2">Továbbiak</a>
-                                                            <div class="mt-auto">
-                                                                <p class="card-text"><strong>Szalon helye:</strong>
-                                                                    {{ $salon->location }}</p>
-                                                            </div>
+                                                            <p class="card-text"><strong>Szalon helye:</strong>
+                                                                {{ $salon->location }}</p>
                                                         </div>
                                                         <div class="card-footer text-center">
-                                                            <a href="{{ route('admin.editSalon', $salon->id) }}" id="button"
-                                                                class="btn btn-dark btn-sm mr-2">Szalon szerkesztése</a>
+                                                            <a href="{{ route('salons.show', $salon->id) }}"
+                                                                class="btn btn-dark btn-sm">Továbbiak</a>
+                                                            <a href="{{ route('admin.editSalon', $salon->id) }}"
+                                                                class="btn btn-dark btn-sm">Szerkesztés</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,8 +213,11 @@
                                     <!-- Esemény rész -->
                                     <div class="container">
                                         <hr>
-                                        <h3>Események</h3><hr>
-                                        <button id="button" class="btn btn-dark btn-fixed" onclick="window.location.href='{{ route('admin.createEventForm') }}'">Új Esemény hozzáadása</button> 
+                                        <h3>Események</h3>
+                                        <hr>
+                                        <button id="button" class="btn btn-dark btn-fixed"
+                                            onclick="window.location.href='{{ route('admin.createEventForm') }}'">Új Esemény
+                                            hozzáadása</button>
                                         <div class="mt-3"></div>
                                         <div class="row">
                                             @foreach($events as $event)
