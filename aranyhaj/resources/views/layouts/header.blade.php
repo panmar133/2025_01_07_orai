@@ -23,7 +23,7 @@
                         <!-- Ha van beállítva kép, azt jelenítjük meg, ha nincs, az alapértelmezettet -->
                         <img src="{{ asset(Auth::check() ? Auth::user()->image_name : 'images/profil.png') }}"
                             alt="Felhasználó" class="rounded-circle dropdown-toggle" id="userDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false" height="55">
+                            data-bs-toggle="dropdown" aria-expanded="false" width="55" height="55">
                         <div class="dropdown-content" id="dropdown-content">
                             @guest
                                 <!-- Ha nincs bejelentkezve, akkor a bejelentkezés és regisztráció linkek jelennek meg -->

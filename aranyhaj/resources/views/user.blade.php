@@ -10,7 +10,7 @@
                 <!-- Profilkép -->
                 <div class="text-center">
                     <img src="{{ Auth::user()->image_name }}" alt="Profilkép" class="img-fluid rounded-circle shadow"
-                        width="150">
+                       max-width="155" max-height="155" width="155" hight="155">
                     <p class="mt-3">
                         <button id="button" class="btn btn-dark" data-bs-toggle="modal"
                             data-bs-target="#profilePictureModal">Profilkép módosítása</button>
