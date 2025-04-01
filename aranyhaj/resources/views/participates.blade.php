@@ -3,130 +3,111 @@
 @section('title', 'Részt vett események')
 
 @section('content')
-    <h1 id="eventTitle" class="text-center">Részt vett események</h1>
-    <div class="search-container text-center">
-        <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
-    </div>
-    <div class="container">
-        <div id="no-results" class="text-center" style="display: none;">
+    <main class="container py-4">
+        <h1 id="eventTitle" class="text-center mb-4">Részt vett események</h1>
+
+        <div class="search-container text-center mb-4">
+            <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
+        </div>
+
+        <div id="no-results" class="text-center text-muted" style="display: none;">
             Nincs találat!
         </div>
-    </div>
-    <div class="row">
-        @foreach($events as $event)
-            <div class="col-12 col-md-6 col-lg-4 mb-4 event-card">
-                <div class="card h-100 shadow">
-                    <div class="card-body d-flex flex-column">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5 class="card-title text-center">{{ $event->event->title }}</h5>
-                            </div>
-                            <div class="col-6 text-end">
-                                <p class="mb-0">
-                                    <strong>Időpont:</strong>
-                                    <span class="date">{{ \Carbon\Carbon::parse($event->event->starts_at)->format('Y-m-d') }}</span>
-                                    <span class="time">{{ \Carbon\Carbon::parse($event->event->starts_at)->format('H:i') }}</span>
-                                </p>
-                            </div>
-                        </div>
 
-                        <img id="postImage" src="{{ asset($event->event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3 d-block mx-auto">
-                        <p class="text-center">{{ $event->event->short_information }}</p>
-                        <div class="col-md-8 mb-1">
+        <div class="row">
+            @foreach ($events as $event)
+                <div class="col-12 col-md-6 col-lg-4 mb-4 event-card">
+                    <div class="card h-100 shadow">
+                        <div class="card-body d-flex flex-column">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="card-title text-center">{{ $event->event->title }}</h5>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <p class="mb-0">
+                                        <strong>Időpont:</strong>
+                                        <span
+                                            class="date">{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d') }}</span>
+                                        <span class="time">{{ \Carbon\Carbon::parse($event->starts_at)->format('H:i') }}</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <img src="{{ asset($event->event->image_name) }}" alt="Event Image" class="card-img-top">
+                            <p class="text-center">{{ $event->event->short_information }}</p>
+
                             <p><strong>Helyszín:</strong>
-                                <a id="cdata-location="{{ $event->event->location }}">
-                                    @if($event->event->location && strlen($event->event->location) > 30)
-                                        copyLink" class="copy-text tooltip-trigger" onclick="copyText(this)"
-                                        @php
-                                            $words = explode(' ', $event->event->location);
-                                            $shortenedLocation = implode(' ', array_slice($words, 0, 2)) . '...';
-                                        @endphp
-                                        {{ $shortenedLocation }}
-                                    @else
-                                        {{ $event->event->location }}
-                                    @endif
+                                <a class="copy-text" onclick="copyText(this)" data-location="{{ $event->event->location }}">
+                                    {{ Str::limit($event->event->location, 30) }}
                                 </a>
                             </p>
-                        </div>
 
-                        <div id="topContent" class="d-flex justify-content-between align-items-center">
-                            <a href="{{ route('events.show', $event->event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
-                            <p class="card-text mb-0 ms-3">
-                                <strong>Résztvevők:</strong>
-                                <a href="" class="participants-count" data-event-id="{{ $event->event->id }}">{{ $event->event->participants->count() }}</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-center">
-                        <div id="bottomContent" class="action-buttons d-flex justify-content-between">
-                                <!-- Résztvétel gomb -->
-                                @if($event->userHasParticipated)
-                                    <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
-                                        @csrf
-                                        <input type="hidden" name="event_id" value="{{ $event->event->id }}">
-                                        <button type="submit" class="btn btn-danger participate-btn">Mégsem veszek részt</button>
-                                    </form>
-                                @else
-                                    <form action="{{ route('event.participate') }}" method="POST" class="participate-form">
-                                        @csrf
-                                        <input type="hidden" name="event_id" value="{{ $event->event->id }}">
-                                        <button type="submit" class="btn btn-warning participate-btn">Részt veszek</button>
-                                    </form>
-                                @endif
-
-                                <!-- Like gomb -->
-                                @if($event->userHasLiked)
-                                    <button class="btn btn-primary" disabled>Lájkoltad</button>
-                                @else
-                                    <form action="{{ route('event.like') }}" method="POST" class="like-form">
-                                        @csrf
-                                        <input type="hidden" name="event_id" value="{{ $event->event->id }}">
-                                        <button type="submit" class="btn btn-brown like-btn">{{ $event->event->likes_count ?? 0 }} 👍</button>
-                                    </form>
-                                @endif
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <a href="{{ route('events.show', $event->event->id) }}" class="btn btn-dark">Továbbiak</a>
+                                <span><strong>Résztvevők:</strong> {{ $event->event->participants->count() }}</span>
                             </div>
+                        </div>
+
+                        <div class="card-footer d-flex justify-content-between">
+                            @if($event->userHasParticipated)
+                                <form action="{{ route('event.participate') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="event_id" value="{{ $event->event->id }}">
+                                    <button type="submit" class="btn btn-danger">Mégsem veszek részt</button>
+                                </form>
+                            @else
+                                <form action="{{ route('event.participate') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="event_id" value="{{ $event->event->id }}">
+                                    <button type="submit" class="btn btn-warning">Részt veszek</button>
+                                </form>
+                            @endif
+
+                            @if($event->userHasLiked)
+                                <button class="btn btn-primary" disabled>Lájkoltad</button>
+                            @else
+                                <form action="{{ route('event.like') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="event_id" value="{{ $event->event->id }}">
+                                    <button type="submit" class="btn btn-outline-primary">👍
+                                        {{ $event->event->likes_count ?? 0 }}</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-    </div>
-</main><br>
+    </main>
 
-<script>
-    // Kereső mező eseményekhez
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.getElementById("search");
-        const cards = document.querySelectorAll(".event-card");
-        const noResultsDiv = document.getElementById("no-results");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("search");
+            const cards = document.querySelectorAll(".card");
+            const noResultsDiv = document.getElementById("no-results");
 
-        function filterEvents() {
-            const searchText = searchInput.value.toLowerCase();
-            let hasResults = false;
+            searchInput.addEventListener("input", function () {
+                const searchText = searchInput.value.toLowerCase();
+                let hasResults = false;
 
-            cards.forEach(card => {
-                const eventName = card.querySelector(".card-title").textContent.toLowerCase();
-                const eventLocation = card.querySelector(".copy-text").textContent.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector(".card-title").textContent.toLowerCase();
+                    const location = card.querySelector(".copy-text").textContent.toLowerCase();
+                    const matches = title.includes(searchText) || location.includes(searchText);
+                    card.parentElement.style.display = matches ? "block" : "none";
+                    if (matches) hasResults = true;
+                });
 
-                const matchesSearch = eventName.includes(searchText) || eventLocation.includes(searchText);
-                card.style.display = matchesSearch ? "block" : "none";
-
-                if (matchesSearch) {
-                    hasResults = true;
-                }
+                noResultsDiv.style.display = hasResults ? "none" : "block";
             });
+        });
 
-            noResultsDiv.style.display = hasResults ? "none" : "block";
+        function copyText(element) {
+            const location = element.getAttribute("data-location");
+            navigator.clipboard.writeText(location).then(() => {
+                alert("Helyszín másolva: " + location);
+            });
         }
-
-        searchInput.addEventListener("input", filterEvents);
-    });
-
-    function copyText(element) {
-        const location = element.getAttribute('data-location');
-        const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
-        alert('Lemmentetted ezt a helyszínt: ' + location + '\n url ként!');
-    }
-</script>
+    </script>
 @endsection

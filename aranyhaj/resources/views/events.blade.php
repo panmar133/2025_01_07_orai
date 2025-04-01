@@ -6,10 +6,12 @@
     <div class="search-container text-center">
         <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
     </div>
+    
     <div class="container">
         <div id="no-results" class="text-center" style="display: none;">
             Nincs találat!
         </div>
+
         <div class="row">
             @foreach ($events as $event)
                 <div class="col-12 col-md-6 col-lg-4 mb-4 event-card">
