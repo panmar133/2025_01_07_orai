@@ -15,16 +15,19 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Esemény neve</label>
                         <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
+                        <p class="text-secondary">Maximum 20 karakterből/ betűből állhat.</p>
                     </div>
 
                     <div class="mb-3">
                         <label for="location" class="form-label">Helyszín</label>
                         <input type="text" name="location" class="form-control" value="{{ $event->location }}" required>
+                        <p class="text-secondary">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.<p>
                     </div>
 
                     <div class="mb-3">
                         <label for="short_information" class="form-label">Rövid információ</label>
                         <input type="text" name="short_information" class="form-control" value="{{ $event->short_information }}" required>
+                        <p class="text-secondary">Maximum 100 karakterből/ betűből állhat.</p>
                     </div>
 
                     <div class="mb-3">
@@ -38,7 +41,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="starts_at" class="form-label">Kezdés időpontja</label>
+                        <label for="starts_at" class="form-label">Esemény kezdési időpontja</label>
                         <input type="datetime-local" name="starts_at" class="form-control" value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
                     </div>
 
@@ -61,34 +64,5 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        document.getElementById('eventForm').addEventListener('submit', function(event) {
-            let valid = true;
 
-            // Helyszín ellenőrzés (tartalmazza-e "út" vagy "utca" szót)
-            let locationInput = document.getElementById('location');
-            let locationError = document.getElementById('locationError');
-            if (!locationInput.value.match(/\b(út|utca)\b/i)) {
-                locationError.classList.remove('d-none');
-                valid = false;
-            } else {
-                locationError.classList.add('d-none');
-            }
-
-            // URL ellenőrzés (https:// -sel kezdődik-e)
-            let urlInput = document.getElementById('image_name');
-            let urlError = document.getElementById('urlError');
-            if (urlInput.value && !urlInput.value.match(/^https:\/\//)) {
-                urlError.classList.remove('d-none');
-                valid = false;
-            } else {
-                urlError.classList.add('d-none');
-            }
-
-            if (!valid) {
-                event.preventDefault(); // Űrlap küldésének megakadályozása
-            }
-        });
-    </script>
 @endsection

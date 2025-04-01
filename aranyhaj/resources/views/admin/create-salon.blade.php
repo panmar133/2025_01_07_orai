@@ -15,11 +15,13 @@
                     <div class="mb-3">
                         <label for="salon_name" class="form-label">Szalon neve</label>
                         <input type="text" name="salon_name" id="salon_name" class="form-control" value="{{ old('salon_name') }}" required>
+                        <p class="text-secondary">Maximum 20 karakterből/ betűből állhat.</p>
                     </div>
 
                     <div class="mb-3">
                         <label for="short_information" class="form-label">Rövid információ</label>
                         <input type="text" name="short_information" id="short_information" class="form-control" value="{{ old('short_information') }}" required>
+                        <p class="text-secondary">Maximum 100 karakterből/ betűből állhat.</p>
                     </div>
 
                     <div class="mb-3">
@@ -30,6 +32,7 @@
                     <div class="mb-3">
                         <label for="location" class="form-label">Helyszín</label>
                         <input type="text" name="location" id="location" class="form-control" value="{{ old('location') }}" required>
+                        <p class="text-secondary">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.</p>
                     </div>
 
                     <div class="mb-3">
@@ -51,33 +54,4 @@
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('{{ route('admin.createSalon') }}').addEventListener('submit', function(event) {
-            let valid = true;
-
-            // Helyszín ellenőrzés (tartalmazza-e "út" vagy "utca" szót)
-            let locationInput = document.getElementById('location');
-            let locationError = document.getElementById('locationError');
-            if (!locationInput.value.match(/\b(út|utca)\b/i)) {
-                locationError.classList.remove('d-none');
-                valid = false;
-            } else {
-                locationError.classList.add('d-none');
-            }
-
-            // URL ellenőrzés (https:// -sel kezdődik-e)
-            let urlInput = document.getElementById('image_name');
-            let urlError = document.getElementById('urlError');
-            if (urlInput.value && !urlInput.value.match(/^https:\/\//)) {
-                urlError.classList.remove('d-none');
-                valid = false;
-            } else {
-                urlError.classList.add('d-none');
-            }
-
-            if (!valid) {
-                event.preventDefault(); // Űrlap küldésének megakadályozása
-            }
-        });
-    </script>
 @endsection

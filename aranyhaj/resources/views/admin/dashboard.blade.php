@@ -32,8 +32,10 @@
                                         <div class="col-12 col-md-4 col-lg-4 mb-4 salon-card">
                                             <div class="card h-100 shadow">
                                                 <div class="card-body d-flex flex-column">
-                                                    <img id="image" class="rounded-circle" src="{{ $user->image_name }}"
-                                                        alt="Felhasználó Profilkép" class="img-fluid">
+                                                    <div class="text-center">
+                                                        <img id="image" class="rounded-circle img-fluid" src="{{ $user->image_name }}" alt="Felhasználó Profilkép" 
+                                                            style="max-width: 155px; max-height: 155px; object-fit: cover; width: 155px; height: 155px; margin: 0 auto;">
+                                                    </div>
                                                     <h4 class="card-title">{{ $user->user_name }}</h4>
                                                     <p class="card-text">{{ $user->email }}</p>
                                                     <p class="card-text">{{ $user->address }}</p>

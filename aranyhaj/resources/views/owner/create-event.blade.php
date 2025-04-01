@@ -26,18 +26,21 @@
                     <div class="form-group mb-3">
                         <label for="title">Esemény neve</label>
                         <input type="text" name="title" id="title" class="form-control" required>
+                        <p class="text-secondary">Maximum 20 karakterből/ betűből állhat.</p>
                     </div>
 
                     <!-- Helyszín -->
                     <div class="form-group mb-3">
                         <label for="location">Helyszín</label>
                         <input type="text" name="location" id="location" class="form-control" required>
+                        <p class="text-secondary">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.</p>
                     </div>
 
                     <!-- Rövid információ -->
                     <div class="form-group mb-3">
                         <label for="short_information">Rövid információ</label>
                         <input type="text" name="short_information" id="short_information" class="form-control" required>
+                        <p class="text-secondary">Maximum 100 karakterből/ betűből állhat.</p>
                     </div>
 
                     <!-- Részletes információ -->
@@ -48,7 +51,7 @@
 
                     <!-- Kezdési időpont -->
                     <div class="form-group mb-3">
-                        <label for="starts_at">Kezdési időpont</label>
+                        <label for="starts_at">Esemény kezdési időpontja</label>
                         <input type="datetime-local" name="starts_at" id="starts_at" class="form-control" required>
                     </div>
 

@@ -28,18 +28,21 @@
                     <div class="form-group mb-3">
                         <label for="title">Esemény neve</label>
                         <input type="text" name="title" class="form-control" value="{{ $event->title }}" required>
+                        <p class="text-secondary">Maximum 20 karakterből/ betűből állhat.</p>
                     </div>
                     
                     <!-- Helyszín -->
                     <div class="form-group mb-3">
                         <label for="location">Helyszín</label>
                         <input type="text" name="location" class="form-control" value="{{ $event->location }}" required>
+                        <p class="text-secondary">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.</p>   
                     </div>
 
                     <!-- Rövid információ -->
                     <div class="form-group mb-3">
                         <label for="short_information">Rövid információ</label>
                         <input type="text" name="short_information" class="form-control" value="{{ $event->short_information }}" required>
+                        <p class="text-secondary">Maximum 100 karakterből/ betűből állhat.</p>
                     </div>
 
                     <!-- Részletes információ -->
@@ -56,7 +59,7 @@
 
                     <!-- Kezdés időpontja -->
                     <div class="form-group mb-3">
-                        <label for="starts_at">Kezdés időpontja</label>
+                        <label for="starts_at">Esemény kezdéi időpontja</label>
                         <input type="datetime-local" name="starts_at" class="form-control"
                             value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
                     </div>
