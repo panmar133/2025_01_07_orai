@@ -10,11 +10,11 @@
             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                 <h2 class="mb-0">Esemény módosítása</h2>
                 <div class="d-flex">
-                    <a href="{{ route('owner.dashboard') }}" class="btn btn-light me-2">Mégsem</a>
+                    <a href="{{ route('owner.dashboard') }}" id="button" class="btn btn-light me-2">Mégsem</a>
                     <form action="{{ route('owner.deleteEvent', $event->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Esemény törlése</button>
+                        <button type="submit" id="button"  class="btn btn-danger">Esemény törlése</button>
                     </form>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                             value="{{ old('starts_at', \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d\TH:i')) }}" required>
                     </div>
 
-                    <button type="submit" class="btn btn-dark mt-3 w-100">Mentés</button>
+                    <button type="submit" id="button" class="btn btn-dark mt-3 w-100">Mentés</button>
                 </form>
             </div>
         </div>

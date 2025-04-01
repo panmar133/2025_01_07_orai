@@ -9,10 +9,10 @@
             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                 <h2 class="mb-0">Új Esemény Létrehozása</h2>
                 <div class="d-flex">
-                    <a href="{{ route('owner.dashboard') }}" class="btn btn-light me-2">Mégsem</a>
+                    <a href="{{ route('owner.dashboard') }}" id="button" class="btn btn-light me-2">Mégsem</a>
                     <form action="{{ route('owner.createEvent') }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-dark">Esemény létrehozása</button>
+                        <button type="submit" id="button" class="btn btn-dark">Esemény létrehozása</button>
                     </form>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-dark mt-3 w-100">Esemény Létrehozása</button>
+                    <button type="submit" id="button" class="btn btn-dark mt-3 w-100">Esemény Létrehozása</button>
                 </form>
             </div>
         </div>

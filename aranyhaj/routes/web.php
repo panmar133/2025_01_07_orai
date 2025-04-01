@@ -74,7 +74,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/admin/update-salon/{salon}', [AdminController::class, 'updateSalon'])->name('admin.updateSalon');
     Route::delete('/admin/delete-salon/{salon}', [AdminController::class, 'deleteSalon'])->name('admin.deleteSalon');
 
-    Route::get('/admin/create-event', [AdminController::class, 'createEventPage'])->name('admin.createEventForm');
+    Route::get('/admin/create-event', [AdminController::class, 'createEventPage'])->name('admin.createEvent');
     Route::get('/admin/edit-event/{id}', [AdminController::class, 'editEvent'])->name('admin.editEvent');
     Route::get('/admin/event-details/{id}', [AdminController::class, 'showEventDetails'])->name('admin.eventDetails');
     Route::put('/admin/update-event/{id}', [AdminController::class, 'updateEvent'])->name('admin.updateEvent');
@@ -83,10 +83,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 //szalontulajdonos felület
 Route::middleware(['auth', 'owner'])->group(function () {
-
     Route::get('/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
-
-    Route::get('/owner/create-event', [OwnerController::class, 'createEventPage'])->name('owner.createEventPage');
+    Route::get('/owner/create-event', [OwnerController::class, 'createEventPage'])->name('owner.createEven');
     Route::post('/owner/create-event', [OwnerController::class, 'createEvent'])->name('owner.createEvent');
 
     Route::get('/owner/event-details/{id}', [EventController::class, 'showEventDetails'])->name('owner.eventDetails');
