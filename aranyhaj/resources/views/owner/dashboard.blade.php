@@ -42,7 +42,7 @@
                                                     <div class="card-footer text-center">
                                                         <a href="{{ route('salons.show', $salon->id) }}"
                                                             class="btn btn-dark btn-sm">Továbbiak</a>
-                                                        <a href="{{ route('admin.editSalon', $salon->id) }}"
+                                                        <a href="{{ route('owner.editSalon', $salon->id) }}"
                                                             class="btn btn-dark btn-sm">Szerkesztés</a>
                                                     </div>
                                                 </div>

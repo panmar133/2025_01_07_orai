@@ -5,10 +5,10 @@
         <div class="card shadow-sm">
                 <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                     <h3 class="mb-0">Szalon szerkesztése: {{ $salon->salon_name }}</h3>
-                    <a href="{{ route('admin.dashboard') }}" id="yellowButton" class="btn btn-light">Mégsem</a>
+                    <a href="{{ route('owner.dashboard') }}" id="yellowButton" class="btn btn-light">Mégsem</a>
                 </div>
                 <div class="card-body">
-                <form id="salonForm" action="{{ route('admin.updateSalon', $salon->id) }}" method="POST">
+                <form id="salonForm" action="{{ route('owner.updateSalon', $salon->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                     <div class="mb-3">

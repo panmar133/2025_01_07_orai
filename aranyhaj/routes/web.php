@@ -88,6 +88,9 @@ Route::middleware(['auth', 'owner'])->group(function () {
     Route::get('/owner/create-event', [OwnerController::class, 'createEventPage'])->name('owner.createEven');
     Route::post('/owner/create-event', [OwnerController::class, 'createEvent'])->name('owner.createEvent');
 
+    Route::get('/owner/edit-salon/{salon}', [OwnerController::class, 'editSalon'])->name('owner.editSalon');
+    Route::put('/owner/update-salon/{salon}', [OwnerController::class, 'updateSalon'])->name('owner.updateSalon');    
+
     Route::get('/owner/event-details/{id}', [EventController::class, 'showEventDetails'])->name('owner.eventDetails');
 
     Route::get('/owner/edit-event/{id}', [OwnerController::class, 'editEvent'])->name('owner.editEvent');
