@@ -44,7 +44,7 @@
             </div>
             <div class="card shadow-sm mt-4">
             <div class="card-header bg-dark text-white">
-                <h5 class="mb-0">Esemény törlése</h5>
+                <h5 class="mb-0">Szalon törlése</h5>
             </div>
             <div class="card-body text-center">
                 <p class="text-dark">A törlés véglegesen eltávolítja a szalont. Ha biztos benne, kattintson a gombra.</p>
