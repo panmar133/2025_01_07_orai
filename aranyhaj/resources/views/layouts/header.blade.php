@@ -27,7 +27,7 @@
                         <div class="dropdown-content" id="dropdown-content">
                             @guest
                                 <!-- Ha nincs bejelentkezve, akkor a bejelentkezés és regisztráció linkek jelennek meg -->
-                                <a href="/log">Bejelentkezés</a>
+                                <a href="/login">Bejelentkezés</a>
                                 <a href="/registration">Regisztráció</a>
                             @endguest
 

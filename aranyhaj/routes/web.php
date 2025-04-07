@@ -14,8 +14,8 @@ use App\Http\Controllers\OwnerController;
 /* Authentication */
 Route::get('/registration', [AuthController::class, 'register'])->name('register');
 Route::post('/registration', [AuthController::class, 'registerPost'])->name('register');
-Route::get('/log', [AuthController::class, 'login'])->name('login');
-Route::post('/log', [AuthController::class, 'loginPost'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 

@@ -66,7 +66,7 @@
                             <div class="d-grid">
                                 <button id="button" class="btn btn-dark">Regisztráció</button>
                             </div>
-                            <a id="notRegistedProfilLink" class="text-center" href="/log">Van már fiókom</a>
+                            <a id="notRegistedProfilLink" class="text-center" href="/login">Van már fiókom</a>
                         </div>
                     </form>
                 </div>
@@ -80,6 +80,7 @@
             const emailField = document.getElementById("email");
             const addressField = document.getElementById("address");
             const passwordField = document.getElementById("password");
+            const togglePassword = document.getElementById("yellowButtonEye");
 
             const nameError = document.getElementById("nameError");
             const emailError = document.getElementById("emailError");
@@ -120,6 +121,20 @@
                     passwordError.style.display = "block";
                 } else {
                     passwordError.style.display = "none";
+                }
+            });
+
+            togglePassword.addEventListener("click", function () {
+                const type = passwordField.type === "password" ? "text" : "password";
+                passwordField.type = type;
+
+                const icon = togglePassword.querySelector("i");
+                if (type === "password") {
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye");
+                } else {
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash");
                 }
             });
         });

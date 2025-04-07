@@ -42,7 +42,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('log');
+        return view('login');
     }
 
     public function loginPost(Request $request)
@@ -52,12 +52,9 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-        Log::info('Bejelentkezés próbálkozás:', $adatok);
-
         if (Auth::attempt($adatok)) {
             return redirect('/')->with('success', 'Sikeres bejelentkezés!');
         }
-        Log::error('Hibás email cím vagy jelszó', $adatok);
         return back()->with('error', 'Hibás email cím, vagy jelszó!');
     }
 
