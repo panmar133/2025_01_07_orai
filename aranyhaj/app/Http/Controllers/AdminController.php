@@ -87,8 +87,19 @@ class AdminController extends Controller
     {
         $salon = Salon::findOrFail($salonId);
 
+        $request->validate([
+            'salon_name' => 'required|max:20',
+            'location' => 'required|max:150',
+            'short_information' => 'required|max:100',
+            'information' => 'required',
+            'image_name' => 'nullable|url|max:500',
+        ]);
+
         $salon->salon_name = $request->salon_name;
         $salon->location = $request->location;
+        $salon->short_information = $request->short_information;
+        $salon->information = $request->information;
+        $salon->image_name = $request->image_name;
 
         $salon->save();
 
