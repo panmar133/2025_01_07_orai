@@ -20,7 +20,7 @@
                     <div class="mb-3">
                         <label for="location" class="form-label">Helyszín</label>
                         <input type="text" name="location" id="location" class="form-control" required>
-                        <p class="text-danger">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.<p>
+                        <p class="text-secondary">Javaslat: A helyszínnek tartalmaznia kell: az "út", "körút", "utca", "tér", "sétány", "főút" szót.<p>
                     </div>
 
                     <div class="mb-3">
