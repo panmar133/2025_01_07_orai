@@ -1,6 +1,9 @@
 @extends("layouts.layout")
+
 @section("title", "Szalonok")
+
 @section("content")
+
     <main>
         <h1 id="eventTitle" class="text-center">Szalonok</h1>
         <div class="search-container text-center">

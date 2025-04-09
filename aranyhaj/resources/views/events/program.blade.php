@@ -3,6 +3,7 @@
 @section("title", "Adományozok")
 
 @section("content")
+
 <main id="donation-page"> 
     <div class="container">
         <div class="row">

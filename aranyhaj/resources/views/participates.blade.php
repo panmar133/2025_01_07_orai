@@ -3,6 +3,7 @@
 @section('title', 'Részt vett események')
 
 @section('content')
+
     <main class="container py-4">
         <h1 id="eventTitle" class="text-center mb-4">Részt vett események</h1>
 

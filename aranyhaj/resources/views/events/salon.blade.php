@@ -75,5 +75,4 @@
             .catch(error => alert('Nem sikerült lementened: ' + error));
     }
 </script>
-
 @endsection

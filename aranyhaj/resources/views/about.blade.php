@@ -1,9 +1,12 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
+ 
 @section("title", "Rólunk")
 <!-- Cím adás az oldalnak változó által -->
+
 @section("content")
     <!-- Kontent kiszedés -->
+
     <main>
         <div id="aboutAlignCenter">
 

@@ -1,6 +1,9 @@
 @extends("layouts.layout")
+
 @section("title", "Admin felület")
+
 @section('content')
+
     <main id="admin-page">
         <div class="container">
             <div class="row">

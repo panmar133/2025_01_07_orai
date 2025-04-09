@@ -1,9 +1,10 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
-@section("title", "Adományozok")
+@section("title", "Gyakori kérdések")
 <!-- Cím adás az oldalnak változó által -->
 @section("content")
     <!-- Kontent kiszedés -->
+
     <div class="container">
         <h1 class="text-center my-4">Gyakori kérdések</h1>
 

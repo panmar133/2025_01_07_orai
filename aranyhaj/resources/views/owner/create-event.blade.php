@@ -3,6 +3,7 @@
 @section("title", "Új esemény létrehozása")
 
 @section('content')
+
     <div class="container mt-5">
         <div class="card border rounded shadow-sm">
             <!-- Fejléc a kártya tetején -->

@@ -1,7 +1,9 @@
 @extends("layouts.layout")
+
 @section("title", "Fiókom")
 
 @section("content")
+
     <main class="container py-5 d-flex justify-content-center">
         @auth
             <div class="card shadow-lg p-4 text-center" style="max-width: 600px; width: 100%;">

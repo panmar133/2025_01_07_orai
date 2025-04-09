@@ -1,9 +1,12 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
+
 @section("title", "Adományozok")
 <!-- Cím adás az oldalnak változó által -->
+
 @section("content")
     <!-- Kontent kiszedés -->
+     
     <main>
         <div class="container">
             <div class="row justify-content-center text-center flex-column flex-sm-row flex-md-row flex-lg-row">

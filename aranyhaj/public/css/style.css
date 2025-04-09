@@ -1,10 +1,17 @@
 body {
     background-color: #f5e6d9;
-    font-family:  Helvetica;
+    font-family: Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     font-size: 1.2em;
+    word-break: break-word;
+    hyphens: auto;
 }
+
+body p {
+    font-size: 1.1em;
+}
+
 @media (min-width: 768px) {
     body {
         background: linear-gradient(to right, #f5e6d9 200px, #fcf6f0 50%, #f5e6d9 100%);
@@ -87,12 +94,37 @@ header {
 #girl {
     width: 22em;
     max-height: 100%;
+    background-color: transparent;
+    mix-blend-mode: multiply;
 }
 
 @media (max-width: 768px) {
     body {
         font-size: 0.9em;
     }
+
+    body p {
+        font-size: 16px;
+    }
+    body h1 {
+        font-size: 24px;
+    }
+    body h2 {
+        font-size: 22px;
+    }
+    body h3 {
+        font-size: 21px;
+    }
+    body h4 {
+        font-size: 19px;
+    }
+    body h5 {
+        font-size: 18px;
+    }
+    body h6 {
+        font-size: 17px;
+    }
+
     #girl {
         width: 16em;
     }

@@ -3,6 +3,7 @@
 @section("title", "Regisztráció")
 
 @section("content")
+
     <h2 class="text-center">Regisztráció</h2>
     <div class="container d-flex justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">

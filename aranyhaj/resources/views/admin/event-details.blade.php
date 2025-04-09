@@ -2,10 +2,11 @@
 
 @section('content')
 
-<div class="container mt-5">
+    <div class="container mt-5">
         <!-- Fejléc -->
         <div class="d-flex justify-content-center">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center" style="width: 80%; height:70px; max-width: 900px;">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center"
+                style="width: 80%; height:70px; max-width: 900px;">
                 <h2 class="mb-0">Esemény adatai</h2>
                 <div class="d-flex">
                     <a href="{{ route('owner.dashboard') }}" class="btn btn-light me-2">Mégsem</a>
@@ -85,6 +86,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

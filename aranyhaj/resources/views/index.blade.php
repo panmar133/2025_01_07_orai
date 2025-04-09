@@ -1,9 +1,12 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
+ 
 @section("title", "Üdvözlünk!")
 <!-- Cím adás az oldalnak változó által -->
+
 @section("content")
     <!-- Kontent kiszedés -->
+
     <main>
         <!-- Első "kártya" a fő menüben gombbal. Leírás, hogy miért jó hajat adományozni.-->
         <div id="FirstContentMainPage" class="card px-3 px-md-5 mt-5 mx-auto" style="max-width: 90%;">
