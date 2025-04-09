@@ -18,9 +18,12 @@ class AdminController extends Controller
     {
         $users = User::all();
         $salons = Salon::all();
-        $events = Event::all();
+        
+        $events = Event::withCount(['likes', 'participants'])->get();
+
         return view('admin.dashboard', compact('users', 'salons', 'events'));
     }
+
 
     public function deleteUser($id)
     {
