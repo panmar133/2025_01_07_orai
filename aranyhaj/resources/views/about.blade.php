@@ -12,9 +12,9 @@
 
             <div class="gallery">
                 <div class="slides">
-                    <div class="slide"><img src="{{ asset('images/salon.png') }}" alt="Image 1"></div>
-                    <div class="slide"><img src="{{ asset('images/event.png') }}" alt="Image 2"></div>
-                    <div class="slide"><img src="{{ asset('images/donate.png') }}" alt="Image 3"></div>
+                    <div class="slide"><img src="{{ asset('images/kep1.png') }}" alt="Image 1"></div>
+                    <div class="slide"><img src="{{ asset('images/kep2.png') }}" alt="Image 2"></div>
+                    <div class="slide"><img src="{{ asset('images/kep3.png') }}" alt="Image 3"></div>
                 </div>
                 <button id="prev" class="nav-button">&lt;</button>
                 <button id="next" class="nav-button">&gt;</button>
