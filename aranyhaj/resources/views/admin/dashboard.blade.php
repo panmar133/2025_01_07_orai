@@ -1,9 +1,11 @@
 @extends("layouts.layout")
-
+<!-- Fejléc kiszedés -->
 @section("title", "Admin felület")
+<!-- Cím adás az oldalnak változó által -->
 
 @section('content')
-
+<!-- Kontent kiszedés -->
+    
     <main id="admin-page">
         <div class="container">
             <div class="row">

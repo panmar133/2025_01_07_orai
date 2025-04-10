@@ -1,9 +1,12 @@
 @extends("layouts.layout")
-
+<!-- Fejléc kiszedés -->
+ 
 @section("title", "Szalon Információ")
+<!-- Cím adás az oldalnak változó által -->
 
 @section("content")
-
+<!-- Kontent kiszedés -->
+    
 <main id="salon-page">
     <div class="container">
         <div class="row">

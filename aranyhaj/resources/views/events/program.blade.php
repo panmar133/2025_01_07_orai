@@ -1,9 +1,12 @@
 @extends("layouts.layout")
-
+<!-- Fejléc kiszedés -->
+ 
 @section("title", "Adományozok")
+<!-- Cím adás az oldalnak változó által -->
 
 @section("content")
-
+<!-- Kontent kiszedés -->
+    
 <main id="donation-page"> 
     <div class="container">
         <div class="row">

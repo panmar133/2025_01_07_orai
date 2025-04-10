@@ -1,9 +1,11 @@
 @extends('layouts.layout')
+<!-- Fejléc kiszedés -->
 
 @section("title", "Új esemény létrehozása")
-
+<!-- Cím adás az oldalnak változó által -->
 @section('content')
-
+<!-- Kontent kiszedés -->
+    
     <div class="container mt-5">
         <div class="card border rounded shadow-sm">
             <!-- Fejléc a kártya tetején -->
