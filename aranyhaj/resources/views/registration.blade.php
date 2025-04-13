@@ -44,11 +44,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Lakcím</label>
-                            <input type="text" name="address" class="form-control" id="address" placeholder="Saját lakcímed"
-                                required>
-                            <small id="addressError" class="form-text text-danger" style="display: none;">
-                                A címnek tartalmaznia kell az "utca" vagy "út" szót.
-                            </small>
+                            <input type="text" name="address" class="form-control" id="address" placeholder="Saját lakcímed" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Jelszó</label>
@@ -79,13 +75,11 @@
         document.addEventListener("DOMContentLoaded", function () {
             const nameField = document.getElementById("name");
             const emailField = document.getElementById("email");
-            const addressField = document.getElementById("address");
             const passwordField = document.getElementById("password");
             const togglePassword = document.getElementById("yellowButtonEye");
 
             const nameError = document.getElementById("nameError");
             const emailError = document.getElementById("emailError");
-            const addressError = document.getElementById("addressError");
             const passwordError = document.getElementById("passwordError");
 
             // Név validáció (max 45 karakter)
@@ -103,16 +97,6 @@
                     emailError.style.display = "block";
                 } else {
                     emailError.style.display = "none";
-                }
-            });
-
-            // Cím validáció (utca vagy út kell benne legyen)
-            addressField.addEventListener("input", function () {
-                const addressValue = addressField.value.toLowerCase();
-                if (!(addressValue.includes("utca") || addressValue.includes("út"))) {
-                    addressError.style.display = "block";
-                } else {
-                    addressError.style.display = "none";
                 }
             });
 
